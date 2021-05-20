@@ -1,0 +1,35 @@
+{
+  "name": "vue3-naver-maps",
+  "description": "NaverMap for Vue3",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/vue3-naver-maps.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DongKyuuuu/vue3-naver-maps"
+  },
+  "author": {
+    "name": "DongKyuuuu",
+    "email": "dongkyu.me@gmail.com",
+    "url": "https://shin-jaeheon.github.io/vue-naver-maps"
+  },
+  "bug": {
+    "url": "https://github.com/DongKyuuuu/vue3-naver-maps/issues",
+    "email": "dongkyu.me@gmail.com"
+  },
+  "dependencies": {
+    "vue": "3.0.11"
+  },
+  "devDependencies": {
+    "@types/navermaps": "^3.0.5",
+    "ts-loader": "^9.2.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4",
+    "vue-loader": "^15.9.7",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^5.37.1",
+    "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-cli": "^4.7.0"
+  }
+}
