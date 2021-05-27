@@ -2,7 +2,7 @@ const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
-  entry: "./index.ts",
+  entry: "./src/index.ts",
   module: {
     rules: [
       {
@@ -10,10 +10,15 @@ module.exports = {
         use: "ts-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.vue$/,
+        loader: "vue-loader",
+        options: { target: "node" },
+      },
     ],
   },
   resolve: {
-    extensions: [".ts", ".js", ".json", "vue"],
+    extensions: [".ts", ".js", ".json", ".vue"],
     modules: [path.resolve(__dirname, "./"), "node_modules"],
   },
   plugins: [new VueLoaderPlugin()],
