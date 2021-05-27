@@ -1,8 +1,8 @@
-declare namespace install {
-  type Category = "gov" | "ncp" | "fin";
+export declare namespace install {
+  type category = "gov" | "ncp" | "fin";
   interface options {
     clientID: string;
-    category?: Category;
+    category?: category;
     subModules?: string;
   }
 }

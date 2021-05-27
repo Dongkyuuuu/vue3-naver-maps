@@ -1,4 +1,6 @@
 import { App } from "vue";
+import { install } from "../types";
+import Map from "./Map.vue";
 
 const BROWSER_ERROR_MSG =
   "Sorry, this plugin is only available in browsers at now. If you are using Nuxt.js, turn off ssr for this plugin.";
@@ -7,7 +9,7 @@ const CLIENTID_ERROR_MSG = "options must be included clientID";
 function createURL(options: install.options) {
   const baseURL: string =
     "https://openapi.map.naver.com/openapi/v3/maps.js" + "?";
-  const category: install.Category = options.category
+  const category: install.category = options.category
     ? options.category
     : "ncp";
   const clientID: string = options.clientID;
@@ -26,7 +28,7 @@ function createScript(URL: string) {
 }
 
 function createComponents(app: App<Element>) {
-  //   app.component("");
+  app.component("naver-maps", Map);
 }
 
 export default function install(app: App<Element>, options: install.options) {
