@@ -14,7 +14,7 @@
     "typeRoots": ["types"],
     "types": ["navermaps", "node"],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
