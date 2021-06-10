@@ -1,10 +1,13 @@
 {
   "name": "vue3-naver-maps",
-  "description": "NaverMap for Vue3",
+  "private": true,
   "version": "0.0.1",
   "license": "MIT",
-  "main": "dist/vue3-naver-maps.js",
-  "scripts": {},
+  "scripts": {
+    "build": "export NODE_ENV=development && webpack-cli --config webpack.config.js",
+    "build:prod": "export NODE_ENV=production && webpack-cli --config webpack.config.js",
+    "serve": "webpack server --mode development"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/DongKyuuuu/vue3-naver-maps"
@@ -22,14 +25,19 @@
     "vue": "3.0.11"
   },
   "devDependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-typescript": "^7.13.0",
     "@types/navermaps": "^3.0.5",
-    "ts-loader": "^9.2.1",
-    "ts-node": "^9.1.1",
+    "@vue/compiler-sfc": "^3.0.11",
+    "babel-loader": "^8.2.2",
+    "ts-loader": "^9.2.2",
     "typescript": "^4.2.4",
-    "vue-loader": "^15.9.7",
-    "vue-template-compiler": "^2.6.12",
-    "webpack": "^5.37.1",
+    "vue-loader": "^16.2.0",
+    "webpack": "^5.38.1",
     "webpack-bundle-analyzer": "^4.4.2",
-    "webpack-cli": "^4.7.0"
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }

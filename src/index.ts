@@ -1,5 +1,4 @@
 import { App } from "vue";
-import { install } from "../types";
 import Map from "./Map.vue";
 
 const BROWSER_ERROR_MSG =
@@ -12,19 +11,23 @@ function createURL(options: install.options) {
   const category: install.category = options.category
     ? options.category
     : "ncp";
-  const clientID: string = options.clientID;
-  const subModules: string = options.subModules ? "&" + options.subModules : "";
+  const clientID: string = "ClientId=" + options.clientID;
+  const subModules: string = options.subModules
+    ? "&submodules=" + options.subModules
+    : "";
 
   return baseURL + category + clientID + subModules;
 }
 
 function createScript(URL: string) {
   const script = document.createElement("script");
-  script.id = "naver-map-load";
-  script.setAttribute("src", URL);
-  script.setAttribute("async", "");
-  script.setAttribute("defer", "");
-  document.head.appendChild(script);
+  if (script) {
+    script.id = "naver-map-load";
+    script.setAttribute("src", URL);
+    script.setAttribute("async", "");
+    script.setAttribute("defer", "");
+    document.head.appendChild(script);
+  }
 }
 
 function createComponents(app: App<Element>) {
@@ -32,10 +35,10 @@ function createComponents(app: App<Element>) {
 }
 
 export default function install(app: App<Element>, options: install.options) {
-  if (!process.browser) throw new Error(BROWSER_ERROR_MSG);
+  if (!process.browser) throw new Error(BROWSER_ERROR_MSG); // true === 'client', undefined === 'server'
   if (!options.clientID) throw new Error(CLIENTID_ERROR_MSG);
 
-  window.$naverMapsCallBack = [];
+  window.$naverMapsCallback = [];
   window.$naverMapsLoaded = false;
 
   const naver_map_url = createURL(options);

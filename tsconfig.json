@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    "target": "ESNext",
+    "module": "ESNext",
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
@@ -11,13 +11,11 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "typeRoots": ["types"],
-    "types": ["navermaps", "node"],
     "paths": {
       "@/*": ["src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.vue", "types/**/*.d.ts"],
+  "include": ["src/*.ts", "src/*.vue", "types/**/*.ts"],
   "exclude": ["node_modules"]
 }
