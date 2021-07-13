@@ -1,10 +1,10 @@
 const path = require("path");
+const webpack = require("webpack");
 const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
   entry: path.resolve(__dirname, "./src/index.ts"),
   mode: "development",
-  plugins: [new VueLoaderPlugin()],
   module: {
     rules: [
       {
@@ -36,10 +36,12 @@ module.exports = {
     path: path.resolve(`${__dirname}/../vue3-naver-map-test/src`, "dist"),
   },
   externals: {
-    vue: {
-      root: "vue",
-      commonjs: "vue",
-      commonjs2: "vue",
-    },
+    vue: "vue",
   },
+  plugins: [
+    new VueLoaderPlugin(),
+    new webpack.ProvidePlugin({
+      process: "process/browser",
+    }),
+  ],
 };
