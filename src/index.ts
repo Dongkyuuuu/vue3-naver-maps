@@ -20,8 +20,9 @@ function createURL(options: install.options) {
 }
 
 function createScript(URL: string) {
-  const script = document.createElement("script");
-  if (script) {
+  const isExist = document.getElementById("naver-map-load");
+  if (!isExist) {
+    const script = document.createElement("script");
     script.id = "naver-map-load";
     script.setAttribute("src", URL);
     script.setAttribute("async", "");
@@ -35,12 +36,7 @@ function createComponents(app: App<Element>) {
 }
 
 export default function install(app: App<Element>, options: install.options) {
-  if (!process.browser) throw new Error(BROWSER_ERROR_MSG); // true === 'client', undefined === 'server'
   if (!options.clientID) throw new Error(CLIENTID_ERROR_MSG);
-
-  window.$naverMapsCallback = [];
-  window.$naverMapsLoaded = false;
-
   const naver_map_url = createURL(options);
   createScript(naver_map_url);
   createComponents(app);

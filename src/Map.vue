@@ -1,14 +1,17 @@
 <template>
-  <div id="vue-naver-maps" style="width: 1000px; height: 1000px"></div>
+  <div id="vue-naver-maps" :style="{ width: width, height: height }">
+    <slot></slot>
+  </div>
 </template>
+
 <script lang="ts">
 import {
   defineComponent,
-  ref,
-  onUnmounted,
-  reactive,
-  watch,
   PropType,
+  toRefs,
+  ref,
+  onBeforeMount,
+  onUnmounted,
 } from "vue";
 
 /*
@@ -16,7 +19,7 @@ import {
   naver.maps.Map Methods
 
 */
-function mapMethods(map: naver.maps.Map) {
+function useMapMethods(map: naver.maps.Map) {
   const setLayerTypeId = (typeId: string) => {
     map.mapTypes.setLayerTypeId(typeId);
   };
@@ -118,7 +121,7 @@ function mapMethods(map: naver.maps.Map) {
   naver.maps.Map Getter Methods
 
 */
-function mapGetterMethods(map: naver.maps.Map) {
+function useMapGetterMethods(map: naver.maps.Map) {
   const getBounds = (): naver.maps.Bounds => {
     return map.getBounds();
   };
@@ -183,7 +186,7 @@ function mapGetterMethods(map: naver.maps.Map) {
   naver.maps.Map Setter Methods
 
 */
-function mapSetterMethods(map: naver.maps.Map) {
+function useMapSetterMethods(map: naver.maps.Map) {
   const setCenter = (
     latOrLatLng: naver.maps.LatLng | naver.maps.LatLngLiteral | number,
     lng: number = 0
@@ -236,63 +239,75 @@ function mapSetterMethods(map: naver.maps.Map) {
   };
 }
 
-function mapSettings(
-  mapOptions: v3Map.mapOptions,
-  initLayers: v3Map.initLayers
-) {
-  const settings: naver.maps.MapOptions = {
-    maxZoom: 21,
-    minZoom: 0,
-  };
-  const mapOptionsLat = mapOptions.lat || mapOptions.lat === 0 ? true : false;
-  const mapOptionsLng = mapOptions.lng || mapOptions.lng === 0 ? true : false;
+/*
 
-  if (!mapOptionsLat || !mapOptionsLng) {
-    settings.center = new window.naver.maps.LatLng(
-      mapOptions.lat as number,
-      mapOptions.lng as number
-    );
-  }
+  NaverMap Init Methods
 
-  if (initLayers.length === 0) return settings;
-  else return mapLayers(settings, initLayers);
-}
+*/
+const useMapInitOptions = () => {
+  const mapLayers = (
+    settings: naver.maps.MapOptions,
+    initLayers: v3Map.initLayers
+  ) => {
+    const layers: v3Map.layers = {
+      BACKGROUND: "bg",
+      BACKGROUND_DETAIL: "ol",
+      BICYCLE: "br",
+      CADASTRAL: "lp",
+      CTT: "ctt",
+      HIKING_TRAIL: "ar",
+      PANORAMA: "pr",
+      POI_KOREAN: "lko",
+      TRANSIT: "ts",
+      KOREAN: "lko",
+      ENGLISH: "len",
+      CHINESE: "lzh",
+      JAPANESE: "lja",
+    };
 
-function mapLayers(
-  settings: naver.maps.MapOptions,
-  initLayers: v3Map.initLayers
-) {
-  const layers: v3Map.layers = {
-    BACKGROUND: "bg",
-    BACKGROUND_DETAIL: "ol",
-    BICYCLE: "br",
-    CADASTRAL: "lp",
-    CTT: "ctt",
-    HIKING_TRAIL: "ar",
-    PANORAMA: "pr",
-    POI_KOREAN: "lko",
-    TRANSIT: "ts",
-    KOREAN: "lko",
-    ENGLISH: "len",
-    CHINESE: "lzh",
-    JAPANESE: "lja",
+    settings.mapTypes = new window.naver.maps.MapTypeRegistry({
+      /* @ts-ignore */
+      noraml: window.naver.maps.NaverStyleMapTypeOption.getNormalMap({
+        overlayType: initLayers.map((layer) => layers[layer]).join("."),
+      }),
+    });
+
+    return settings;
   };
 
-  settings.mapTypes = new window.naver.maps.MapTypeRegistry({
-    /* @ts-ignore */
-    noraml: window.naver.maps.NaverStyleMapTypeOption.getNormalMap({
-      overlayType: initLayers.map((layer) => layers[layer]).join("."),
-    }),
-  });
+  const mapSettings = (
+    mapOptions: v3Map.mapOptions,
+    initLayers: v3Map.initLayers
+  ) => {
+    const settings: naver.maps.MapOptions = {
+      maxZoom: 21,
+      minZoom: 0,
+    };
+    const mapOptionsLat = mapOptions.lat || mapOptions.lat === 0 ? true : false;
+    const mapOptionsLng = mapOptions.lng || mapOptions.lng === 0 ? true : false;
 
-  return settings;
-}
+    if (!mapOptionsLat || !mapOptionsLng) {
+      settings.center = new window.naver.maps.LatLng(
+        mapOptions.lat as number,
+        mapOptions.lng as number
+      );
+    }
+
+    if (initLayers.length < 1) return settings;
+    else return mapLayers(settings, initLayers);
+  };
+
+  return {
+    mapLayers,
+    mapSettings,
+  };
+};
 
 export default defineComponent({
   name: "Map",
   props: {
-    width: { type: Number, default: 100 },
-    height: { type: Number, default: 100 },
+    width: { type: String, default: "400px" },
+    height: { type: String, default: "400px" },
     mapOptions: { type: Object as PropType<v3Map.mapOptions>, required: true },
     initLayers: {
       type: Array as PropType<v3Map.initLayers>,
@@ -300,36 +315,36 @@ export default defineComponent({
     },
   },
   setup: (props, { emit }) => {
-    const mapOptions = reactive<v3Map.mapOptions>(props.mapOptions);
-    const initLayers = ref<v3Map.initLayers>(props.initLayers);
+    const map = ref<naver.maps.Map | null>(null);
+    const { width, height, mapOptions, initLayers } = toRefs(props);
+    const { mapLayers, mapSettings } = useMapInitOptions();
+    const { setOptions } = useMapSetterMethods(map.value!);
 
-    // const { mapOptions, initLayers } = toRefs(props);
-    // window.naver.maps.onJSContentLoaded = () => {};
-    // const { width, height, mapOptions, initLayers } = toRefs(props);
-    // const mapStyle = reactive({
-    //   width: width.value + "px",
-    //   height: height.value + "px",
-    // });
+    const initNaverMap = () => {
+      const settings = mapSettings(mapOptions.value, initLayers.value);
+      map.value = new window.naver.maps.Map("vue-naver-maps", {
+        ...settings,
+        ...mapOptions.value,
+      });
+      // map.value = new window.naver.maps.Map("vue-naver-maps");
+    };
 
-    // watch(
-    //   mapOptions.value,
-    //   (newVal) => {
-    //     map.setOptions(newVal);
-    //   },
-    //   { deep: true }
-    // );
-    // watch(
-    //   initLayers.value,
-    //   (newVal) => {
-    //     // const settings = _.mapLayers({}, newValue);
-    //     // this.setOptions("mapTypes", settings.mapTypes);
-    //   },
-    //   { deep: true }
-    // );
+    const loadNaverMap = () => {
+      if (map.value) return;
+      document.getElementById("naver-map-load")!.onload = () => {
+        window.naver.maps.onJSContentLoaded = () => initNaverMap();
+      };
+    };
+
+    onBeforeMount(() => loadNaverMap());
+    onUnmounted(() => (map.value = null));
 
     return {
-      // mapStyle,
-      // map,
+      width,
+      height,
+      ...useMapMethods(map.value!),
+      ...useMapGetterMethods(map.value!),
+      ...useMapSetterMethods(map.value!),
     };
   },
 });

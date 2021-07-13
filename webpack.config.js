@@ -8,18 +8,25 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.vue$/,
-        loader: "vue-loader",
-      },
-      {
-        test: /\.(ts|js)x?$/,
+        test: /\.(js)x?$/,
         exclude: /node_modules/,
         loader: "babel-loader",
+      },
+      {
+        test: /\.(ts)x?$/,
+        loader: "ts-loader",
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        },
+      },
+      {
+        test: /\.vue$/,
+        loader: "vue-loader",
       },
     ],
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".json"],
+    extensions: [".ts", ".tsx", ".js", ".json", ".vue"],
     modules: [path.resolve(__dirname, "./"), "node_modules"],
   },
   output: {
@@ -30,19 +37,9 @@ module.exports = {
   },
   externals: {
     vue: {
-      root: "Vue",
+      root: "vue",
       commonjs: "vue",
       commonjs2: "vue",
     },
-  },
-  devServer: {
-    inline: true,
-    hot: true,
-    stats: "minimal",
-    contentBase: __dirname,
-    overlay: true,
-    injectClient: false,
-    disableHostCheck: true,
-    port: 8081,
   },
 };
