@@ -4,7 +4,7 @@
 
 `vue3-naver-maps`는 `NAVER 지도 API v3` Vue3에서 간편하게 사용하기 위해 작성 된 라이브러리 입니다.
 
-본 라이브러리는 Typescript와 Vue3의 `Composition API`를 사용하여 작성 되었습니다.
+본 라이브러리는 `Typescript와` Vue3의 `Composition API`를 사용하여 작성 되었습니다.
 
 `vue3-naver-maps`는 [vue-naver-maps](https://github.com/Shin-JaeHeon/vue-naver-maps)를 바탕으로 작성 되었습니다.
 
