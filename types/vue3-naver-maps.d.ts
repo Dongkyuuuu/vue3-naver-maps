@@ -23,7 +23,7 @@ declare namespace install {
   }
 }
 
-declare namespace v3Map {
+declare namespace naver.vue3 {
   interface layers {
     [key: string]: string;
     BACKGROUND: "bg";
@@ -63,7 +63,7 @@ declare namespace v3Map {
     lng?: number;
     zoomControl?: boolean;
     zoomControlOptions?: {
-      position: string;
+      position?: string;
     };
   }
 }

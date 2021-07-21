@@ -13,15 +13,17 @@
   },
   "author": {
     "name": "DongKyuuuu",
-    "email": "dongkyu.me@gmail.com",
-    "url": "https://shin-jaeheon.github.io/vue-naver-maps"
+    "email": "dongkyu.me@gmail.com"
   },
   "bug": {
     "url": "https://github.com/DongKyuuuu/vue3-naver-maps/issues",
     "email": "dongkyu.me@gmail.com"
   },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
   "dependencies": {
-    "vue": "3.0.11"
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
@@ -30,6 +32,7 @@
     "@types/navermaps": "^3.0.5",
     "@vue/compiler-sfc": "^3.0.11",
     "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^9.0.1",
     "process": "^0.11.10",
     "ts-loader": "^9.2.3",
     "typescript": "^4.2.4",

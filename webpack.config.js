@@ -1,10 +1,12 @@
 const path = require("path");
 const webpack = require("webpack");
+const CopyPlugin = require("copy-webpack-plugin");
 const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
   entry: path.resolve(__dirname, "./src/index.ts"),
   mode: "development",
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -33,7 +35,7 @@ module.exports = {
     filename: "vue3-naver-maps.js",
     library: ["Vue3NaverMaps"],
     libraryTarget: "umd",
-    path: path.resolve(`${__dirname}/../vue3-naver-map-test/src`, "dist"),
+    path: path.resolve(`${__dirname}/../vue3-naver-maps-test/src`, "dist"),
   },
   externals: {
     vue: "vue",
@@ -42,6 +44,9 @@ module.exports = {
     new VueLoaderPlugin(),
     new webpack.ProvidePlugin({
       process: "process/browser",
+    }),
+    new CopyPlugin({
+      patterns: [{ from: "./types/vue3-naver-maps.d.ts", to: "./" }],
     }),
   ],
 };
