@@ -20,10 +20,10 @@ function createURL(options: install.options) {
 }
 
 function createScript(URL: string) {
-  const isExist = document.getElementById("naver-map-load");
+  const isExist = document.getElementById("vue3-naver-maps");
   if (!isExist) {
     const script = document.createElement("script");
-    script.id = "naver-map-load";
+    script.id = "vue3-naver-maps";
     script.setAttribute("src", URL);
     script.setAttribute("async", "");
     script.setAttribute("defer", "");
@@ -36,6 +36,7 @@ function createComponents(app: App<Element>) {
 }
 
 export default function install(app: App<Element>, options: install.options) {
+  if (!process.browser) throw new Error(BROWSER_ERROR_MSG);
   if (!options.clientID) throw new Error(CLIENTID_ERROR_MSG);
   const naver_map_url = createURL(options);
   createScript(naver_map_url);
