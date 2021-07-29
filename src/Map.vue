@@ -247,9 +247,9 @@ function useMapSetterMethods(map: naver.maps.Map) {
 const useMapInitOptions = () => {
   const mapLayers = (
     settings: naver.maps.MapOptions,
-    initLayers: v3Map.initLayers
+    initLayers: naver.vue3.initLayers
   ) => {
-    const layers: v3Map.layers = {
+    const layers: naver.vue3.layers = {
       BACKGROUND: "bg",
       BACKGROUND_DETAIL: "ol",
       BICYCLE: "br",
@@ -266,8 +266,8 @@ const useMapInitOptions = () => {
     };
 
     settings.mapTypes = new window.naver.maps.MapTypeRegistry({
-      /* @ts-ignore */
-      noraml: window.naver.maps.NaverStyleMapTypeOption.getNormalMap({
+      //@ts-ignore
+      normal: window.naver.maps.NaverStyleMapTypeOptions.getNormalMap({
         overlayType: initLayers.map((layer) => layers[layer]).join("."),
       }),
     });
@@ -276,8 +276,8 @@ const useMapInitOptions = () => {
   };
 
   const mapSettings = (
-    mapOptions: v3Map.mapOptions,
-    initLayers: v3Map.initLayers
+    mapOptions: naver.vue3.mapOptions,
+    initLayers: naver.vue3.initLayers
   ) => {
     const settings: naver.maps.MapOptions = {
       maxZoom: 21,
@@ -308,9 +308,12 @@ export default defineComponent({
   props: {
     width: { type: String, default: "400px" },
     height: { type: String, default: "400px" },
-    mapOptions: { type: Object as PropType<v3Map.mapOptions>, required: true },
+    mapOptions: {
+      type: Object as PropType<naver.vue3.mapOptions>,
+      required: true,
+    },
     initLayers: {
-      type: Array as PropType<v3Map.initLayers>,
+      type: Array as PropType<naver.vue3.initLayers>,
       default: [],
     },
   },
@@ -326,12 +329,11 @@ export default defineComponent({
         ...settings,
         ...mapOptions.value,
       });
-      // map.value = new window.naver.maps.Map("vue-naver-maps");
     };
 
     const loadNaverMap = () => {
       if (map.value) return;
-      document.getElementById("naver-map-load")!.onload = () => {
+      document.getElementById("vue3-naver-maps")!.onload = () => {
         window.naver.maps.onJSContentLoaded = () => initNaverMap();
       };
     };
