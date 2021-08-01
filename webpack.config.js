@@ -34,6 +34,9 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json", ".vue"],
     modules: [path.resolve(__dirname, "./"), "node_modules"],
+    alias: {
+      "@": path.resolve(__dirname, "src/"),
+    },
   },
   output: {
     filename: "vue3-naver-maps.js",
