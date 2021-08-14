@@ -2,8 +2,8 @@
   "compilerOptions": {
     "outDir": "dist",
     "baseUrl": ".",
-    "target": "ESNext",
-    "module": "ESNext",
+    "target": "esnext",
+    "module": "esnext",
     "strict": true,
     // "declaration": true,
     "jsx": "preserve",
@@ -12,12 +12,17 @@
     // "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "paths": {
       "@/*": ["src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["src/*.ts", "src/*.vue", "src/**/*.ts", "node_modules/@types"],
+  "include": [
+    "src/**/*.vue",
+    "src/**/*.ts",
+    "__tests__/**/*.ts",
+    "node_modules/@types"
+  ],
   "exclude": ["node_modules"]
 }
