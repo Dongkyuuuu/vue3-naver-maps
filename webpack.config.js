@@ -42,7 +42,6 @@ module.exports = {
     filename: "vue3-naver-maps.js",
     library: ["Vue3NaverMaps"],
     libraryTarget: "umd",
-    path: path.resolve(`${__dirname}/../vue3-naver-maps-test/src`, "dist"),
     path: path.resolve(`${__dirname}`, "dist"),
   },
   externals: {
