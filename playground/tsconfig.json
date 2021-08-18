@@ -11,5 +11,13 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"]
   },
-  "include": ["./**/*.ts", "./**/*.vue", "", "vite.config.js"]
+  "include": [
+    "./**/*.ts",
+    "./**/*.vue",
+    "",
+    "vite.config.js",
+    "../dist/*.ts",
+    "../dist/vue3-naver-maps.js",
+    "../dist/vue3-naver-maps.d.ts"
+  ]
 }
