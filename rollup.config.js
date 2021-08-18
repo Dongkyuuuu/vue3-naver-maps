@@ -20,7 +20,15 @@ export default {
       modules: [path.resolve(__dirname, "./"), "node_modules"],
     }),
     typescript({
-      exclude: ["node_modules", ".yarn", "__tests__"],
+      tsconfig: path.resolve(__dirname, "tsconfig.json"),
+      tsconfigOverride: {
+        compilerOptions: {
+          sourceMap: false,
+          declaration: true,
+          declarationMap: true,
+        },
+      },
+      exclude: [".yarn", "__tests__"],
     }),
     vuePlugin(),
     terser(),

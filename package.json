@@ -1,10 +1,19 @@
 {
   "name": "vue3-naver-maps",
+  "description": "NaverMap component for Vue3",
   "private": true,
   "version": "0.0.1",
   "license": "MIT",
+  "main": "dist/vue3-naver-maps.js",
+  "types": "dist/vue3-naver-maps.d.ts",
+  "files": [
+    "dist/*.js",
+    "dist/vue3-naver-maps.d.ts",
+    "README.md"
+  ],
   "scripts": {
     "build": "rollup -c rollup.config.js",
+    "build:dts": "api-extractor run --local --verbose",
     "dev": "vite --config playground/vite.config.js"
   },
   "repository": {
@@ -22,17 +31,15 @@
   "peerDependencies": {
     "vue": "^3.0.0"
   },
+  "dependencies": {
+    "@types/navermaps": "^3.0.8"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.14.5",
-    "@babel/core": "^7.14.3",
-    "@babel/preset-env": "^7.14.4",
+    "@microsoft/api-extractor": "^7.18.5",
     "@rollup/plugin-alias": "^3.1.5",
     "@rollup/plugin-node-resolve": "^13.0.4",
-    "@types/navermaps": "^3.0.5",
     "@vitejs/plugin-vue": "^1.4.0",
     "@vue/compiler-sfc": "^3.0.11",
-    "babel-loader": "^8.2.2",
-    "copy-webpack-plugin": "^9.0.1",
     "process": "^0.11.10",
     "rollup": "^2.56.2",
     "rollup-plugin-analyzer": "^4.0.0",
@@ -45,9 +52,6 @@
     "vite": "^2.4.4",
     "vue": "^3.0.0",
     "vue-loader": "^16.2.0",
-    "vue-tsc": "^0.2.2",
-    "webpack": "^5.44.0",
-    "webpack-bundle-analyzer": "^4.4.2",
-    "webpack-cli": "^4.7.0"
+    "vue-tsc": "^0.2.2"
   }
 }

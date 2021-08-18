@@ -1,8 +1,0 @@
-{
-  "presets": [
-    [
-      "@babel/preset-env",
-      { "targets": { "browsers": ["last 1 versions", ">= 5% in KR"] } }
-    ]
-  ]
-}
