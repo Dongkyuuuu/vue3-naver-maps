@@ -14,7 +14,7 @@ import {
   onUnmounted,
 } from "vue";
 
-import { useMap } from "@/apis";
+// import { useMap } from "@/apis";
 
 /*
 
@@ -43,7 +43,6 @@ const useMapInitOptions = () => {
     };
 
     settings.mapTypes = new window.naver.maps.MapTypeRegistry({
-      //@ts-ignore
       normal: window.naver.maps.NaverStyleMapTypeOptions.getNormalMap({
         overlayType: initLayers.map((layer) => layers[layer]).join("."),
       }),
@@ -96,9 +95,9 @@ export default defineComponent({
   },
   setup: (props, { emit }) => {
     const map = ref<naver.maps.Map | null>(null);
-    const { setOptions } = useMap(map.value!);
+    // const { setOptions } = useMap(map.value!);
     const { width, height, mapOptions, initLayers } = toRefs(props);
-    const { mapLayers, mapSettings } = useMapInitOptions();
+    const { mapSettings } = useMapInitOptions();
 
     const initNaverMap = () => {
       const settings = mapSettings(mapOptions.value, initLayers.value);
