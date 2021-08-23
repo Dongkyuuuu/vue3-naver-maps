@@ -24,7 +24,6 @@
     "removeComments": false,
     "importHelpers": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
 
     "paths": {
       "@/*": ["src/*"]

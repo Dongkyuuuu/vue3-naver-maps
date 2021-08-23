@@ -13,71 +13,9 @@ import {
   onBeforeMount,
   onUnmounted,
 } from "vue";
-
+import { useMapInitOptions } from "../utils";
+import type { naverV3 } from "../types";
 // import { useMap } from "@/apis";
-
-/*
-
-  NaverMap Init Methods
-
-*/
-const useMapInitOptions = () => {
-  const mapLayers = (
-    settings: naver.maps.MapOptions,
-    initLayers: naver.vue3.initLayers
-  ) => {
-    const layers: naver.vue3.layers = {
-      BACKGROUND: "bg",
-      BACKGROUND_DETAIL: "ol",
-      BICYCLE: "br",
-      CADASTRAL: "lp",
-      CTT: "ctt",
-      HIKING_TRAIL: "ar",
-      PANORAMA: "pr",
-      POI_KOREAN: "lko",
-      TRANSIT: "ts",
-      KOREAN: "lko",
-      ENGLISH: "len",
-      CHINESE: "lzh",
-      JAPANESE: "lja",
-    };
-
-    settings.mapTypes = new window.naver.maps.MapTypeRegistry({
-      normal: window.naver.maps.NaverStyleMapTypeOptions.getNormalMap({
-        overlayType: initLayers.map((layer) => layers[layer]).join("."),
-      }),
-    });
-
-    return settings;
-  };
-
-  const mapSettings = (
-    mapOptions: naver.vue3.mapOptions,
-    initLayers: naver.vue3.initLayers
-  ) => {
-    const settings: naver.maps.MapOptions = {
-      maxZoom: 21,
-      minZoom: 0,
-    };
-    const mapOptionsLat = mapOptions.lat || mapOptions.lat === 0 ? true : false;
-    const mapOptionsLng = mapOptions.lng || mapOptions.lng === 0 ? true : false;
-
-    if (!mapOptionsLat || !mapOptionsLng) {
-      settings.center = new window.naver.maps.LatLng(
-        mapOptions.lat as number,
-        mapOptions.lng as number
-      );
-    }
-
-    if (initLayers.length < 1) return settings;
-    else return mapLayers(settings, initLayers);
-  };
-
-  return {
-    mapLayers,
-    mapSettings,
-  };
-};
 
 export default defineComponent({
   name: "Map",
@@ -85,11 +23,11 @@ export default defineComponent({
     width: { type: String, default: "400px" },
     height: { type: String, default: "400px" },
     mapOptions: {
-      type: Object as PropType<naver.vue3.mapOptions>,
+      type: Object as PropType<naverV3.mapOptions>,
       required: true,
     },
     initLayers: {
-      type: Array as PropType<naver.vue3.initLayers>,
+      type: Array as PropType<naverV3.initLayers>,
       default: [],
     },
   },
