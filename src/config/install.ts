@@ -1,14 +1,29 @@
+import { App } from "vue";
+import { install } from "../types";
+import { components } from "./components";
+
+export function install(app: App<Element>, options: install.options) {
+  // const ERROR_MSG_BROWSER =
+  //   "Sorry, this plugin is only available in browsers at now. If you are using Nuxt.js, turn off ssr for this plugin.";
+  const ERROR_MSG_CLIENT = "options must be included clientId";
+
+  if (!options.clientId) throw new Error(ERROR_MSG_CLIENT);
+
+  _setupScript(options);
+  components(app);
+}
+
 /**
- * vue3-naver-maps installer
+ * vue3-naver-maps script setup
  */
-export function installer(options: install.options) {
+function _setupScript(options: install.options) {
   const isExist = document.getElementById("vue3-naver-maps");
   if (!isExist) {
     const URL = _createURL(options);
 
     new Promise((resolve, reject) => {
       const script = document.createElement("script");
-      script.id = "vue3-naver-maps";
+      script.setAttribute("id", "vue3-naver-maps");
       script.setAttribute("src", URL);
       script.setAttribute("async", "");
       script.setAttribute("defer", "");
@@ -29,10 +44,10 @@ function _createURL(options: install.options) {
   const category: install.category = options.category
     ? options.category
     : "ncp";
-  const clientID: string = "ClientId=" + options.clientID;
+  const clientId: string = "ClientId=" + options.clientId;
   const subModules: string = options.subModules
     ? "&submodules=" + options.subModules
     : "";
 
-  return baseURL + category + clientID + subModules;
+  return baseURL + category + clientId + subModules;
 }

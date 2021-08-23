@@ -3,7 +3,7 @@
   naver.maps.Map Methods
 
 */
-function useMapMethods(map: naver.maps.Map) {
+function _useMapMethods(map: naver.maps.Map) {
   const setLayerTypeId = (typeId: string) => {
     map.mapTypes.setLayerTypeId(typeId);
   };
@@ -105,7 +105,7 @@ function useMapMethods(map: naver.maps.Map) {
   naver.maps.Map Getter Methods
 
 */
-function useMapGetterMethods(map: naver.maps.Map) {
+function _useMapGetterMethods(map: naver.maps.Map) {
   const getBounds = (): naver.maps.Bounds => {
     return map.getBounds();
   };
@@ -170,7 +170,7 @@ function useMapGetterMethods(map: naver.maps.Map) {
   naver.maps.Map Setter Methods
 
 */
-function useMapSetterMethods(map: naver.maps.Map) {
+function _useMapSetterMethods(map: naver.maps.Map) {
   const setCenter = (
     latOrLatLng: naver.maps.LatLng | naver.maps.LatLngLiteral | number,
     lng: number = 0
@@ -225,8 +225,8 @@ function useMapSetterMethods(map: naver.maps.Map) {
 
 export function useMap(map: naver.maps.Map) {
   return {
-    ...useMapMethods(map),
-    ...useMapGetterMethods(map),
-    ...useMapSetterMethods(map),
+    ..._useMapMethods(map),
+    ..._useMapGetterMethods(map),
+    ..._useMapSetterMethods(map),
   };
 }

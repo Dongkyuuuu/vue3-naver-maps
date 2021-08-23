@@ -7,9 +7,7 @@ import { terser } from "rollup-plugin-terser";
 
 export default {
   input: "src/index.ts",
-  output: [
-    { file: "dist/vue3-naver-maps.js", format: "esm", globals: { vue: "Vue" } },
-  ],
+  output: [{ file: "dist/vue3-naver-maps.js", format: "es" }],
   external: ["vue"],
   plugins: [
     alias({

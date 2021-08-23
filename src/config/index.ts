@@ -1,2 +1,2 @@
-export * from "./installer";
+export * from "./install";
 export * from "./components";

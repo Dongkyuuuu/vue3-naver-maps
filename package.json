@@ -1,8 +1,7 @@
 {
   "name": "vue3-naver-maps",
   "description": "NaverMap component for Vue3",
-  "private": true,
-  "version": "0.0.1",
+  "version": "0.0.0",
   "license": "MIT",
   "main": "dist/vue3-naver-maps.js",
   "types": "dist/vue3-naver-maps.d.ts",
@@ -14,7 +13,9 @@
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "build:dts": "api-extractor run --local --verbose",
-    "dev": "vite --config playground/vite.config.js"
+    "dev": "vite --config playground/vite.config.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
+    "release": "bash scripts/release.sh"
   },
   "repository": {
     "type": "git",
@@ -39,19 +40,17 @@
     "@rollup/plugin-alias": "^3.1.5",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@vitejs/plugin-vue": "^1.4.0",
-    "@vue/compiler-sfc": "^3.0.11",
-    "process": "^0.11.10",
+    "@vue/compiler-sfc": "3.0.0",
+    "conventional-changelog-cli": "^2.1.1",
     "rollup": "^2.56.2",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-vue": "^6.0.0",
-    "ts-loader": "^9.2.3",
     "tslib": "^2.3.1",
     "typescript": "^4.2.4",
-    "vite": "^2.4.4",
-    "vue": "^3.0.0",
-    "vue-loader": "^16.2.0",
+    "vite": "^2.5.0",
+    "vue": "3.0.0",
     "vue-tsc": "^0.2.2"
   }
 }

@@ -1,30 +1,15 @@
-declare module "*.vue" {
-  import { DefineComponent } from "vue";
-  const component: DefineComponent<{}, {}, any>;
-  export default component;
-}
-declare namespace NodeJS {
-  interface Process {
-    browser: boolean;
-  }
-}
-declare interface Window {
-  $naverMapsCallback: [];
-  $naverMapsLoaded: boolean;
-  $naverMapsObject: naver.maps.Map;
-}
+export namespace install {
+  export type category = "gov" | "ncp" | "fin";
 
-declare namespace install {
-  type category = "gov" | "ncp" | "fin";
-  interface options {
-    clientID: string;
+  export interface options {
+    clientId: string;
     category?: category;
     subModules?: string;
   }
 }
 
-declare namespace naver.vue3 {
-  interface layers {
+export namespace naverV3 {
+  export interface layers {
     [key: string]: string;
     BACKGROUND: "bg";
     BACKGROUND_DETAIL: "ol";
@@ -40,7 +25,7 @@ declare namespace naver.vue3 {
     CHINESE: "lzh";
     JAPANESE: "lja";
   }
-  type initLayer =
+  export type initLayer =
     | "BACKGROUND"
     | "BACKGROUND_DETAIL"
     | "BICYCLE"
@@ -55,9 +40,9 @@ declare namespace naver.vue3 {
     | "CHINESE"
     | "JAPANESE";
 
-  type initLayers = initLayer[];
+  export type initLayers = initLayer[];
 
-  interface mapOptions {
+  export interface mapOptions {
     zoom?: number;
     lat?: number;
     lng?: number;
