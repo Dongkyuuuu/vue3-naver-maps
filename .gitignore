@@ -1,6 +1,7 @@
 
 # Custom
 temp
+playground/config.ts
 
 # yarn berry- not using Zero-install
 .yarn/*
