@@ -1,27 +1,31 @@
 <template>
   <naver-maps
-    width="400px"
+    width="804px"
     height="400px"
+    @updateMap="loadMap($event)"
     :mapOptions="mapOptions"
     :initLayers="initLayers"
   />
+  {{ mapOptions }}
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "vue";
+import { defineComponent, ref } from "vue";
+import { naverV3, useMap } from "../dist/vue3-naver-maps";
 
 export default defineComponent({
   name: "App",
   setup: () => {
-    const mapOptions = reactive({
+    const map = ref<any>(null);
+    const mapOptions: naverV3.mapOptions = {
       lat: 37,
       lng: 127,
       zoom: 10,
-      zoomControl: true,
+      zoomControl: false,
       zoomControlOptions: { position: "TOP_RIGHT" },
-      mapTypeControl: true,
-    });
-    const initLayers = ref([
+      mapTypeControl: false,
+    };
+    const initLayers = [
       "BACKGROUND",
       "BACKGROUND_DETAIL",
       "POI_KOREAN",
@@ -29,8 +33,12 @@ export default defineComponent({
       "ENGLISH",
       "CHINESE",
       "JAPANESE",
-    ]);
-    return { mapOptions, initLayers };
+    ];
+    const loadMap = (mapObject: naver.maps.Map) => {
+      map.value = mapObject;
+      console.log(mapObject);
+    };
+    return { mapOptions, initLayers, loadMap };
   },
 });
 </script>

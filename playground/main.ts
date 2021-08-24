@@ -10,4 +10,4 @@ import clientId from "./config";
 
 const app = createApp(App);
 
-app.use(navermaps, { clientID: clientId }).mount("#app");
+app.use(navermaps, { clientId: clientId }).mount("#app");
