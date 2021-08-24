@@ -1,5 +1,3 @@
-import { App } from "vue";
-
-export function addEvent(app: App, target: any, name: any) {
+export function addEvent(target: any, name: any) {
   naver.maps.Event.addListener(target, name, (event) => {});
 }

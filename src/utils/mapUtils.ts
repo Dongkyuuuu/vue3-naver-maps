@@ -6,7 +6,7 @@ import type { naverV3 } from "../types";
 export function useMapInitOptions() {
   const mapLayers = (
     settings: naver.maps.MapOptions,
-    initLayers: naverV3.initLayers
+    initLayers: naverV3.initLayer[]
   ) => {
     const layers: naverV3.layers = {
       BACKGROUND: "bg",
@@ -35,7 +35,7 @@ export function useMapInitOptions() {
 
   const mapSettings = (
     mapOptions: naverV3.mapOptions,
-    initLayers: naverV3.initLayers
+    initLayers: naverV3.initLayer[]
   ) => {
     const settings: naver.maps.MapOptions = {
       maxZoom: 21,

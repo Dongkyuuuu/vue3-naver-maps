@@ -15,7 +15,6 @@ import {
 } from "vue";
 import { useMapInitOptions } from "../utils";
 import type { naverV3 } from "../types";
-// import { useMap } from "@/apis";
 
 export default defineComponent({
   name: "Map",
@@ -27,33 +26,41 @@ export default defineComponent({
       required: true,
     },
     initLayers: {
-      type: Array as PropType<naverV3.initLayers>,
+      type: Array as PropType<naverV3.initLayer[]>,
       default: [],
     },
   },
   setup: (props, { emit }) => {
     const map = ref<naver.maps.Map | null>(null);
-    // const { setOptions } = useMap(map.value!);
     const { width, height, mapOptions, initLayers } = toRefs(props);
     const { mapSettings } = useMapInitOptions();
 
     const initNaverMap = () => {
+      map.value = null;
       const settings = mapSettings(mapOptions.value, initLayers.value);
       map.value = new window.naver.maps.Map("vue-naver-maps", {
         ...settings,
         ...mapOptions.value,
       });
+
+      emit("updateMap", map.value);
     };
 
-    const loadNaverMap = () => {
-      if (map.value) return;
+    onBeforeMount(() => {
       document.getElementById("vue3-naver-maps")!.onload = () => {
         window.naver.maps.onJSContentLoaded = () => initNaverMap();
       };
-    };
-
-    onBeforeMount(() => loadNaverMap());
+    });
     onUnmounted(() => (map.value = null));
+
+    // watch(
+    //   () => mapOptions.value,
+    //   () => {
+    //     console.log("hello");
+    //     initNaverMap();
+    //   },
+    //   { deep: true, immediate: false }
+    // );
 
     return {
       width,

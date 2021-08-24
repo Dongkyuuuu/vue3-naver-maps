@@ -40,8 +40,6 @@ export namespace naverV3 {
     | "CHINESE"
     | "JAPANESE";
 
-  export type initLayers = initLayer[];
-
   export interface mapOptions {
     zoom?: number;
     lat?: number;
@@ -50,5 +48,6 @@ export namespace naverV3 {
     zoomControlOptions?: {
       position?: string;
     };
+    mapTypeControl?: boolean;
   }
 }
