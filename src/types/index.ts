@@ -40,7 +40,7 @@ export namespace naverV3 {
     | "CHINESE"
     | "JAPANESE";
 
-  export interface mapOptions {
+  export interface mapOptions extends naver.maps.MapOptions {
     zoom?: number;
     lat?: number;
     lng?: number;

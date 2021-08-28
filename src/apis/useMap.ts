@@ -85,7 +85,7 @@ export interface useMapSetterMethods {
 
   setOptions(
     optionsOrKey: naver.maps.MapOptions | string,
-    value: naver.maps.MapOptions | null
+    value?: naver.maps.MapOptions | null
   ): void;
 
   setSize(size: naver.maps.Size | naver.maps.SizeLiteral): void;
