@@ -1,5 +1,9 @@
 # vue3-naver-maps
 
+본 프로젝트는 **개발 진행중인(pre-release)** 프로젝트 입니다.
+
+업데이트에 대한 자세한 현황은 [Update Roadmap](https://github.com/DongKyuuuu/vue3-naver-maps/issues/3)에서 확인 가능합니다.
+
 ## Introduce
 
 `vue3-naver-maps`는 `NAVER 지도 API v3` Vue3에서 간편하게 사용하기 위해 작성 된 라이브러리 입니다.

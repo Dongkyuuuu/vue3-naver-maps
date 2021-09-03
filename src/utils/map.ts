@@ -41,13 +41,15 @@ export function useMapInitOptions() {
       maxZoom: 21,
       minZoom: 0,
     };
-    const mapOptionsLat = mapOptions.lat || mapOptions.lat === 0 ? true : false;
-    const mapOptionsLng = mapOptions.lng || mapOptions.lng === 0 ? true : false;
+    const mapOptionsLat =
+      mapOptions.latitude || mapOptions.latitude === 0 ? true : false;
+    const mapOptionsLng =
+      mapOptions.longitude || mapOptions.longitude === 0 ? true : false;
 
     if (!mapOptionsLat || !mapOptionsLng) {
       settings.center = new window.naver.maps.LatLng(
-        mapOptions.lat as number,
-        mapOptions.lng as number
+        mapOptions.latitude as number,
+        mapOptions.longitude as number
       );
     }
 

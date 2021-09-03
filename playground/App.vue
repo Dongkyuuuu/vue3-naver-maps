@@ -1,17 +1,23 @@
 <template>
-  <naver-maps
+  <naver-map
     :width="mapSize.width"
     :height="mapSize.height"
-    @updateMap="loadMap($event)"
     :mapOptions="mapOptions"
     :initLayers="initLayers"
+    @onLoad="loadMap($event)"
   >
-  </naver-maps>
+    <naver-marker
+      :latitude="37.566616443521745"
+      :longitude="126.97837068565364"
+      @onLoad="loadMarker($event)"
+    >
+      안녕하세요
+    </naver-marker>
+  </naver-map>
+  <br />
+  <br />
+  <br />
   {{ mapOptions }}
-  <br />
-  <br />
-  <br />
-  {{ initLayers }}
   <button @click="change()">2323</button>
 </template>
 
@@ -28,8 +34,8 @@ export default defineComponent({
       height: "400px",
     });
     const mapOptions = ref<naverV3.mapOptions>({
-      lat: 37,
-      lng: 127,
+      latitude: 36,
+      longitude: 126,
       zoom: 12,
       zoomControl: false,
       zoomControlOptions: { position: "TOP_RIGHT" },
@@ -44,38 +50,36 @@ export default defineComponent({
     ]);
     const loadMap = (mapObject: naver.maps.Map) => {
       map.value = mapObject;
-      console.log(map.value.getCenter());
-      console.log(`[vue3-naver-maps] map is load!`);
+      console.log("LoadMap", map.value);
+    };
+    const loadMarker = (marker: naver.maps.Marker) => {
+      console.log(marker);
+    };
+    const testFunc = (event: any) => {
+      console.log(event);
     };
 
     const change = () => {
-      // const { setOptions, getCenter } = useMap(map.value!);
-      // const options: naverV3.mapOptions = {
-      //   lat: 37,
-      //   lng: 127,
-      //   zoom: 18,
-      //   zoomControl: false,
-      //   mapTypeControl: false,
-      // };
-      // map.value!.setOptions(options);
       initLayers.value = [
         "BACKGROUND",
         "BACKGROUND_DETAIL",
         // "POI_KOREAN",
         "TRANSIT",
-        // "ENGLISH",
+        "ENGLISH",
       ];
-      // mapSize.width = "700px";
-      // mapOptions.value = {
-      //   lat: 37,
-      //   lng: 127,
-      //   zoom: 9,
-      //   zoomControl: false,
-      //   zoomControlOptions: { position: "TOP_RIGHT" },
-      //   mapTypeControl: false,
-      // };
+      mapOptions.value.zoom = 14;
+
+      // map.value?.setCenter(new window.naver.maps.LatLng(36, 127));
     };
-    return { mapOptions, initLayers, loadMap, change, mapSize };
+    return {
+      mapOptions,
+      initLayers,
+      loadMap,
+      change,
+      mapSize,
+      map,
+      loadMarker,
+    };
   },
 });
 </script>

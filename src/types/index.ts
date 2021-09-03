@@ -42,12 +42,23 @@ export namespace naverV3 {
 
   export interface mapOptions extends naver.maps.MapOptions {
     zoom?: number;
-    lat?: number;
-    lng?: number;
+    latitude?: number;
+    longitude?: number;
     zoomControl?: boolean;
     zoomControlOptions?: {
       position?: string;
     };
     mapTypeControl?: boolean;
+  }
+
+  export interface htmlIcon {
+    size: {
+      width: number;
+      height: number;
+    };
+    anchor: {
+      x: number;
+      y: number;
+    };
   }
 }
