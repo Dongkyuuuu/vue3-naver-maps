@@ -15,7 +15,10 @@
     "build:dts": "api-extractor run --local --verbose",
     "dev": "vite --config playground/vite.config.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
-    "release": "bash scripts/release.sh"
+    "release": "bash scripts/release.sh",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
   },
   "repository": {
     "type": "git",
@@ -30,7 +33,6 @@
     "email": "dongkyu.me@gmail.com"
   },
   "peerDependencies": {
-    "@types/navermaps": "^3.0.8",
     "vue": "^3.0.0"
   },
   "devDependencies": {
@@ -49,6 +51,7 @@
     "tslib": "^2.3.1",
     "typescript": "^4.2.4",
     "vite": "^2.5.1",
+    "vitepress": "^0.17.0",
     "vue": "3.0.0",
     "vue-tsc": "^0.2.2"
   }
