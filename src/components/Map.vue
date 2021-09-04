@@ -14,6 +14,7 @@ import {
   onUnmounted,
   watchEffect,
   provide,
+  computed,
 } from "vue";
 import { useMapInitOptions, naverMapObject } from "../utils";
 import type { naverV3 } from "../types";
@@ -40,9 +41,13 @@ export default defineComponent({
 
     provide(naverMapObject, map);
 
+    const mapOptionsData = computed(() =>
+      mapOptions!.value ? mapOptions!.value : ""
+    );
+
     const createMap = () => {
       map.value = new window.naver.maps.Map(mapRef.value!, {
-        ...(mapOptions?.value ? mapOptions!.value : ""),
+        ...mapOptionsData.value,
       });
 
       map.value.setOptions("mapTypes", mapLayers(initLayers.value));
@@ -59,7 +64,7 @@ export default defineComponent({
       if (!map.value) return;
 
       map.value!.setOptions({
-        ...(mapOptions?.value ? mapOptions!.value : ""),
+        ...mapOptionsData.value,
       });
       map.value.setOptions("mapTypes", mapLayers(initLayers.value));
     });

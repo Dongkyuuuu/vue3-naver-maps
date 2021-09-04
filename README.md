@@ -1,5 +1,9 @@
 # <h1>vue3-naver-maps (WIP)</h1>
 
+![GitHub package.json version](https://img.shields.io/github/package-json/v/dongkyuuuu/vue3-naver-maps)
+![npm bundle size](https://img.shields.io/bundlephobia/min/vue3-naver-maps)
+![NPM](https://img.shields.io/npm/l/vue3-naver-maps)
+
 본 프로젝트는 <b>개발 진행중인(pre-release)</b> 프로젝트 입니다.
 
 업데이트에 대한 자세한 현황은 [Update Roadmap](https://github.com/DongKyuuuu/vue3-naver-maps/issues/3)에서 확인 가능합니다.
