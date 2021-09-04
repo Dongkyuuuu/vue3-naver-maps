@@ -12,6 +12,22 @@
 
 `vue3-naver-maps`는 [vue-naver-maps](https://github.com/Shin-JaeHeon/vue-naver-maps)를 바탕으로 작성 되었습니다.
 
+## Usage
+
+타입스크립트를 사용한다면 `@types/navermaps`를 추가적으로 설치해주세요.
+
+### npm
+
+```bash
+$ npm install vue3-naver-maps --save
+```
+
+### Yarn
+
+```bash
+$ yarn add vue3-naver-maps
+```
+
 ## Docs
 
 문서는 [documentation](https://dongkyuuuu.github.io/vue3-naver-maps/)에서 확인 가능합니다.
