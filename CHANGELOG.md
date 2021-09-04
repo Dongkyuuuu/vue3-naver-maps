@@ -1,3 +1,12 @@
+## [0.0.2](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.0.1...v0.0.2) (2021-09-04)
+
+
+### Bug Fixes
+
+* **map:** optional chaining bug fix ([40618be](https://github.com/DongKyuuuu/vue3-naver-maps/commit/40618be1c61d57aafe200252f0ed82ddbd459dc6))
+
+
+
 ## 0.0.1 (2021-09-04)
 
 
