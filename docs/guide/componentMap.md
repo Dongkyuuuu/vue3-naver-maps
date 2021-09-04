@@ -56,7 +56,7 @@ export default {
 
 모든 Props는 필수 값이 아닙니다. 해당 Props이 없는 경우 기본값이 적용 됩니다. `@onLoad`도 마찬가지로 naver 객체를 설정할 일이 없으면 사용하지 않아도 상관 없습니다.
 
-자세한 설정 옵션은 [naver-map 옵션](/api/#naver-map)에서 확인 가능합니다.
+자세한 설정 옵션은 [naver-map 옵션](../api/#naver-map)에서 확인 가능합니다.
 
 :::info 알림
 기본 값은 네이버에서 제공하는 기본 값으로 설정 됩니다.
