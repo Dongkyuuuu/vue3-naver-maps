@@ -5181,7 +5181,6 @@ resolve@~1.19.0:
     vue: 3.0.0
     vue-tsc: ^0.2.2
   peerDependencies:
-    "@types/navermaps": ^3.0.8
     vue: ^3.0.0
   languageName: unknown
   linkType: soft
