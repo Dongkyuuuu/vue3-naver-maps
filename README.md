@@ -1,11 +1,8 @@
-# <center>vue3-naver-maps (WIP)</center>
+# <h1>vue3-naver-maps (WIP)</h1>
 
-<center>
 본 프로젝트는 <b>개발 진행중인(pre-release)</b> 프로젝트 입니다.
 
 업데이트에 대한 자세한 현황은 [Update Roadmap](https://github.com/DongKyuuuu/vue3-naver-maps/issues/3)에서 확인 가능합니다.
-
-</center>
 
 ## Introduce
 
@@ -14,6 +11,10 @@
 본 라이브러리는 `Typescript와` Vue3의 `Composition API`를 사용하여 작성 되었습니다.
 
 `vue3-naver-maps`는 [vue-naver-maps](https://github.com/Shin-JaeHeon/vue-naver-maps)를 바탕으로 작성 되었습니다.
+
+## Docs
+
+문서는 [documentation](https://dongkyuuuu.github.io/vue3-naver-maps/)에서 확인 가능합니다.
 
 ## Contributing Guide
 

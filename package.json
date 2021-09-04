@@ -18,7 +18,8 @@
     "release": "bash scripts/release.sh",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "docs:release": "bash scripts/docs-release.sh"
   },
   "repository": {
     "type": "git",
