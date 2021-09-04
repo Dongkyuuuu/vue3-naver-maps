@@ -92,7 +92,10 @@ app
 ### mapOptions
 
 - **선택**
-- **타입:** [`naverV3.mapOptions`](../types/define.html#mapoptions)
+  <<<<<<< HEAD
+- # **타입:** [`naverV3.mapOptions`](../types/define.html#mapoptions)
+- **타입:** [`naverV3.mapOptions`](/vue3-naver-maps/types/define.html#mapoptions)
+  > > > > > > > 85ad5c25f954ad475516161026d803f3f749de30
 - **상세:**
 
 `naver.maps.mapOptions`타입을 상속받아 사용 합니다. 지도 생성 옵션을 지정 합니다. 옵션을 지정하지 않는 경우, 네이버에서 제공 하는 기본 지도 옵션을 사용합니다.
@@ -151,7 +154,10 @@ app
 ### htmlIcon
 
 - **선택**
-- **타입:** [`naverV3.htmlIcon`](../types/define.html#htmlicon)
+  <<<<<<< HEAD
+- # **타입:** [`naverV3.htmlIcon`](../types/define.html#htmlicon)
+- **타입:** [`naverV3.htmlIcon`](/vue3-naver-maps/types/define.html#htmlicon)
+  > > > > > > > 85ad5c25f954ad475516161026d803f3f749de30
 - **상세:**
 
 htmlIcon을 사용하는 경우, 초기 `size`와 `anchor`를 지정합니다. `@onLoad`를 통해 마커 객체를 반환 받고 `setIcon()`을 사용하여도 무관합니다.

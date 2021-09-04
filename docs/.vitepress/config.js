@@ -19,6 +19,7 @@ const config = {
     editLinks: true,
     editLinkText:
       "이 문서에 대한 의견이 있으시거나, 문제를 발견하셨으면 제보해주세요!",
+    base: "/vue3-naver-maps/",
     locales: {
       // Korean
       "/": {
