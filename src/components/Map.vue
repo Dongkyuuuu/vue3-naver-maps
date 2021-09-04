@@ -26,7 +26,6 @@ export default defineComponent({
     height: { type: String, default: "400px" },
     mapOptions: {
       type: Object as PropType<naverV3.mapOptions>,
-      required: true,
     },
     initLayers: {
       type: Array as PropType<naverV3.initLayer[]>,
@@ -37,17 +36,16 @@ export default defineComponent({
     const map = ref<naver.maps.Map | null>(null);
     const mapRef = ref<HTMLDivElement | null>(null);
     const { width, height, mapOptions, initLayers } = toRefs(props);
-    const { mapSettings } = useMapInitOptions();
+    const { mapLayers } = useMapInitOptions();
 
     provide(naverMapObject, map);
 
     const createMap = () => {
-      const settings = mapSettings(mapOptions.value, initLayers.value);
       map.value = new window.naver.maps.Map(mapRef.value!, {
-        ...settings,
-        ...mapOptions.value,
+        ...(mapOptions?.value ? mapOptions!.value : ""),
       });
 
+      map.value.setOptions("mapTypes", mapLayers(initLayers.value));
       emit("onLoad", map.value);
     };
 
@@ -60,8 +58,10 @@ export default defineComponent({
     watchEffect(() => {
       if (!map.value) return;
 
-      const settings = mapSettings(mapOptions.value, initLayers.value);
-      map.value!.setOptions({ ...settings, ...mapOptions.value });
+      map.value!.setOptions({
+        ...(mapOptions?.value ? mapOptions!.value : ""),
+      });
+      map.value.setOptions("mapTypes", mapLayers(initLayers.value));
     });
 
     onMounted(() =>

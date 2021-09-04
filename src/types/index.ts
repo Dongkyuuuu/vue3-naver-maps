@@ -41,14 +41,8 @@ export namespace naverV3 {
     | "JAPANESE";
 
   export interface mapOptions extends naver.maps.MapOptions {
-    zoom?: number;
     latitude?: number;
     longitude?: number;
-    zoomControl?: boolean;
-    zoomControlOptions?: {
-      position?: string;
-    };
-    mapTypeControl?: boolean;
   }
 
   export interface htmlIcon {
