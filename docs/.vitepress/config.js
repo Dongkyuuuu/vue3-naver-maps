@@ -2,6 +2,7 @@ const config = {
   lang: "ko",
   title: "Vue3 Naver Maps",
   description: "NaverMap component for Vue3",
+  base: "/vue3-naver-maps/",
   locales: {
     "/": {
       lang: "ko",
