@@ -11,6 +11,15 @@ const config = {
     },
   },
 
+  plugins: [
+    [
+      "vuepress-plugin-google-adsense",
+      {
+        adClient: "ca-pub-9675166132883612",
+      },
+    ],
+  ],
+
   themeConfig: {
     repo: "DongKyuuuu/vue3-naver-maps",
     docsRepo: "DongKyuuuu/vue3-naver-maps",

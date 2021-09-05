@@ -5180,6 +5180,7 @@ resolve@~1.19.0:
     vitepress: ^0.17.0
     vue: 3.0.0
     vue-tsc: ^0.2.2
+    vuepress-plugin-google-adsense: ^0.2.1
   peerDependencies:
     vue: ^3.0.0
   languageName: unknown
@@ -5204,6 +5205,13 @@ resolve@~1.19.0:
     "@vue/runtime-dom": 3.2.8
     "@vue/shared": 3.2.8
   checksum: 6d567fbf76b773957b4718d243e70942d087e384bf786c327519f9ff51fbd795717076c8d1078177a0fa97a7ae8f387bf9e5093101c582ba223bcf62eddcba48
+  languageName: node
+  linkType: hard
+
+"vuepress-plugin-google-adsense@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "vuepress-plugin-google-adsense@npm:0.2.1"
+  checksum: f833e38f2c45b9b02acdb6ac2d1d6d87681e825ca39ef01047e66555e5c0d2f2df19f58a2201142f3336ee1079be395e371893ef0af39264885c7dab56f6383e
   languageName: node
   linkType: hard
 

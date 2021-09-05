@@ -54,6 +54,7 @@
     "vite": "^2.5.1",
     "vitepress": "^0.17.0",
     "vue": "3.0.0",
-    "vue-tsc": "^0.2.2"
+    "vue-tsc": "^0.2.2",
+    "vuepress-plugin-google-adsense": "^0.2.1"
   }
 }
