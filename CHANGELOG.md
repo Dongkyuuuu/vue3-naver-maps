@@ -1,3 +1,14 @@
+# [0.1.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.0.5...v0.1.0) (2021-09-05)
+
+
+### Features
+
+* **dcos:** update install usage docs ([38f3447](https://github.com/DongKyuuuu/vue3-naver-maps/commit/38f3447ae5f6672e7e7e2dff7dfda93ab4513732))
+* **docs:** fix types code snippet lang ([90961eb](https://github.com/DongKyuuuu/vue3-naver-maps/commit/90961eb055a5938692b733e352135917d94093cd))
+* **process:** change install & useage process ([e8924c9](https://github.com/DongKyuuuu/vue3-naver-maps/commit/e8924c9bf7c8e1f7b2b527293f173d1094f9078a))
+
+
+
 ## [0.0.5](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.0.4...v0.0.5) (2021-09-05)
 
 
