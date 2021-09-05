@@ -1,6 +1,5 @@
 import { App } from "vue";
 import type { naverV3 } from "../types";
-import { components } from "./components";
 
 export function install(app: App<Element>, options: naverV3.install.options) {
   // const ERROR_MSG_BROWSER =
@@ -10,7 +9,6 @@ export function install(app: App<Element>, options: naverV3.install.options) {
   if (!options.clientId) throw new Error(ERROR_MSG_CLIENT);
 
   _setupScript(options);
-  components(app);
 }
 
 /**

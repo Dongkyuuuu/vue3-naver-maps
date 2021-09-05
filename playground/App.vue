@@ -1,5 +1,5 @@
 <template>
-  <naver-map
+  <naver-maps
     :width="mapSize.width"
     :height="mapSize.height"
     :mapOptions="mapOptions"
@@ -13,7 +13,7 @@
     >
       안녕하세요
     </naver-marker>
-  </naver-map>
+  </naver-maps>
   <br />
   <br />
   <br />
@@ -24,8 +24,10 @@
 <script lang="ts">
 import { defineComponent, reactive, ref } from "vue";
 import type { naverV3 } from "../dist/vue3-naver-maps";
+import { NaverMaps, NaverMarker } from "../dist/vue3-naver-maps";
 
 export default defineComponent({
+  components: { NaverMaps, NaverMarker },
   name: "App",
   setup: () => {
     const map = ref<naver.maps.Map | null>(null);
@@ -34,14 +36,14 @@ export default defineComponent({
       height: "400px",
     });
     const mapOptions = ref<naverV3.mapOptions>({
-      latitude: 36,
-      longitude: 126,
+      // latitude: 36,
+      // longitude: 126,
       zoom: 12,
       zoomControl: false,
       zoomControlOptions: { position: "TOP_RIGHT" },
       mapTypeControl: false,
     });
-    const initLayers = ref([
+    const initLayers = ref<naverV3.initLayer[]>([
       "BACKGROUND",
       "BACKGROUND_DETAIL",
       "POI_KOREAN",
