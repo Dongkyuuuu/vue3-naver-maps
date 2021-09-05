@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from "vue";
-import { naverV3 } from "../dist/vue3-naver-maps";
+import type { naverV3 } from "../dist/vue3-naver-maps";
 
 export default defineComponent({
   name: "App",

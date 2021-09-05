@@ -1,15 +1,14 @@
-export namespace install {
-  export type category = "gov" | "ncp" | "fin";
+export declare namespace naverV3 {
+  namespace install {
+    type category = "gov" | "ncp" | "fin";
 
-  export interface options {
-    clientId: string;
-    category?: category;
-    subModules?: string;
+    interface options {
+      clientId: string;
+      category?: category;
+      subModules?: string;
+    }
   }
-}
-
-export namespace naverV3 {
-  export interface layers {
+  interface layers {
     [key: string]: string;
     BACKGROUND: "bg";
     BACKGROUND_DETAIL: "ol";
@@ -25,7 +24,7 @@ export namespace naverV3 {
     CHINESE: "lzh";
     JAPANESE: "lja";
   }
-  export type initLayer =
+  type initLayer =
     | "BACKGROUND"
     | "BACKGROUND_DETAIL"
     | "BICYCLE"
@@ -40,12 +39,12 @@ export namespace naverV3 {
     | "CHINESE"
     | "JAPANESE";
 
-  export interface mapOptions extends naver.maps.MapOptions {
+  interface mapOptions extends naver.maps.MapOptions {
     latitude?: number;
     longitude?: number;
   }
 
-  export interface htmlIcon {
+  interface htmlIcon {
     size: {
       width: number;
       height: number;

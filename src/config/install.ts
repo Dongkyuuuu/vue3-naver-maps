@@ -1,8 +1,8 @@
 import { App } from "vue";
-import { install } from "../types";
+import type { naverV3 } from "../types";
 import { components } from "./components";
 
-export function install(app: App<Element>, options: install.options) {
+export function install(app: App<Element>, options: naverV3.install.options) {
   // const ERROR_MSG_BROWSER =
   //   "Sorry, this plugin is only available in browsers at now. If you are using Nuxt.js, turn off ssr for this plugin.";
   const ERROR_MSG_CLIENT = "options must be included clientId";
@@ -16,7 +16,7 @@ export function install(app: App<Element>, options: install.options) {
 /**
  * vue3-naver-maps script setup
  */
-function _setupScript(options: install.options) {
+function _setupScript(options: naverV3.install.options) {
   const isExist = document.getElementById("vue3-naver-maps");
   if (!isExist) {
     const URL = _createURL(options);
@@ -38,10 +38,10 @@ function _setupScript(options: install.options) {
 /**
  * create Javscript naver-maps URL
  */
-function _createURL(options: install.options) {
+function _createURL(options: naverV3.install.options) {
   const baseURL: string =
     "https://openapi.map.naver.com/openapi/v3/maps.js" + "?";
-  const category: install.category = options.category
+  const category: naverV3.install.category = options.category
     ? options.category
     : "ncp";
   const clientId: string = "ClientId=" + options.clientId;
