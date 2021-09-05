@@ -1,3 +1,14 @@
+## [0.0.5](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.0.4...v0.0.5) (2021-09-05)
+
+
+### Features
+
+* **docs:** add import type example `naverV3` ([cb3904d](https://github.com/DongKyuuuu/vue3-naver-maps/commit/cb3904dc66da1c1e2b4949a5e6d73bc0515b586a))
+* **docs:** update UI event List ([dc1269f](https://github.com/DongKyuuuu/vue3-naver-maps/commit/dc1269f86da67116b782f7b4a5449d968f004441))
+* **types:** change export types ([b1f44b1](https://github.com/DongKyuuuu/vue3-naver-maps/commit/b1f44b145e04edec2318d10492e54e4cd93f8406))
+
+
+
 ## [0.0.4](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.0.3...v0.0.4) (2021-09-05)
 
 
