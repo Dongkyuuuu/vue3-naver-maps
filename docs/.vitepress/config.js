@@ -11,11 +11,13 @@ const config = {
     },
   },
 
-  plugins: [
+  head: [
     [
-      "vuepress-plugin-google-adsense",
+      "script",
       {
-        adClient: "ca-pub-9675166132883612",
+        href: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9675166132883612",
+        crossorigin: "anonymous",
+        async: "",
       },
     ],
   ],
