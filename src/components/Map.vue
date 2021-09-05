@@ -14,7 +14,6 @@ import {
   onUnmounted,
   watchEffect,
   provide,
-  computed,
 } from "vue";
 import { useMapInitOptions, naverMapObject } from "../utils";
 import type { naverV3 } from "../types";
@@ -27,6 +26,7 @@ export default defineComponent({
     height: { type: String, default: "400px" },
     mapOptions: {
       type: Object as PropType<naverV3.mapOptions>,
+      default: { maxZoom: 21, minZoom: 0 },
     },
     initLayers: {
       type: Array as PropType<naverV3.initLayer[]>,
@@ -37,20 +37,15 @@ export default defineComponent({
     const map = ref<naver.maps.Map | null>(null);
     const mapRef = ref<HTMLDivElement | null>(null);
     const { width, height, mapOptions, initLayers } = toRefs(props);
-    const { mapLayers } = useMapInitOptions();
+    const { mapSettings, mapLayers } = useMapInitOptions();
 
     provide(naverMapObject, map);
 
-    const mapOptionsData = computed(() =>
-      mapOptions!.value ? mapOptions!.value : ""
-    );
-
     const createMap = () => {
       map.value = new window.naver.maps.Map(mapRef.value!, {
-        ...mapOptionsData.value,
+        ...mapSettings(mapOptions.value),
+        ...mapLayers(initLayers.value),
       });
-
-      map.value.setOptions("mapTypes", mapLayers(initLayers.value));
       emit("onLoad", map.value);
     };
 
@@ -64,9 +59,9 @@ export default defineComponent({
       if (!map.value) return;
 
       map.value!.setOptions({
-        ...mapOptionsData.value,
+        ...mapSettings(mapOptions.value),
+        ...mapLayers(initLayers.value),
       });
-      map.value.setOptions("mapTypes", mapLayers(initLayers.value));
     });
 
     onMounted(() =>

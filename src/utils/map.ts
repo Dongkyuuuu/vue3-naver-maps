@@ -21,14 +21,38 @@ export function useMapInitOptions() {
       JAPANESE: "lja",
     };
 
-    return new window.naver.maps.MapTypeRegistry({
-      normal: window.naver.maps.NaverStyleMapTypeOptions.getNormalMap({
-        overlayType: initLayers.map((layer) => layers[layer]).join("."),
+    return {
+      mapTypes: new window.naver.maps.MapTypeRegistry({
+        normal: window.naver.maps.NaverStyleMapTypeOptions.getNormalMap({
+          overlayType: initLayers.map((layer) => layers[layer]).join("."),
+        }),
       }),
-    });
+    };
   };
+
+  /**
+   * set mapOptions
+   */
+  function mapSettings(mapOptions: naverV3.mapOptions) {
+    const settings: naverV3.mapOptions = {
+      ...mapOptions,
+    };
+
+    if (
+      typeof mapOptions.latitude! === "number" &&
+      typeof mapOptions.longitude!
+    ) {
+      settings.center = new window.naver.maps.LatLng(
+        mapOptions.latitude!,
+        mapOptions.longitude!
+      );
+    }
+
+    return settings;
+  }
 
   return {
     mapLayers,
+    mapSettings,
   };
 }
