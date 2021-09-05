@@ -61,12 +61,12 @@ const config = {
                 link: "/guide/",
               },
               {
-                text: "naver-map",
-                link: "/guide/componentMap",
+                text: "Maps",
+                link: "/guide/Maps",
               },
               {
-                text: "naver-marker",
-                link: "/guide/componentMarker",
+                text: "Marker",
+                link: "/guide/Marker",
               },
             ],
           },

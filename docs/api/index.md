@@ -69,7 +69,7 @@ app
   .mount("#app");
 ```
 
-## naver-map
+## NaverMaps
 
 ### width
 
@@ -130,7 +130,7 @@ app
 
 컴포넌트에서 생성한 지도 객체를 반환 합니다. 반환받은 네이버 맵 객체를 통해 지도를 설정 할 수 있습니다.
 
-## naver-marker
+## NaverMarker
 
 ### latitude
 

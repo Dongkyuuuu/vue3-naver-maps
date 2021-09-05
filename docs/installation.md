@@ -37,3 +37,19 @@ const app = createApp(App);
 
 app.use(naver, { clientId: "your clientId" }).mount("#app");
 ```
+
+```vue
+<!-- your component -->
+<template>
+  <naver-maps> ... </naver-maps>
+</template>
+
+<script>
+import { NaverMaps } from "vue3-naver-maps";
+
+export default {
+  components: { NaverMaps },
+  setup: () => {},
+};
+</script>
+```

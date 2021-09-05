@@ -4,11 +4,9 @@
 본 문서의 모든 예시는 `Composition API`로 작성되어 있습니다. `Options API`도 naver 객체를 반환받아 정상적으로 사용 가능합니다.
 :::
 
-타입스크립트로 프로젝트를 진행하는 경우, `@types/navermaps`가 필수적으로 설치되어 있어야 합니다. 본 프로젝트에서는 사용되는 타입 정의들은 `naverV3` 호출을 통해 이용 가능합니다.
+제공하는 컴포넌트를 사용하는 경우, `vue3-naver-maps`에서 컴포넌트를 호출하여 사용 가능합니다. `NaverMaps` 컴포넌트가 있어야 다른 컴포넌트도 사용 가능 합니다.
 
-```ts
-import type { naverV3 } from "vue3-naver-maps";
-```
+타입스크립트 프로젝트를 이용하는 경우, [타입스크립트](../types/define.md)를 참조해주세요.
 
 ## naver 객체
 
@@ -16,18 +14,20 @@ import type { naverV3 } from "vue3-naver-maps";
 
 ```vue
 <template>
-  <naver-map @onLoad="onLoadMap($evnet)"> </naver-map>
+  <naver-maps @onLoad="onLoadMap($evnet)"> </naver-maps>
 </template>
 
 <script>
 import { ref } from "vue";
+import { NaverMaps } from "vue3-naver-maps";
 
 export default {
+  components: { NaverMaps },
   setup: () => {
     const map = ref(null);
     const onLoadMap = (mapObject) => {
       map.value = mapObject; // map에 반환된 객체 저장
-      map.value.getOptions();
+      map.value.setCenter(new window.naver.maps.LatLng(36, 127)); // 지도 중앙 변경
     };
 
     return {
@@ -76,7 +76,7 @@ const LatLng = new window.naver.maps.LatLng(37, 127);
 - twofingertap
 - doubletap
 
-#### `naver-map`에서만 사용가능
+#### `NaverMaps`에서만 사용가능
 
 - addLayer
 - bounds_changed

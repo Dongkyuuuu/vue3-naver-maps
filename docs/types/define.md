@@ -1,10 +1,16 @@
 # 타입정의
 
+타입스크립트로 프로젝트를 진행하는 경우, `@types/navermaps`가 필수적으로 설치되어 있어야 합니다. 타입 정의들은 `naverV3` 호출을 통해 이용 가능합니다.
+
 ## naverV3
 
-본 라이브러리에서 제공하는 `naverV3` 네임스페이스 입니다.
+`vue3-naver-maps`에서 `naverV3` 타입정의를 호출합니다.
 
-### initLayer
+```ts
+import type { naverV3 } from "vue3-naver-maps";
+```
+
+### **initLayer**
 
 지도 레이어 생성에 사용 됩니다.
 
