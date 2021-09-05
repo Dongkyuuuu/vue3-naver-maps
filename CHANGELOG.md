@@ -1,3 +1,12 @@
+## [0.0.4](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.0.3...v0.0.4) (2021-09-05)
+
+
+### Features
+
+* **UIEvent:** add naver `UI event ([a63a518](https://github.com/DongKyuuuu/vue3-naver-maps/commit/a63a518008480bd470a986e23e7a8b2c4a331ab7))
+
+
+
 ## [0.0.3](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.0.2...v0.0.3) (2021-09-05)
 
 
