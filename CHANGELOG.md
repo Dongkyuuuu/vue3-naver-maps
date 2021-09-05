@@ -1,3 +1,12 @@
+## [0.0.3](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.0.2...v0.0.3) (2021-09-05)
+
+
+### Bug Fixes
+
+* **Map:** mapOptions init center position bug fix ([a691274](https://github.com/DongKyuuuu/vue3-naver-maps/commit/a69127435367329d360d73ababaeec2eabd53558))
+
+
+
 ## [0.0.2](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.0.1...v0.0.2) (2021-09-04)
 
 
