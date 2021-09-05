@@ -6,7 +6,7 @@
 
 타입스크립트로 프로젝트를 진행하는 경우, `@types/navermaps`가 필수적으로 설치되어 있어야 합니다. 본 프로젝트에서는 사용되는 타입 정의들은 `naverV3` 호출을 통해 이용 가능합니다.
 
-```js
+```ts
 import type { naverV3 } from "vue3-naver-maps";
 ```
 
