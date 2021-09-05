@@ -15,11 +15,11 @@ import {
   PropType,
 } from "vue";
 import type { naverV3 } from "../types";
-import { naverMapObject } from "../utils";
+import { naverMapObject, addEventMarker, UI_EVENT } from "../utils";
 
 export default defineComponent({
   name: "Marker",
-  emits: ["onLoad"],
+  emits: ["onLoad", ...UI_EVENT],
   props: {
     latitude: { type: Number, required: true },
     longitude: { type: Number, required: true },
@@ -58,7 +58,8 @@ export default defineComponent({
       });
       // set htmlIcon
       createIcon() ? marker.value.setIcon(createIcon()!) : "";
-
+      // add marker UI event
+      addEventMarker(emit, marker.value);
       emit("onLoad", marker.value);
     };
 

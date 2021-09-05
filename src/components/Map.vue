@@ -15,12 +15,17 @@ import {
   watchEffect,
   provide,
 } from "vue";
-import { useMapInitOptions, naverMapObject } from "../utils";
+import {
+  useMapInitOptions,
+  naverMapObject,
+  addEventMap,
+  UI_EVENT_MAP,
+} from "../utils";
 import type { naverV3 } from "../types";
 
 export default defineComponent({
   name: "Map",
-  emits: ["onLoad"],
+  emits: ["onLoad", ...UI_EVENT_MAP],
   props: {
     width: { type: String, default: "400px" },
     height: { type: String, default: "400px" },
@@ -46,6 +51,8 @@ export default defineComponent({
         ...mapSettings(mapOptions.value),
         ...mapLayers(initLayers.value),
       });
+      // add map UI event
+      addEventMap(emit, map.value);
       emit("onLoad", map.value);
     };
 
