@@ -5,7 +5,11 @@ footer: MIT Licensed | Copyright © 2021-present DongKyuuuu
 
 # 소개
 
-::: warning 주의
+::: info 알림
+사용방법이 변경 되었습니다. v0.1.0 이상 버전을 사용해주세요!
+:::
+
+::: warning
 WIP: 현재 기능추가가 되고 있는 단계입니다. 자세한 업데이트 일정을 확인하고 싶다면, [Update Roadmap](https://github.com/DongKyuuuu/vue3-naver-maps/issues/3)을 확인해주세요!
 :::
 

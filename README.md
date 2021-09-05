@@ -8,6 +8,8 @@
 
 업데이트에 대한 자세한 현황은 [Update Roadmap](https://github.com/DongKyuuuu/vue3-naver-maps/issues/3)에서 확인 가능합니다.
 
+사용방법이 변경 되었습니다. `v0.1.0` 이상의 버전을 사용해주세요.
+
 ## Introduce
 
 `vue3-naver-maps`는 `NAVER 지도 API v3` Vue3에서 간편하게 사용하기 위해 작성 된 라이브러리 입니다.
