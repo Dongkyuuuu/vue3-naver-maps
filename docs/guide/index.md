@@ -4,7 +4,11 @@
 본 문서의 모든 예시는 `Composition API`로 작성되어 있습니다. `Options API`도 naver 객체를 반환받아 정상적으로 사용 가능합니다.
 :::
 
-타입스크립트로 프로젝트를 진행하는 경우, `@types/navermaps`가 필수적으로 설치되어 있어야 합니다. 본 프로젝트에서는 사용되는 타입 정의들은 글로벌 타입 `naverV3`를 통해 이용 가능합니다.
+타입스크립트로 프로젝트를 진행하는 경우, `@types/navermaps`가 필수적으로 설치되어 있어야 합니다. 본 프로젝트에서는 사용되는 타입 정의들은 `naverV3` 호출을 통해 이용 가능합니다.
+
+```js
+import type { naverV3 } from "vue3-naver-maps";
+```
 
 ## naver 객체
 
