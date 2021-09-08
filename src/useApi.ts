@@ -1,7 +1,6 @@
-// import { inject, InjectionKey } from "vue";
-// import type { useMap as useMapType } from "./apis";
+import { inject } from "vue";
+import { useMapkey } from "./injectionKeys";
 
-// export function useMap() {
-//   const mapSymbol: InjectionKey<useMapType> = Symbol("[vue3-naver-maps]useMap");
-//   return inject(mapSymbol);
-// }
+export function useMap() {
+  return inject(useMapkey)!;
+}

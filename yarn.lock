@@ -5145,16 +5145,16 @@ resolve@~1.19.0:
   languageName: node
   linkType: hard
 
-"vue-tsc@npm:^0.2.2":
-  version: 0.2.3
-  resolution: "vue-tsc@npm:0.2.3"
+"vue-tsc@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "vue-tsc@npm:0.3.0"
   dependencies:
     vscode-vue-languageservice: ^0.27.0
   peerDependencies:
     typescript: "*"
   bin:
     vue-tsc: bin/vue-tsc.js
-  checksum: 493ae110b52147d26816cabe1cae45574e69dfd119a8723e0c3e76328412d351bd09659ad0b9461e7e70d2593b00eaf97a0161a850a70b19a6f817b5cd07b03f
+  checksum: f8cf410ab455eb2fd66b2266dfc0ca2ad160b444dc3e3cffde4664b9b65136da636fb9a4aa7d09866e05c3eb874b816bcce2a7938867fadbaa6ad082b9684311
   languageName: node
   linkType: hard
 
@@ -5179,7 +5179,7 @@ resolve@~1.19.0:
     vite: ^2.5.1
     vitepress: ^0.17.0
     vue: 3.0.0
-    vue-tsc: ^0.2.2
+    vue-tsc: ^0.3.0
   peerDependencies:
     vue: ^3.0.0
   languageName: unknown

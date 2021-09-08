@@ -1,103 +1,9 @@
-export interface useMapMethods {
-  setLayerTypeId(typeId: string): void;
-
-  addPane(name: string, elementOrZIndex: HTMLElement | number): void;
-
-  destroy(): void;
-
-  fitBounds(
-    bounds:
-      | naver.maps.Bounds
-      | naver.maps.BoundsLiteral
-      | naver.maps.ArrayOfCoords
-      | naver.maps.ArrayOfCoordsLiteral,
-    margin: number
-  ): void;
-
-  morph(
-    coord: naver.maps.Coord | naver.maps.CoordLiteral,
-    zoom?: number,
-    transitionOptions?: naver.maps.TransitionOptions
-  ): void;
-
-  panTo(
-    coord: naver.maps.Coord | naver.maps.CoordLiteral,
-    transitionOptions: naver.maps.TransitionOptions
-  ): void;
-
-  panToBounds(
-    bounds: naver.maps.Bounds | naver.maps.BoundsLiteral,
-    transitionOptions: naver.maps.TransitionOptions,
-    margin: naver.maps.Margin
-  ): void;
-
-  panBy(x: number, y: number): void;
-
-  refresh(noEffect: boolean): void;
-
-  removePane(name: string): void;
-
-  updateBy(
-    coord: naver.maps.Coord | naver.maps.CoordLiteral,
-    zoom: number
-  ): void;
-
-  zoomBy(
-    deltaZoom: number,
-    zoomOrigin: naver.maps.Coord | naver.maps.CoordLiteral | undefined,
-    effect: boolean
-  ): void;
-}
-
-export interface useMapGetterMethods {
-  getBounds(): naver.maps.Bounds;
-
-  getCenter(): naver.maps.Coord;
-
-  getCenterPoint(): naver.maps.Coord;
-
-  getElement(): HTMLElement;
-
-  getMapTypeId(): string;
-
-  getOptions(key: string | undefined): any;
-
-  getPanes(): naver.maps.MapPanes;
-
-  getPrimitiveProjection(): naver.maps.Projection;
-
-  getProjection(): naver.maps.MapSystemProjection;
-
-  getSize(): naver.maps.Size;
-
-  getZoom(): number;
-}
-
-export interface useMapSetterMethods {
-  setCenter(
-    latOrLatLng: naver.maps.LatLng | naver.maps.LatLngLiteral | number,
-    lng: number
-  ): void;
-
-  setCenterPoint(point: naver.maps.Point | naver.maps.PointLiteral): void;
-
-  setMapTypeId(type: "NORMAL" | "TERRAIN" | "SATELLITE" | "HYBRID"): void;
-
-  setOptions(
-    optionsOrKey: naver.maps.MapOptions | string,
-    value?: naver.maps.MapOptions | null
-  ): void;
-
-  setSize(size: naver.maps.Size | naver.maps.SizeLiteral): void;
-
-  setZoom(level: number, useEffect: boolean): void;
-}
-
-export interface useMap
-  extends useMapMethods,
-    useMapGetterMethods,
-    useMapSetterMethods {}
-
+import type {
+  useMapGetterMethods,
+  useMapMethods,
+  useMapSetterMethods,
+  useMap,
+} from "../types/mapAPI";
 /**
  * naver.maps.Map Methods
  */
@@ -120,7 +26,7 @@ function _useMapMethods(map: naver.maps.Map): useMapMethods {
       | naver.maps.BoundsLiteral
       | naver.maps.ArrayOfCoords
       | naver.maps.ArrayOfCoordsLiteral,
-    margin: number
+    margin?: number
   ) => {
     map.fitBounds(bounds, margin);
   };
@@ -146,7 +52,7 @@ function _useMapMethods(map: naver.maps.Map): useMapMethods {
   const panToBounds = (
     bounds: naver.maps.Bounds | naver.maps.BoundsLiteral,
     transitionOptions: naver.maps.TransitionOptions,
-    margin: naver.maps.Margin
+    margin?: naver.maps.Margin
   ) => {
     map.panToBounds(bounds, transitionOptions, margin);
   };
@@ -155,7 +61,7 @@ function _useMapMethods(map: naver.maps.Map): useMapMethods {
     map.panBy(new window.naver.maps.Point(x, y));
   };
 
-  const refresh = (noEffect: boolean = false) => {
+  const refresh = (noEffect?: boolean) => {
     map.refresh(noEffect);
   };
 
@@ -172,11 +78,8 @@ function _useMapMethods(map: naver.maps.Map): useMapMethods {
 
   const zoomBy = (
     deltaZoom: number,
-    zoomOrigin:
-      | naver.maps.Coord
-      | naver.maps.CoordLiteral
-      | undefined = undefined,
-    effect: boolean = false
+    zoomOrigin?: naver.maps.Coord | naver.maps.CoordLiteral,
+    effect?: boolean
   ) => {
     if (zoomOrigin) map.zoomBy(deltaZoom, zoomOrigin, effect);
     else map.zoomBy(deltaZoom);
@@ -222,7 +125,7 @@ function _useMapGetterMethods(map: naver.maps.Map): useMapGetterMethods {
     return map.getMapTypeId();
   };
 
-  const getOptions = (key: string | undefined = undefined): any => {
+  const getOptions = (key?: string): any => {
     return key ? map.getOptions(key) : map.getOptions();
   };
 
@@ -267,7 +170,7 @@ function _useMapGetterMethods(map: naver.maps.Map): useMapGetterMethods {
 function _useMapSetterMethods(map: naver.maps.Map): useMapSetterMethods {
   const setCenter = (
     latOrLatLng: naver.maps.LatLng | naver.maps.LatLngLiteral | number,
-    lng: number = 0
+    lng: number | undefined = 0
   ) => {
     const center = isNaN(latOrLatLng as number)
       ? latOrLatLng
@@ -291,7 +194,7 @@ function _useMapSetterMethods(map: naver.maps.Map): useMapSetterMethods {
 
   const setOptions = (
     optionsOrKey: naver.maps.MapOptions | string,
-    value: naver.maps.MapOptions | null = null
+    value?: naver.maps.MapOptions | null
   ) => {
     if (map) {
       if (value) map.setOptions(optionsOrKey, value);
@@ -303,7 +206,7 @@ function _useMapSetterMethods(map: naver.maps.Map): useMapSetterMethods {
     map.setSize(size);
   };
 
-  const setZoom = (level: number, useEffect: boolean = false) => {
+  const setZoom = (level: number, useEffect?: boolean) => {
     map.setZoom(level, useEffect);
   };
 

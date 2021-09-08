@@ -5,12 +5,14 @@ footer: MIT Licensed | Copyright © 2021-present DongKyuuuu
 
 # 소개
 
-::: info 알림
-사용방법이 변경 되었습니다. v0.1.0 이상 버전을 사용해주세요!
-:::
+![GitHub package.json version](https://img.shields.io/github/package-json/v/dongkyuuuu/vue3-naver-maps)&nbsp;
+![npm bundle size](https://img.shields.io/bundlephobia/min/vue3-naver-maps)&nbsp;
+![NPM](https://img.shields.io/npm/l/vue3-naver-maps)
 
 ::: warning
-WIP: 현재 기능추가가 되고 있는 단계입니다. 자세한 업데이트 일정을 확인하고 싶다면, [Update Roadmap](https://github.com/DongKyuuuu/vue3-naver-maps/issues/3)을 확인해주세요!
+아직 개발 진행중인 단계 입니다. `v1.0.0` 버전 업데이트 전까지 **항상 최신버전을 유지해주세요!**
+
+자세한 업데이트 일정을 확인하고 싶다면, [Update Roadmap](https://github.com/DongKyuuuu/vue3-naver-maps/issues/3)을 확인해주세요.
 :::
 
 `vue3-naver-maps`는 네이버에서 제공하는 `Naver Maps JavaScript API v3`를 간편하게 Vue.js 컴포넌트로 사용하기 위해서 제공하는 라이브러리 입니다. 컴포넌트 호출 후, 해당 Object를 전달받아 직접 제어할 수 있습니다.

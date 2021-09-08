@@ -15,12 +15,8 @@ import {
   watchEffect,
   provide,
 } from "vue";
-import {
-  useMapInitOptions,
-  naverMapObject,
-  addEventMap,
-  UI_EVENT_MAP,
-} from "../utils";
+import { useMapInitOptions, addEventMap, UI_EVENT_MAP } from "../utils";
+import { naverMapObject } from "../injectionKeys";
 import type { naverV3 } from "../types";
 
 export default defineComponent({

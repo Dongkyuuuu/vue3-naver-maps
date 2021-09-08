@@ -1,3 +1,5 @@
+export { useMap } from "./mapAPI";
+
 export declare namespace naverV3 {
   namespace install {
     type category = "gov" | "ncp" | "fin";

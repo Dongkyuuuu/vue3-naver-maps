@@ -14,7 +14,8 @@ import {
   toRefs,
   PropType,
 } from "vue";
-import { naverMapObject, addEventMarker, UI_EVENT } from "../utils";
+import { addEventMarker, UI_EVENT } from "../utils";
+import { naverMapObject } from "../injectionKeys";
 import type { naverV3 } from "../types";
 
 export default defineComponent({
