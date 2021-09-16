@@ -24,14 +24,13 @@
 <script lang="ts">
 import { defineComponent, reactive, ref, computed } from "vue";
 import type { naverV3 } from "../dist/vue3-naver-maps";
-import { NaverMaps, NaverMarker, useMap } from "../dist/vue3-naver-maps";
+import { NaverMaps, NaverMarker } from "../dist/vue3-naver-maps";
 
 export default defineComponent({
   components: { NaverMaps, NaverMarker },
   name: "App",
   setup: (props, { emit }) => {
     const map = ref<naver.maps.Map | null>(null);
-    const { setZoom } = useMap();
     const mapSize = reactive({
       width: "400px",
       height: "400px",
@@ -62,9 +61,7 @@ export default defineComponent({
       console.log(event);
     };
 
-    const change = () => {
-      setZoom(5);
-    };
+    const change = () => {};
     return {
       mapOptions,
       initLayers,

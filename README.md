@@ -38,4 +38,4 @@ $ yarn add vue3-naver-maps
 
 ## Contributing Guide
 
-현재 `vue3-naver-maps`는 계속 작성해 나가고 있습니다. 자유롭게 [Issue](https://github.com/DongKyuuuu/vue3-naver-maps/issues) 혹은 [Pull Request](https://github.com/DongKyuuuu/vue3-naver-maps/pulls)를 통해 기여 가능합니다. **여러분들의 기여를 두 팔 벌려 환영합니다 👍**
+현재 `vue3-naver-maps`는 계속 작성해 나가고 있습니다. 자유롭게 [Issue](https://github.com/DongKyuuuu/vue3-naver-maps/issues) 혹은 [Pull Request](https://github.com/DongKyuuuu/vue3-naver-maps/pulls)를 통해 기여 가능합니다. 👍

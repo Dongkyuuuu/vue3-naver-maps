@@ -11,17 +11,6 @@ const config = {
     },
   },
 
-  head: [
-    [
-      "script",
-      {
-        href: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9675166132883612",
-        crossorigin: "anonymous",
-        async: "",
-      },
-    ],
-  ],
-
   themeConfig: {
     repo: "DongKyuuuu/vue3-naver-maps",
     docsRepo: "DongKyuuuu/vue3-naver-maps",

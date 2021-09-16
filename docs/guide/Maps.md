@@ -4,6 +4,10 @@
 
 ## 예시
 
+\
+<naver-maps width="100%" :mapOptions="{latitude: 37.56663888630603, longitude: 126.97838310403904, zoom: 16, zoomControl: false, zoomControlOptions: { position: 'TOP_RIGHT' }}">
+</naver-maps>
+
 ```vue
 <template>
   <naver-maps
@@ -25,12 +29,11 @@ export default {
   setup: () => {
     const map = ref(null);
     const mapOptions = {
-      latitude: 36, // 지도 중앙 위도
-      longitude: 126, // 지도 중앙 경도
-      zoom: 12,
+      latitude: 37.56663888630603, // 지도 중앙 위도
+      longitude: 126.97838310403904, // 지도 중앙 경도
+      zoom: 16,
       zoomControl: false,
       zoomControlOptions: { position: "TOP_RIGHT" },
-      mapTypeControl: false,
     };
     const initLayers = [
       "BACKGROUND",

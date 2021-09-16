@@ -4,12 +4,17 @@
 
 ## 예시
 
+\
+<naver-maps width="100%" :mapOptions="{latitude: 37.56663888630603, longitude: 126.97838310403904, zoom: 16, zoomControl: false, zoomControlOptions: { position: 'TOP_RIGHT' }}">
+<naver-marker :latitude="37.56663888630603" :longitude="126.97838310403904" />
+</naver-maps>
+
 ```vue
 <template>
   <naver-maps>
     <naver-marker
-      :latitude="37"
-      :longitude="126"
+      :latitude="37.56663888630603"
+      :longitude="126.97838310403904"
       @click="alertMarker()"
       @onLoad="onLoadMarker($event)"
     >
