@@ -3,6 +3,17 @@ const config = {
   title: "Vue3 Naver Maps",
   description: "NaverMap component for Vue3",
   base: "/vue3-naver-maps/",
+  head: [
+    [
+      "script",
+      {
+        id: "vue3-naver-maps",
+        src: "https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=krm0ye8xno",
+        async: "",
+        defer: "",
+      },
+    ],
+  ],
   locales: {
     "/": {
       lang: "ko",
@@ -10,7 +21,6 @@ const config = {
       description: "NaverMap component for Vue3",
     },
   },
-
   themeConfig: {
     repo: "DongKyuuuu/vue3-naver-maps",
     docsRepo: "DongKyuuuu/vue3-naver-maps",
