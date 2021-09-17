@@ -1,6 +1,6 @@
 # Marker
 
-`NaverMarker` 마커를 생성하는 컴포넌트 입니다. `naver-map` 생성 이후에 생성됩니다. Vue.js의 `v-on` 이벤트를 같이 사용 가능합니다.
+`NaverMarker` 마커를 생성하는 컴포넌트 입니다. `NaverMaps` 생성 이후에 생성됩니다. Vue.js의 `v-on` 이벤트를 같이 사용 가능합니다.
 
 ## 예시
 
