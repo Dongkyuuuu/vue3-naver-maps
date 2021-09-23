@@ -25,11 +25,15 @@ const config = {
     repo: "DongKyuuuu/vue3-naver-maps",
     docsRepo: "DongKyuuuu/vue3-naver-maps",
     docsDir: "docs",
-    docsBranch: "main",
+    docsBranch: "gh-pages",
     editLinks: true,
     editLinkText:
       "이 문서에 대한 의견이 있으시거나, 문제를 발견하셨으면 제보해주세요!",
     base: "/vue3-naver-maps/",
+    algolia: {
+      apiKey: "7adde5189a3290d9fdc17f2977f984bf",
+      indexName: "vue-naver-maps",
+    },
     locales: {
       // Korean
       "/": {
