@@ -88,10 +88,10 @@ const config = {
             text: "타입스크립트",
             collapsable: false,
             children: [
-              // {
-              //   text: "타입스크립트 지원",
-              //   link: "/types/",
-              // },
+              {
+                text: "사용하기",
+                link: "/types/",
+              },
               {
                 text: "타입정의",
                 link: "/types/define",

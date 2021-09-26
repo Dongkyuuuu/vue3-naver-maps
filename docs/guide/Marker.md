@@ -15,7 +15,6 @@
     <naver-marker
       :latitude="37.56663888630603"
       :longitude="126.97838310403904"
-      @click="alertMarker()"
       @onLoad="onLoadMarker($event)"
     >
       <!-- Html Icon  -->
@@ -34,11 +33,8 @@ export default {
     const onLoadMarker = (markerObject) => {
       marker.value = markerObject;
     };
-    const alertMarker = () => {
-      console.log(marker.value);
-    };
 
-    return { onLoadMarker, alertMarker };
+    return { onLoadMarker };
   },
 };
 </script>

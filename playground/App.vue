@@ -11,8 +11,14 @@
       :longitude="126.97837068565364"
       @onLoad="loadMarker($event)"
     >
-      안녕하세요
     </naver-marker>
+    <naver-info-window
+      :marker="marker"
+      :isOpen="true"
+      style="background-color: white; padding: 8px; width: 200px; height: 100px"
+    >
+      <div>hello, InfoWindow!</div>
+    </naver-info-window>
   </naver-maps>
   <br />
   <br />
@@ -24,13 +30,18 @@
 <script lang="ts">
 import { defineComponent, reactive, ref, computed } from "vue";
 import type { naverV3 } from "../dist/vue3-naver-maps";
-import { NaverMaps, NaverMarker } from "../dist/vue3-naver-maps";
+import {
+  NaverMaps,
+  NaverMarker,
+  NaverInfoWindow,
+} from "../dist/vue3-naver-maps";
 
 export default defineComponent({
-  components: { NaverMaps, NaverMarker },
+  components: { NaverMaps, NaverMarker, NaverInfoWindow },
   name: "App",
   setup: (props, { emit }) => {
-    const map = ref<naver.maps.Map | null>(null);
+    const map = ref<naver.maps.Map>();
+    const marker = ref<naver.maps.Marker>();
     const mapSize = reactive({
       width: "400px",
       height: "400px",
@@ -54,11 +65,8 @@ export default defineComponent({
       map.value = mapObject;
       console.log("LoadMap", map.value);
     };
-    const loadMarker = (marker: naver.maps.Marker) => {
-      console.log(marker);
-    };
-    const testFunc = (event: any) => {
-      console.log(event);
+    const loadMarker = (markerObjecy: naver.maps.Marker) => {
+      marker.value = markerObjecy;
     };
 
     const change = () => {};
@@ -69,6 +77,7 @@ export default defineComponent({
       change,
       mapSize,
       map,
+      marker,
       loadMarker,
     };
   },
