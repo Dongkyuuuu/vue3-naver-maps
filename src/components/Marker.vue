@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <slot></slot>
+  <div style="display: none">
+    <div ref="markerRef">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -13,6 +15,7 @@ import {
   watchEffect,
   toRefs,
   PropType,
+  onMounted,
 } from "vue";
 import { addEventMarker, UI_EVENT } from "../utils";
 import { naverMapObject } from "../injectionKeys";
@@ -30,14 +33,14 @@ export default defineComponent({
     },
   },
   setup: (props, { emit, slots }) => {
-    const { latitude, longitude, htmlIcon } = toRefs(props);
-    const marker = ref<naver.maps.Marker | null>(null);
     const map = inject(naverMapObject)!;
+    const marker = ref<naver.maps.Marker>();
+    const markerRef = ref<HTMLDivElement>();
+    const { latitude, longitude, htmlIcon } = toRefs(props);
 
     const createIcon = (): naver.maps.HtmlIcon | null => {
-      if (typeof slots.default === "undefined") return null;
-      //@ts-ignore
-      const icon = slots.default()[0].el.parentElement;
+      const icon = markerRef.value?.innerHTML;
+      if (!icon) return null;
 
       return {
         content: icon,
@@ -68,16 +71,21 @@ export default defineComponent({
       marker.value!.setPosition(position);
     };
 
-    watchEffect(() => {
-      if (!map.value) return;
-      const position: naver.maps.LatLng = new window.naver.maps.LatLng(
-        latitude.value,
-        longitude.value
-      );
-      marker.value ? changeMarker(position) : createMarker(position);
+    onMounted(() => {
+      watchEffect(() => {
+        if (!map.value) return;
+        const position: naver.maps.LatLng = new window.naver.maps.LatLng(
+          latitude.value,
+          longitude.value
+        );
+        marker.value ? changeMarker(position) : createMarker(position);
+      });
     });
-
     onUnmounted(() => marker.value!.setMap(null));
+
+    return {
+      markerRef,
+    };
   },
 });
 </script>
