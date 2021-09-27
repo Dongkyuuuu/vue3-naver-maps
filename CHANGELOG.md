@@ -1,3 +1,22 @@
+# [0.2.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.1.0...v0.2.0) (2021-09-27)
+
+
+### Bug Fixes
+
+* **infowindow:** scroll error fix ([632c909](https://github.com/DongKyuuuu/vue3-naver-maps/commit/632c909513c455b5881e44b961affd097168a0de))
+
+
+### Features
+
+* change Injection Symbols ([9a23f92](https://github.com/DongKyuuuu/vue3-naver-maps/commit/9a23f9216d942eb4f955c20777ebc66607d64fe9))
+* **docs:** add example components ([8f5eab1](https://github.com/DongKyuuuu/vue3-naver-maps/commit/8f5eab13ba854648593a276c918b44ed5ccf9979))
+* **docs:** change init module ([0918032](https://github.com/DongKyuuuu/vue3-naver-maps/commit/09180329a276e695d03801c9e1b01ea5fbdbb587))
+* **infowindow:** add Infowindow component ([0c8e311](https://github.com/DongKyuuuu/vue3-naver-maps/commit/0c8e3112848745e1e486747ba43b953f36986fa1))
+* **infowindow:** register infowindow components ([5542b2e](https://github.com/DongKyuuuu/vue3-naver-maps/commit/5542b2e1daee11933eacea94d78ddd2fc325499a))
+* **marker:** Changing the slot data parsing ([692e63e](https://github.com/DongKyuuuu/vue3-naver-maps/commit/692e63efdffa92a4eba7d35001c17c7e900e88f4))
+
+
+
 # [0.1.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.0.5...v0.1.0) (2021-09-05)
 
 
