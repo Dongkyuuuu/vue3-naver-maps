@@ -85,3 +85,20 @@ export const UI_EVENT_INFOWINDOW = [
   "position_changed",
   "zIndex_changed",
 ];
+
+/**
+ * Naver Circle UI Event
+ */
+export const UI_EVENT_CIRCLE = [
+  "center_changed",
+  "click",
+  "clickable_changed",
+  "dblclick",
+  "mousedown",
+  "mouseout",
+  "mouseover",
+  "mouseup",
+  "radius_changed",
+  "visible_changed",
+  "zIndex_changed",
+];

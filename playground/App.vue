@@ -8,13 +8,19 @@
     :initLayers="initLayers"
     @onLoad="loadMap($event)"
   >
-    <naver-marker
+    <naver-circle
+      :latitude="37.566616443521745"
+      :longitude="126.97837068565364"
+      :radius="100"
+      @onLoad="loadCircle($event)"
+    ></naver-circle>
+    <!-- <naver-marker
       :latitude="37.566616443521745"
       :longitude="126.97837068565364"
       @onLoad="loadMarker($event)"
     >
-    </naver-marker>
-    <naver-info-window
+    </naver-marker> -->
+    <!-- <naver-info-window
       :marker="marker"
       :isOpen="isOpen"
       :options="infoWindowOptions"
@@ -22,7 +28,7 @@
       @onLoad="loadInfoWindow($event)"
     >
       <div>hello, InfoWindow!</div>
-    </naver-info-window>
+    </naver-info-window> -->
   </naver-maps>
   <br />
   <br />
@@ -38,15 +44,17 @@ import {
   NaverMaps,
   NaverMarker,
   NaverInfoWindow,
+  NaverCircle,
 } from "../dist/vue3-naver-maps";
 
 export default defineComponent({
-  components: { NaverMaps, NaverMarker, NaverInfoWindow },
+  components: { NaverMaps, NaverMarker, NaverInfoWindow, NaverCircle },
   name: "App",
   setup: (props, { emit }) => {
     const map = ref<naver.maps.Map>();
     const marker = ref<naver.maps.Marker>();
     const infoWindow = ref<naver.maps.InfoWindow>();
+    const circle = ref<naver.maps.Circle>();
     const infoWindowOptions = ref<naver.maps.InfoWindowOptions>();
     const isOpen = ref<boolean>(false);
     const mapSize = reactive({
@@ -56,7 +64,7 @@ export default defineComponent({
     const mapOptions = ref<naverV3.mapOptions>({
       // latitude: 36,
       // longitude: 126,
-      zoom: 12,
+      zoom: 16,
       zoomControl: false,
       zoomControlOptions: { position: "TOP_RIGHT" },
       mapTypeControl: false,
@@ -77,6 +85,10 @@ export default defineComponent({
     };
     const loadInfoWindow = (infoWindowObjevt: naver.maps.InfoWindow) => {
       infoWindow.value = infoWindowObjevt;
+    };
+    const loadCircle = (circleObject: naver.maps.Circle) => {
+      circle.value = circleObject;
+      console.log(circle.value);
     };
 
     const openInfoWindow = () => {
@@ -111,6 +123,8 @@ export default defineComponent({
       closeInfoWindow,
       isOpen,
       infoWindowOptions,
+      circle,
+      loadCircle,
     };
   },
 });
