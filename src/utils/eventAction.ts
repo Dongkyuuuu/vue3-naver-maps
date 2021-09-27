@@ -3,6 +3,7 @@ import {
   UI_EVENT_OBJECT,
   UI_EVENT_INFOWINDOW,
   UI_EVENT_CIRCLE,
+  UI_EVENT_ELLIPSE,
 } from "./eventList";
 
 export function addEvent(emit: any, target: any, name: string) {
@@ -25,4 +26,8 @@ export function addEventInfoWindow(emit: any, target: naver.maps.InfoWindow) {
 
 export function addEventCircle(emit: any, target: naver.maps.Circle) {
   UI_EVENT_CIRCLE.forEach((name) => addEvent(emit, target, name));
+}
+
+export function addEventEllipse(emit: any, target: naver.maps.Ellipse) {
+  UI_EVENT_ELLIPSE.forEach((name) => addEvent(emit, target, name));
 }

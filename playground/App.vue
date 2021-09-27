@@ -8,12 +8,16 @@
     :initLayers="initLayers"
     @onLoad="loadMap($event)"
   >
-    <naver-circle
+    <naver-ellipse
+      :bounds="ellipseBounds"
+      @onLoad="loadEllpise($event)"
+    ></naver-ellipse>
+    <!-- <naver-circle
       :latitude="37.566616443521745"
       :longitude="126.97837068565364"
       :radius="100"
       @onLoad="loadCircle($event)"
-    ></naver-circle>
+    ></naver-circle> -->
     <!-- <naver-marker
       :latitude="37.566616443521745"
       :longitude="126.97837068565364"
@@ -45,16 +49,30 @@ import {
   NaverMarker,
   NaverInfoWindow,
   NaverCircle,
+  NaverEllipse,
 } from "../dist/vue3-naver-maps";
 
 export default defineComponent({
-  components: { NaverMaps, NaverMarker, NaverInfoWindow, NaverCircle },
+  components: {
+    NaverMaps,
+    NaverMarker,
+    NaverInfoWindow,
+    NaverCircle,
+    NaverEllipse,
+  },
   name: "App",
   setup: (props, { emit }) => {
     const map = ref<naver.maps.Map>();
     const marker = ref<naver.maps.Marker>();
     const infoWindow = ref<naver.maps.InfoWindow>();
     const circle = ref<naver.maps.Circle>();
+    const ellipse = ref<naver.maps.Ellipse>();
+    const ellipseBounds = ref<naver.maps.BoundsLiteral>({
+      south: 37.566616443521745,
+      north: 38.566616443521745,
+      west: 126.97837068565364,
+      east: 127.97837068565364,
+    });
     const infoWindowOptions = ref<naver.maps.InfoWindowOptions>();
     const isOpen = ref<boolean>(false);
     const mapSize = reactive({
@@ -89,6 +107,10 @@ export default defineComponent({
     const loadCircle = (circleObject: naver.maps.Circle) => {
       circle.value = circleObject;
       console.log(circle.value);
+    };
+    const loadEllpise = (ellpiseObject: naver.maps.Ellipse) => {
+      ellipse.value = ellpiseObject;
+      console.log(ellipse.value);
     };
 
     const openInfoWindow = () => {
@@ -125,6 +147,9 @@ export default defineComponent({
       infoWindowOptions,
       circle,
       loadCircle,
+      ellipse,
+      ellipseBounds,
+      loadEllpise,
     };
   },
 });
