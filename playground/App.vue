@@ -17,6 +17,7 @@
     <naver-info-window
       :marker="marker"
       :isOpen="isOpen"
+      :options="infoWindowOptions"
       style="background-color: white; padding: 8px; width: 200px; height: 100px"
       @onLoad="loadInfoWindow($event)"
     >
@@ -46,6 +47,7 @@ export default defineComponent({
     const map = ref<naver.maps.Map>();
     const marker = ref<naver.maps.Marker>();
     const infoWindow = ref<naver.maps.InfoWindow>();
+    const infoWindowOptions = ref<naver.maps.InfoWindowOptions>();
     const isOpen = ref<boolean>(false);
     const mapSize = reactive({
       width: "400px",
@@ -79,14 +81,19 @@ export default defineComponent({
 
     const openInfoWindow = () => {
       // console.log("openAction: ", infoWindow.value);
-      infoWindow.value!.open(map.value!, marker.value!);
+      // infoWindow.value!.open(map.value!, marker.value!);
       // isOpen.value = true;
+      infoWindow.value!.open(map.value!, marker.value!);
     };
     const closeInfoWindow = () => {
       // console.log(infoWindow.value!.getMap());
-      if (infoWindow.value?.getMap()) infoWindow.value!.close();
+      // if (infoWindow.value?.getMap()) infoWindow.value!.close();
       // infoWindow.value!.setMap(null);
       // isOpen.value = false;
+      infoWindowOptions.value = {
+        content: "dsjhfkjdhf",
+        anchorSkew: false,
+      };
     };
 
     const change = () => {};
@@ -103,6 +110,7 @@ export default defineComponent({
       openInfoWindow,
       closeInfoWindow,
       isOpen,
+      infoWindowOptions,
     };
   },
 });

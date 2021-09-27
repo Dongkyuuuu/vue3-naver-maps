@@ -54,12 +54,13 @@ export default defineComponent({
         )
       );
 
-      /**
-       * add Infowindow Event
-       */
+      // add Infowindow Event
       addEventInfoWindow(emit, infoWindow.value);
       emit("onLoad", infoWindow.value!);
       statusInfoWindow(isOpen.value);
+    };
+    const setInfoWindow = () => {
+      infoWindow.value!.setOptions(options.value);
     };
 
     onMounted(() => {
@@ -68,7 +69,7 @@ export default defineComponent({
        */
       watchEffect(() => {
         if (!map.value || !marker!.value) return;
-        createInfoWindow();
+        infoWindow.value ? setInfoWindow() : createInfoWindow();
       });
 
       /**
