@@ -86,6 +86,18 @@ const config = {
                 text: "InfoWindow",
                 link: "/guide/Infowindow",
               },
+              {
+                text: "Circle",
+                link: "/guide/Circle",
+              },
+              {
+                text: "Ellipse",
+                link: "/guide/Ellipse",
+              },
+              {
+                text: "Rectangle",
+                link: "/guide/Rectangle",
+              },
             ],
           },
           {

@@ -6,17 +6,24 @@
     :initLayers="initLayers"
     @onLoad="onLoadMap($event)"
   >
+    <naver-circle
+      :latitude="37.56663888630603"
+      :longitude="126.97838310403904"
+      :radius="350"
+      @onLoad="onLoadCircle($event)"
+    />
   </naver-maps>
 </template>
 
 <script>
 import { ref } from "vue";
-import { NaverMaps } from "../../dist/vue3-naver-maps";
+import { NaverMaps, NaverCircle } from "../../dist/vue3-naver-maps";
 
 export default {
-  components: { NaverMaps },
+  components: { NaverMaps, NaverCircle },
   setup: () => {
     const map = ref();
+    const circle = ref();
     const mapOptions = {
       latitude: 37.56663888630603, // 지도 중앙 위도
       longitude: 126.97838310403904, // 지도 중앙 경도
@@ -35,12 +42,16 @@ export default {
     const onLoadMap = (mapObject) => {
       map.value = mapObject;
     };
+    const onLoadCircle = (circleObject) => {
+      circle.value = circleObject;
+    };
 
     return {
       map,
       mapOptions,
       initLayers,
       onLoadMap,
+      onLoadCircle,
     };
   },
 };

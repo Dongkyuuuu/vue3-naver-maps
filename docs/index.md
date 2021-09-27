@@ -25,7 +25,10 @@ footer: MIT Licensed | Copyright © 2021-present DongKyuuuu
 
 - `NaverMaps` : 네이버 지도 컴포넌트
 - `NaverMarker` : 마커 컴포넌트
-- `NaverInfoWindow` : 인포윈도우 컴포넌트
+- `NaverInfoWindow` : 정보창 컴포넌트
+- `NaverCircle` : 원 컴포넌트
+- `NaverEllipse` : 타원 컴포넌트
+- `NaverRectangle` : 사각형 컴포넌트
 
 ## 사용
 

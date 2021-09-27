@@ -15,7 +15,7 @@ import { naverMapObject } from "../injectionKeys";
 import { UI_EVENT_ELLIPSE, addEventEllipse } from "../utils";
 
 export default defineComponent({
-  name: "Ellpise",
+  name: "Ellipse",
   emits: [...UI_EVENT_ELLIPSE, "onLoad"],
   props: {
     bounds: {
