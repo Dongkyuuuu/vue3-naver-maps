@@ -8,10 +8,14 @@
     :initLayers="initLayers"
     @onLoad="loadMap($event)"
   >
-    <naver-ellipse
+    <naver-rectangle
+      :bounds="rectangleBounds"
+      @onLoad="loadRectangle($event)"
+    ></naver-rectangle>
+    <!-- <naver-ellipse
       :bounds="ellipseBounds"
       @onLoad="loadEllpise($event)"
-    ></naver-ellipse>
+    ></naver-ellipse> -->
     <!-- <naver-circle
       :latitude="37.566616443521745"
       :longitude="126.97837068565364"
@@ -50,6 +54,7 @@ import {
   NaverInfoWindow,
   NaverCircle,
   NaverEllipse,
+  NaverRectangle,
 } from "../dist/vue3-naver-maps";
 
 export default defineComponent({
@@ -59,6 +64,7 @@ export default defineComponent({
     NaverInfoWindow,
     NaverCircle,
     NaverEllipse,
+    NaverRectangle,
   },
   name: "App",
   setup: (props, { emit }) => {
@@ -68,6 +74,13 @@ export default defineComponent({
     const circle = ref<naver.maps.Circle>();
     const ellipse = ref<naver.maps.Ellipse>();
     const ellipseBounds = ref<naver.maps.BoundsLiteral>({
+      south: 37.566616443521745,
+      north: 38.566616443521745,
+      west: 126.97837068565364,
+      east: 127.97837068565364,
+    });
+    const rectangle = ref<naver.maps.Rectangle>();
+    const rectangleBounds = ref<naver.maps.BoundsLiteral>({
       south: 37.566616443521745,
       north: 38.566616443521745,
       west: 126.97837068565364,
@@ -112,6 +125,10 @@ export default defineComponent({
       ellipse.value = ellpiseObject;
       console.log(ellipse.value);
     };
+    const loadRectangle = (rectangleObject: naver.maps.Rectangle) => {
+      rectangle.value = rectangleObject;
+      console.log(rectangle.value);
+    };
 
     const openInfoWindow = () => {
       // console.log("openAction: ", infoWindow.value);
@@ -150,6 +167,9 @@ export default defineComponent({
       ellipse,
       ellipseBounds,
       loadEllpise,
+      rectangle,
+      rectangleBounds,
+      loadRectangle,
     };
   },
 });

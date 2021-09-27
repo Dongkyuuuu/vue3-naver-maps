@@ -104,9 +104,25 @@ export const UI_EVENT_CIRCLE = [
 ];
 
 /**
- * Naver Circle UI Event
+ * Naver Ellipse UI Event
  */
 export const UI_EVENT_ELLIPSE = [
+  "bounds_changed",
+  "click",
+  "clickable_changed",
+  "dblclick",
+  "mousedown",
+  "mouseout",
+  "mouseover",
+  "mouseup",
+  "visible_changed",
+  "zIndex_changed",
+];
+
+/**
+ * Naver Rectangle UI Event
+ */
+export const UI_EVENT_RECTANGLE = [
   "bounds_changed",
   "click",
   "clickable_changed",
