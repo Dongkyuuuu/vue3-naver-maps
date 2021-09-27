@@ -49,3 +49,35 @@ export default {
 :::info 알림
 HtmlIcon을 사용하지 않으면 네이버 기본 마커 스타일이 적용 됩니다.
 :::
+
+## UI 이벤트
+
+### Mouse
+
+- mousedown
+- mouseup
+- click
+- dblclick
+- rightclick
+- mouseover
+- mouseout
+- mousemove
+
+### Drag
+
+- dragstart
+- drag
+- dragen
+
+### Touch
+
+- touchstart
+- touchmove
+- touchend
+- pinchstart
+- pinch
+- pinchend
+- tap
+- longtap
+- twofingertap
+- doubletap

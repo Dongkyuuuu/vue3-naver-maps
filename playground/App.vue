@@ -16,6 +16,7 @@
     </naver-marker>
     <naver-info-window
       :marker="marker"
+      :isOpen="isOpen"
       style="background-color: white; padding: 8px; width: 200px; height: 100px"
       @onLoad="loadInfoWindow($event)"
     >
@@ -45,7 +46,7 @@ export default defineComponent({
     const map = ref<naver.maps.Map>();
     const marker = ref<naver.maps.Marker>();
     const infoWindow = ref<naver.maps.InfoWindow>();
-    const isOpen = ref<boolean>(true);
+    const isOpen = ref<boolean>(false);
     const mapSize = reactive({
       width: "400px",
       height: "400px",

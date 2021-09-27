@@ -18,11 +18,12 @@ import {
   onMounted,
   watch,
 } from "vue";
+import { addEventInfoWindow, UI_EVENT_INFOWINDOW } from "../utils";
 import { naverMapObject } from "../injectionKeys";
 
 export default defineComponent({
   name: "InfoWindow",
-  emits: ["onLoad"],
+  emits: ["onLoad", ...UI_EVENT_INFOWINDOW],
   props: {
     marker: {
       type: Object as PropType<naver.maps.Marker>,
@@ -42,8 +43,6 @@ export default defineComponent({
     const statusInfoWindow = (open: boolean) => {
       if (open) infoWindow.value!.open(map.value!, marker!.value!);
       else infoWindow.value!.close();
-
-      emit("onLoad", infoWindow.value);
     };
     const createInfoWindow = () => {
       infoWindow.value = new window.naver.maps.InfoWindow(
@@ -55,6 +54,10 @@ export default defineComponent({
         )
       );
 
+      /**
+       * add Infowindow Event
+       */
+      addEventInfoWindow(emit, infoWindow.value);
       emit("onLoad", infoWindow.value!);
       statusInfoWindow(isOpen.value);
     };

@@ -26,3 +26,7 @@ footer: MIT Licensed | Copyright © 2021-present DongKyuuuu
 - `NaverMaps` : 네이버 지도 컴포넌트
 - `NaverMarker` : 마커 컴포넌트
 - `NaverInfoWindow` : 인포윈도우 컴포넌트
+
+## 사용
+
+VSCode Extension인 [`Vue Language Features (Volar)`](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)와 타입스크립트를 사용하면, IntelliSense를 통해 편하게 개발 가능합니다. 사용하길 권장합니다!

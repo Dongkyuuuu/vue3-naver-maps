@@ -66,3 +66,58 @@ export default {
 :::info 알림
 기본 값은 네이버에서 제공하는 기본 값으로 설정 됩니다.
 :::
+
+## UI 이벤트
+
+이벤트에 대한 자세한 설명은 [이벤트 상세설명](https://navermaps.github.io/maps.js.ncp/docs/naver.maps.Map.html#toc38__anchor)에서 확인 가능합니다.
+
+### Mouse
+
+- mousedown
+- mouseup
+- click
+- dblclick
+- rightclick
+- mouseover
+- mouseout
+- mousemove
+
+### Drag
+
+- dragstart
+- drag
+- dragen
+
+### Touch
+
+- touchstart
+- touchmove
+- touchend
+- pinchstart
+- pinch
+- pinchend
+- tap
+- longtap
+- twofingertap
+- doubletap
+
+### Map
+
+- addLayer
+- bounds_changed
+- center_changed
+- centerPoint_changed
+- idle
+- init_stylemap
+- keydown
+- keyup
+- mapType_changed
+- mapTypeId_changed
+- panning
+- projection_changed
+- removeLayer
+- resize
+- size_changed
+- tilesloaded
+- zoom_changed
+- zooming

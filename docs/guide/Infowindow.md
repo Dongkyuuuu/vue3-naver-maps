@@ -80,3 +80,23 @@ export default {
 :::info 알림
 Marker는 필수적으로 Props로 넘겨주어야 합니다.
 :::
+
+## UI 이벤트
+
+이벤트에 대한 자세한 설명은 [이벤트 상세설명](https://navermaps.github.io/maps.js.ncp/docs/naver.maps.InfoWindow.html#toc17__anchor)에서 확인 가능합니다.
+
+- anchorColor_changed
+- anchorSize_changed
+- anchorSkew_changed
+- backgroundColor_changed
+- borderColor_changed
+- borderWidth_changed
+- close
+- content_changed
+- disableAnchor_changed
+- disableAutoPan_changed
+- maxWidth_changed
+- open
+- pixelOffset_changed
+- position_changed
+- zIndex_changed

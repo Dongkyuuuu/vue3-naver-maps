@@ -17,13 +17,13 @@ import {
   PropType,
   onMounted,
 } from "vue";
-import { addEventMarker, UI_EVENT } from "../utils";
+import { addEventMarker, UI_EVENT_OBJECT } from "../utils";
 import { naverMapObject } from "../injectionKeys";
 import type { naverV3 } from "../types";
 
 export default defineComponent({
   name: "Marker",
-  emits: ["onLoad", ...UI_EVENT],
+  emits: ["onLoad", ...UI_EVENT_OBJECT],
   props: {
     latitude: { type: Number, required: true },
     longitude: { type: Number, required: true },

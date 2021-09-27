@@ -52,33 +52,4 @@ const LatLng = new window.naver.maps.LatLng(37, 127);
 
 컴포넌트에서 `v-on` directive를 이용해서 네이버에서 제공하는 UI 이벤트를 사용할 수 있습니다. UI이벤트는 표준 DOM(Document Object Model) 이벤트처럼 보이나 실제로는 NAVER 지도 API v3의 이벤트입니다.
 
-### 목록
-
-- mousedown
-- mouseup
-- click
-- dblclick
-- rightclick
-- mouseover
-- mouseout
-- mousemove
-- dragstart
-- drag
-- dragend
-- touchstart
-- touchmove
-- touchend
-- pinchstart
-- pinch
-- pinchend
-- tap
-- longtap
-- twofingertap
-- doubletap
-
-#### `NaverMaps`에서만 사용가능
-
-- addLayer
-- bounds_changed
-- center_changed
-- centerPoint_changed
+자세한 이벤트 목록은 각 컴포넌트 가이드에서 확인 가능합니다.
