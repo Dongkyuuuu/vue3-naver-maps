@@ -29,6 +29,6 @@ export default {
       exclude: [".yarn", "__tests__"],
     }),
     vuePlugin(),
-    // terser(),
+    terser(),
   ],
 };
