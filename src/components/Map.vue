@@ -71,8 +71,7 @@ export default defineComponent({
       window.naver ? createMap() : createMapAfterScriptLoaded()
     );
     onUnmounted(() => {
-      map.value = null;
-      mapRef.value = null;
+      map.value!.destroy();
     });
 
     return {

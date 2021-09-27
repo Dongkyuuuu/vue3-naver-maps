@@ -25,8 +25,7 @@ export default defineComponent({
   emits: ["onLoad"],
   props: {
     marker: {
-      type: Object as PropType<naver.maps.Marker | undefined>,
-      required: true,
+      type: Object as PropType<naver.maps.Marker>,
     },
     isOpen: { type: Boolean, default: false },
     options: {
@@ -41,19 +40,23 @@ export default defineComponent({
     const { marker, options, isOpen } = toRefs(props);
 
     const statusInfoWindow = (open: boolean) => {
-      if (!infoWindow.value) return;
-
-      if (open) infoWindow.value!.open(map.value!, marker.value!);
+      if (open) infoWindow.value!.open(map.value!, marker!.value!);
       else infoWindow.value!.close();
+
+      emit("onLoad", infoWindow.value);
     };
     const createInfoWindow = () => {
-      infoWindow.value = new window.naver.maps.InfoWindow({
-        content: infoWindowRef.value!,
-        ...options,
-      });
+      infoWindow.value = new window.naver.maps.InfoWindow(
+        Object.assign(
+          {
+            content: infoWindowRef.value!.innerHTML,
+          },
+          options.value
+        )
+      );
 
-      statusInfoWindow(isOpen.value);
       emit("onLoad", infoWindow.value!);
+      statusInfoWindow(isOpen.value);
     };
 
     onMounted(() => {
@@ -61,8 +64,8 @@ export default defineComponent({
        * create Watch
        */
       watchEffect(() => {
-        if (!map.value || !marker.value) return;
-        if (!infoWindow.value) createInfoWindow();
+        if (!map.value || !marker!.value) return;
+        createInfoWindow();
       });
 
       /**
