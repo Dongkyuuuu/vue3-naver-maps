@@ -1,3 +1,7 @@
+## [0.2.1](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.2.0...v0.2.1) (2021-09-27)
+
+
+
 # [0.2.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.1.0...v0.2.0) (2021-09-27)
 
 
