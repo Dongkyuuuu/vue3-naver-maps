@@ -1,3 +1,21 @@
+# [0.3.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.2.1...v0.3.0) (2021-09-27)
+
+
+### Bug Fixes
+
+* update UI Event ([2d6a8d7](https://github.com/DongKyuuuu/vue3-naver-maps/commit/2d6a8d75d631b664c7604297ae9bc8a8c22d6ee0))
+
+
+### Features
+
+* **circle:** add Circle Components ([b67520a](https://github.com/DongKyuuuu/vue3-naver-maps/commit/b67520affeea567fe28437a7bf21de6929a317b0))
+* **docs:** update docs ([e8c0bd7](https://github.com/DongKyuuuu/vue3-naver-maps/commit/e8c0bd733f3c7bc4f1112e010c7e20261faf26de))
+* **ellpise:** add Ellpise Component ([3879aac](https://github.com/DongKyuuuu/vue3-naver-maps/commit/3879aac18391d6a88773219e2b0e2ba7b859a09c))
+* **infowindow:** add props options ref ([5f8cbff](https://github.com/DongKyuuuu/vue3-naver-maps/commit/5f8cbff33fa791f0ecbe5823c6f4292513f0cb64))
+* **Rectangle:** add Rectangle Component ([68c1fa2](https://github.com/DongKyuuuu/vue3-naver-maps/commit/68c1fa255ac8e813a05f668a75e9b84807b54a51))
+
+
+
 ## [0.2.1](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.2.0...v0.2.1) (2021-09-27)
 
 
