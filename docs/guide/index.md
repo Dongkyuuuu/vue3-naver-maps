@@ -24,7 +24,7 @@ import { NaverMaps } from "vue3-naver-maps";
 export default {
   components: { NaverMaps },
   setup: () => {
-    const map = ref(null);
+    const map = ref();
     const onLoadMap = (mapObject) => {
       map.value = mapObject; // map에 반환된 객체 저장
       map.value.setCenter(new window.naver.maps.LatLng(36, 127)); // 지도 중앙 변경

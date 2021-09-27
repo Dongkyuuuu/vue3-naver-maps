@@ -82,6 +82,10 @@ const config = {
                 text: "Marker",
                 link: "/guide/Marker",
               },
+              {
+                text: "InfoWindow",
+                link: "/guide/Infowindow",
+              },
             ],
           },
           {

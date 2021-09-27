@@ -5,9 +5,7 @@
 ## 예시
 
 \
-<naver-maps width="100%" :mapOptions="{latitude: 37.56663888630603, longitude: 126.97838310403904, zoom: 16, zoomControl: false, zoomControlOptions: { position: 'TOP_RIGHT' }}">
-<naver-marker :latitude="37.56663888630603" :longitude="126.97838310403904" />
-</naver-maps>
+<naver-marker />
 
 ```vue
 <template>
@@ -29,7 +27,7 @@ import { NaverMaps, NaverMarker } from "vue3-naver-maps";
 export default {
   components: { NaverMaps, NaverMarker },
   setup: () => {
-    const marker = ref(null);
+    const marker = ref();
     const onLoadMarker = (markerObject) => {
       marker.value = markerObject;
     };
@@ -40,7 +38,7 @@ export default {
 </script>
 ```
 
-자세한 설정 옵션은 [NaverMarker](../api/#NaverMarker)에서 확인 가능합니다.
+자세한 Props, Emit 옵션은 [NaverMarker](../api/#NaverMarker)에서 확인 가능합니다.
 
 ## 설정
 

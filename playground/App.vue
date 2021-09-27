@@ -1,4 +1,6 @@
 <template>
+  <button @click="openInfoWindow()">open Infowindow</button>
+  <button @click="closeInfoWindow()">close Infowindow</button>
   <naver-maps
     :width="mapSize.width"
     :height="mapSize.height"
@@ -14,8 +16,8 @@
     </naver-marker>
     <naver-info-window
       :marker="marker"
-      :isOpen="true"
       style="background-color: white; padding: 8px; width: 200px; height: 100px"
+      @onLoad="loadInfoWindow($event)"
     >
       <div>hello, InfoWindow!</div>
     </naver-info-window>
@@ -42,6 +44,8 @@ export default defineComponent({
   setup: (props, { emit }) => {
     const map = ref<naver.maps.Map>();
     const marker = ref<naver.maps.Marker>();
+    const infoWindow = ref<naver.maps.InfoWindow>();
+    const isOpen = ref<boolean>(true);
     const mapSize = reactive({
       width: "400px",
       height: "400px",
@@ -63,10 +67,25 @@ export default defineComponent({
     ]);
     const loadMap = (mapObject: naver.maps.Map) => {
       map.value = mapObject;
-      console.log("LoadMap", map.value);
+      // console.log("LoadMap", map.value);
     };
     const loadMarker = (markerObjecy: naver.maps.Marker) => {
       marker.value = markerObjecy;
+    };
+    const loadInfoWindow = (infoWindowObjevt: naver.maps.InfoWindow) => {
+      infoWindow.value = infoWindowObjevt;
+    };
+
+    const openInfoWindow = () => {
+      // console.log("openAction: ", infoWindow.value);
+      infoWindow.value!.open(map.value!, marker.value!);
+      // isOpen.value = true;
+    };
+    const closeInfoWindow = () => {
+      // console.log(infoWindow.value!.getMap());
+      if (infoWindow.value?.getMap()) infoWindow.value!.close();
+      // infoWindow.value!.setMap(null);
+      // isOpen.value = false;
     };
 
     const change = () => {};
@@ -79,6 +98,10 @@ export default defineComponent({
       map,
       marker,
       loadMarker,
+      loadInfoWindow,
+      openInfoWindow,
+      closeInfoWindow,
+      isOpen,
     };
   },
 });

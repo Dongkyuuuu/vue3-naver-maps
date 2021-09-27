@@ -161,3 +161,31 @@ htmlIcon을 사용하는 경우, 초기 `size`와 `anchor`를 지정합니다. `
 - **선택**
 - **반환타입:** `naver.maps.Marker`
 - **상세:**
+
+## NaverInfoWindow
+
+### marker
+
+- **필수**
+- **타입:** `naver.maps.Marker` | `undefined`
+- **상세:**
+
+정보창을 연동할 마커를 지정합니다. marker가 필수적으로 있어야 정보창이 연동 됩니다.
+
+### isOpen
+
+- **선택**
+- **타입:** `Boolean`
+- **기본값:** `false`
+- **상세:**
+
+정보창을 보여줍니다.(false: 안보임, true: 보임)
+
+### options
+
+- **선택**
+- **타입:** `naver.maps.InfoWindowOptions`
+- **기본값:** `{}`
+- **상세:**
+
+정보창에 대한 옵션을 설정합니다.
