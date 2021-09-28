@@ -86,7 +86,7 @@ export default {
 
 - dragstart
 - drag
-- dragen
+- dragend
 
 ### Touch
 
