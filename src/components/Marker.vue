@@ -39,7 +39,7 @@ export default defineComponent({
     const { latitude, longitude, htmlIcon } = toRefs(props);
 
     const createIcon = (): naver.maps.HtmlIcon | null => {
-      const icon = markerRef.value?.innerHTML;
+      const icon = markerRef.value!.innerHTML;
       if (!icon) return null;
 
       return {
