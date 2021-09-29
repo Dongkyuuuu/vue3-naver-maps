@@ -8,10 +8,11 @@
     :initLayers="initLayers"
     @onLoad="loadMap($event)"
   >
-    <naver-rectangle
+    <naver-polygon :paths="polygonPaths" @onLoad="loadPolygon($event)" />
+    <!-- <naver-rectangle
       :bounds="rectangleBounds"
       @onLoad="loadRectangle($event)"
-    ></naver-rectangle>
+    ></naver-rectangle> -->
     <!-- <naver-ellipse
       :bounds="ellipseBounds"
       @onLoad="loadEllpise($event)"
@@ -55,6 +56,7 @@ import {
   NaverCircle,
   NaverEllipse,
   NaverRectangle,
+  NaverPolygon,
 } from "../dist/vue3-naver-maps";
 
 export default defineComponent({
@@ -65,6 +67,7 @@ export default defineComponent({
     NaverCircle,
     NaverEllipse,
     NaverRectangle,
+    NaverPolygon,
   },
   name: "App",
   setup: (props, { emit }) => {
@@ -86,6 +89,19 @@ export default defineComponent({
       west: 126.97837068565364,
       east: 127.97837068565364,
     });
+    const polygon = ref<naver.maps.Polygon>();
+    const polygonPaths = ref<naver.maps.ArrayOfCoordsLiteral>([
+      [126.9797895, 37.5670131],
+      [126.979215, 37.5649555],
+      [126.9766789, 37.5649082],
+      [126.9789515, 37.5637645],
+      [126.9785598, 37.5614914],
+      [126.9804949, 37.5632666],
+      [126.9827689, 37.5619065],
+      [126.9818039, 37.5639213],
+      [126.9837414, 37.5653719],
+      [126.9811162, 37.5651081],
+    ]);
     const infoWindowOptions = ref<naver.maps.InfoWindowOptions>();
     const isOpen = ref<boolean>(false);
     const mapSize = reactive({
@@ -129,6 +145,10 @@ export default defineComponent({
       rectangle.value = rectangleObject;
       console.log(rectangle.value);
     };
+    const loadPolygon = (polygonObject: naver.maps.Polygon) => {
+      polygon.value = polygonObject;
+      console.log(polygon.value);
+    };
 
     const openInfoWindow = () => {
       // console.log("openAction: ", infoWindow.value);
@@ -170,6 +190,9 @@ export default defineComponent({
       rectangle,
       rectangleBounds,
       loadRectangle,
+      polygon,
+      polygonPaths,
+      loadPolygon,
     };
   },
 });

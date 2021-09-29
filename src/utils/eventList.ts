@@ -134,3 +134,18 @@ export const UI_EVENT_RECTANGLE = [
   "visible_changed",
   "zIndex_changed",
 ];
+
+/**
+ * Naver Rectangle UI Event
+ */
+export const UI_EVENT_POLYGON = [
+  "click",
+  "clickable_changed",
+  "dblclick",
+  "mousedown",
+  "mouseout",
+  "mouseover",
+  "mouseup",
+  "visible_changed",
+  "zIndex_changed",
+];
