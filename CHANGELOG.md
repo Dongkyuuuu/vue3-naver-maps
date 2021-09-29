@@ -1,3 +1,13 @@
+# [0.4.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.3.1...v0.4.0) (2021-09-29)
+
+
+### Features
+
+* **docs:** add polygone docs ([c537240](https://github.com/DongKyuuuu/vue3-naver-maps/commit/c537240fb62aa509eded853b5912b323e19cca87))
+* **polygon:** add Polygon Component ([772c880](https://github.com/DongKyuuuu/vue3-naver-maps/commit/772c8809deed5d57bacb9a162d996485ed911b42))
+
+
+
 ## [0.3.1](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.3.0...v0.3.1) (2021-09-28)
 
 
