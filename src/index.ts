@@ -10,16 +10,18 @@ import NaverRectangle from "./components/Rectangle.vue";
 // export * from "./apis";
 export { naverV3 } from "./types";
 
-/**
- * Export Components
- */
 export {
+  /**
+   * Export Components
+   */
   NaverMaps,
   NaverMarker,
   NaverInfoWindow,
   NaverCircle,
   NaverEllipse,
   NaverRectangle,
+  /**
+   * default
+   */
+  install as default,
 };
-
-export default install;

@@ -5,6 +5,7 @@
   "license": "MIT",
   "main": "dist/vue3-naver-maps.js",
   "types": "dist/vue3-naver-maps.d.ts",
+  "sideEffects": false,
   "files": [
     "dist/*.js",
     "dist/vue3-naver-maps.d.ts",
