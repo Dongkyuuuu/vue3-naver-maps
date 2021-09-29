@@ -16,6 +16,7 @@ export default {
     app.component("naver-info-window", NaverInfoWindow);
     app.component("naver-circle", NaverCircle);
     app.component("naver-ellipse", NaverEllipse);
+    app.component("naver-rectangle", NaverRectangle);
     app.component("naver-polygon", NaverPolygon);
   },
 };
