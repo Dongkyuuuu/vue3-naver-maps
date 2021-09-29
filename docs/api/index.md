@@ -338,3 +338,76 @@ const bounds = {
 - **선택**
 - **반환타입:** `naver.maps.Rectangle`
 - **상세:**
+-
+
+## NaverPolygon
+
+폴리곤 컴포넌트에서 사용되는 Props 입니다.
+
+### paths
+
+- **필수**
+- **타입:** `naver.maps.ArrayOfCoords`| `naver.maps.KVOArrayOfCoords` | `naver.maps ArrayOfCoordsLiteral`
+- **상세:**
+
+연결 될 각 좌표들을 설정합니다.
+
+```js
+// naver.maps.ArrayOfCoords 타입
+const paths = [
+  new naver.maps.LatLng(38, 127),
+  new naver.maps.LatLng(39, 128),
+  new naver.maps.LatLng(39, 128),
+];
+```
+
+```js
+// naver.maps.KVOArrayOfCoords 타입
+const paths = [
+  {
+    south: 37.566616443521745,
+    north: 38.566616443521745,
+    west: 126.97837068565364,
+    east: 127.97837068565364,
+  },
+  {
+    south: 37.566616443521745,
+    north: 38.566616443521745,
+    west: 126.97837068565364,
+    east: 127.97837068565364,
+  },
+];
+```
+
+```js
+// naver.maps ArrayOfCoordsLiteral 타입
+const paths = [
+  [126.9797895, 37.5670131],
+  [126.979215, 37.5649555],
+  [126.9766789, 37.5649082],
+  [126.9789515, 37.5637645],
+  [126.9785598, 37.5614914],
+  [126.9804949, 37.5632666],
+  [126.9827689, 37.5619065],
+  [126.9818039, 37.5639213],
+  [126.9837414, 37.5653719],
+  [126.9811162, 37.5651081],
+];
+```
+
+위와 같은 예제로 paths를 지정할 수 있습니다.
+
+### options
+
+- **선택**
+- **타입:** `naver.maps.PolygonOptions`
+- **기본값:** `{}`
+- **상세:**
+
+폴리곤 컴포넌트에서 사용 가능한 추가적인 옵션을 입력합니다.
+
+### @onLoad
+
+- **선택**
+- **반환타입:** `naver.maps.Polygon`
+- **상세:**

@@ -98,6 +98,10 @@ const config = {
                 text: "Rectangle",
                 link: "/guide/Rectangle",
               },
+              {
+                text: "Polygon",
+                link: "/guide/Polygon",
+              },
             ],
           },
           {

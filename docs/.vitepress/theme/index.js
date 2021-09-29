@@ -6,6 +6,7 @@ import NaverInfoWindow from "../../example/InfoWindow.vue";
 import NaverCircle from "../../example/Circle.vue";
 import NaverEllipse from "../../example/Ellipse.vue";
 import NaverRectangle from "../../example/Rectangle.vue";
+import NaverPolygon from "../../example/Polygon.vue";
 
 export default {
   ...theme,
@@ -15,6 +16,6 @@ export default {
     app.component("naver-info-window", NaverInfoWindow);
     app.component("naver-circle", NaverCircle);
     app.component("naver-ellipse", NaverEllipse);
-    app.component("naver-rectangle", NaverRectangle);
+    app.component("naver-polygon", NaverPolygon);
   },
 };
