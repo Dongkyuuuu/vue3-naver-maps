@@ -9,10 +9,14 @@ footer: MIT Licensed | Copyright © 2021-present DongKyuuuu
 ![npm bundle size](https://img.shields.io/bundlephobia/min/vue3-naver-maps)&nbsp;
 ![NPM](https://img.shields.io/npm/l/vue3-naver-maps)
 
-::: warning
+::: warning 주의
 아직 개발 진행중인 단계 입니다. `v1.0.0` 버전 업데이트 전까지 **항상 최신버전을 유지해주세요!**
 
 자세한 업데이트 일정을 확인하고 싶다면, [Update Roadmap](https://github.com/DongKyuuuu/vue3-naver-maps/issues/3)을 확인해주세요.
+:::
+
+::: info 알림
+`v0.5.0` 이상의 버전부터 `Vue SSR`을 지원합니다. 사용 방법은 [설치하기](./installation.html#ssr-설정)에서 확인 가능합니다.
 :::
 
 `vue3-naver-maps`는 네이버에서 제공하는 `Naver Maps JavaScript API v3`를 간편하게 Vue.js 컴포넌트로 사용하기 위해서 제공하는 라이브러리 입니다. 컴포넌트 호출 후, 해당 Object를 전달받아 직접 제어할 수 있습니다.
@@ -29,6 +33,7 @@ footer: MIT Licensed | Copyright © 2021-present DongKyuuuu
 - `NaverCircle` : 원 컴포넌트
 - `NaverEllipse` : 타원 컴포넌트
 - `NaverRectangle` : 사각형 컴포넌트
+- `NaverPolygon` : 폴리곤 컴포넌트
 
 ## 사용
 

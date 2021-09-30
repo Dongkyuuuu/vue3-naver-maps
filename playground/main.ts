@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import navermaps from "../dist/vue3-naver-maps.js";
+import navermaps from "vue3-naver-maps";
 
 /**
  * create config.ts file

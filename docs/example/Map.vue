@@ -11,7 +11,7 @@
 
 <script>
 import { ref } from "vue";
-import { NaverMaps } from "../../dist/vue3-naver-maps";
+import { NaverMaps } from "../../dist/vue3-naver-maps.esm";
 
 export default {
   components: { NaverMaps },

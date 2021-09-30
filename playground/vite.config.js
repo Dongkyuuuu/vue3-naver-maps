@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import analyze from "rollup-plugin-analyzer";
-import { resolve } from "path";
+import path, { resolve } from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,4 +14,12 @@ export default defineConfig({
     },
   },
   plugins: [vue()],
+  resolve: {
+    alias: {
+      "vue3-naver-maps": path.resolve(
+        __dirname,
+        "../dist/vue3-naver-maps.esm.js"
+      ),
+    },
+  },
 });

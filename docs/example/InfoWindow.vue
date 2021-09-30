@@ -23,7 +23,7 @@ import {
   NaverMaps,
   NaverMarker,
   NaverInfoWindow,
-} from "../../dist/vue3-naver-maps";
+} from "../../dist/vue3-naver-maps.esm";
 
 export default {
   components: { NaverMaps, NaverMarker, NaverInfoWindow },

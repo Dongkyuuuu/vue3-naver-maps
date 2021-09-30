@@ -15,7 +15,7 @@
 
 <script>
 import { ref } from "vue";
-import { NaverMaps, NaverRectangle } from "../../dist/vue3-naver-maps";
+import { NaverMaps, NaverRectangle } from "../../dist/vue3-naver-maps.esm";
 
 export default {
   components: { NaverMaps, NaverRectangle },

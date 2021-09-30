@@ -12,7 +12,7 @@
 
 <script>
 import { ref } from "vue";
-import { NaverMaps, NaverMarker } from "../../dist/vue3-naver-maps";
+import { NaverMaps, NaverMarker } from "../../dist/vue3-naver-maps.esm";
 
 export default {
   components: { NaverMaps, NaverMarker },

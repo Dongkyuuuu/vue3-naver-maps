@@ -22,10 +22,6 @@ $ yarn add vue3-naver-maps @types/navermaps
 
 설치에 관한 자세한 옵션은 [설치옵션 API](./api/#설치옵션)를 참조해주세요
 
-:::warning 주의
-SSR에 대한 동작보증은 하지 않습니다. CSR을 이용하시는 것을 권장드립니다.
-:::
-
 ### 예시
 
 ```javascript
@@ -52,4 +48,23 @@ export default {
   setup: () => {},
 };
 </script>
+```
+
+## SSR 설정
+
+설치옵션에서 `ssr`을 `true`로 변경한 뒤 SPA 기능과 똑같이 사용하시면 됩니다. SSR의 동작에 관한 설명은 [SSR 옵션](./api/#설치옵션)에서 확인 가능합니다.
+
+```javascript
+// main.js
+import { createApp } from "vue";
+import naver from "vue3-naver-maps";
+
+const app = createApp(App);
+
+app
+  .use(naver, {
+    clientId: "your clientId",
+    ssr: true, // SSR 옵션 추가
+  })
+  .mount("#app");
 ```

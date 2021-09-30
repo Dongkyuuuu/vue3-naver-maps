@@ -48,7 +48,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref, computed } from "vue";
-import type { naverV3 } from "../dist/vue3-naver-maps";
+import type { naverV3 } from "vue3-naver-maps";
 import {
   NaverMaps,
   NaverMarker,
@@ -57,7 +57,7 @@ import {
   NaverEllipse,
   NaverRectangle,
   NaverPolygon,
-} from "../dist/vue3-naver-maps";
+} from "vue3-naver-maps";
 
 export default defineComponent({
   components: {

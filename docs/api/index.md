@@ -69,6 +69,18 @@ app
   .mount("#app");
 ```
 
+### ssr
+
+- **선택**
+- **타입:** `boolean`
+- **상세:**
+
+`SSR 모드`에서 사용 시 `true`로 변경해줍니다.
+
+**기본모드** 일 경우, 웹 애플리케이션이 생성 되었을 때 `Naver Maps JavaScript API v3` 스크립트를 생성하고 데이터를 호출 합니다.
+
+**SSR** 일 경우, Client-Side에서 `NaverMaps` 컴포넌트의 `beforeMount` 훅에서 `Naver Maps JavaScript API v3` 스크립트를 생성하고 데이터를 호출합니다.
+
 ## NaverMaps
 
 지도 컴포넌트에서 사용 되는 Props 입니다.

@@ -17,7 +17,7 @@
 
 <script>
 import { ref } from "vue";
-import { NaverMaps, NaverCircle } from "../../dist/vue3-naver-maps";
+import { NaverMaps, NaverCircle } from "../../dist/vue3-naver-maps.esm";
 
 export default {
   components: { NaverMaps, NaverCircle },
