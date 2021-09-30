@@ -6,7 +6,7 @@
 
 본 프로젝트는 <b>개발 진행중인(pre-release)</b> 프로젝트 입니다. **항상 최신버전을 유지해 주세요.**
 
-<u>`v0.5.0` 이상부터 `Vue3 SSR`을 지원합니다.</u>
+<u>`v0.6.0` 이상부터 `Vue3 SSR`을 지원합니다.</u>
 
 업데이트에 대한 자세한 현황은 [Update Roadmap](https://github.com/DongKyuuuu/vue3-naver-maps/issues/3)에서 확인 가능합니다.
 
