@@ -1,3 +1,13 @@
+# [0.5.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.4.0...v0.5.0) (2021-09-30)
+
+
+### Features
+
+* **docs:** ssr / components path ([c3ce8ce](https://github.com/DongKyuuuu/vue3-naver-maps/commit/c3ce8ce9f7ac3585678f36efa9b34a875cdd2c28))
+* **SSR:** SSR support ([4d9a406](https://github.com/DongKyuuuu/vue3-naver-maps/commit/4d9a4066e54cb36aa9b89939a0197a0d4bf5efb2))
+
+
+
 # [0.4.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.3.1...v0.4.0) (2021-09-29)
 
 
