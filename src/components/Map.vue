@@ -14,9 +14,12 @@ import {
   onUnmounted,
   watchEffect,
   provide,
+  inject,
+  onBeforeMount,
 } from "vue";
 import { useMapInitOptions, addEventMap, UI_EVENT_MAP } from "../utils";
-import { naverMapObject } from "../injectionKeys";
+import { naverMapObject, isSSR } from "../injectionKeys";
+import { setupScript } from "../config/install";
 import type { naverV3 } from "../types";
 
 export default defineComponent({
@@ -35,6 +38,7 @@ export default defineComponent({
     },
   },
   setup: (props, { emit }) => {
+    const ssr = inject(isSSR);
     const map = ref<naver.maps.Map | null>(null);
     const mapRef = ref<HTMLDivElement | null>(null);
     const { width, height, mapOptions, initLayers } = toRefs(props);
@@ -67,6 +71,7 @@ export default defineComponent({
       });
     });
 
+    onBeforeMount(() => (ssr ? setupScript(ssr) : ""));
     onMounted(() =>
       window.naver ? createMap() : createMapAfterScriptLoaded()
     );

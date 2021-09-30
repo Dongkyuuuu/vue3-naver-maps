@@ -1,4 +1,5 @@
 import { App } from "vue";
+import { isSSR } from "../injectionKeys";
 import type { naverV3 } from "../types";
 
 export function install(app: App<Element>, options: naverV3.install.options) {
@@ -8,13 +9,13 @@ export function install(app: App<Element>, options: naverV3.install.options) {
 
   if (!options.clientId) throw new Error(ERROR_MSG_CLIENT);
 
-  _setupScript(options);
+  options.ssr ? app.provide(isSSR, options) : setupScript(options);
 }
 
 /**
  * vue3-naver-maps script setup
  */
-function _setupScript(options: naverV3.install.options) {
+export function setupScript(options: naverV3.install.options) {
   const isExist = document.getElementById("vue3-naver-maps");
   if (!isExist) {
     const URL = _createURL(options);
