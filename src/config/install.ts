@@ -1,15 +1,12 @@
 import { App } from "vue";
-import { isSSR } from "../injectionKeys";
+import { installOptions } from "../injectionKeys";
 import type { naverV3 } from "../types";
 
 export function install(app: App<Element>, options: naverV3.install.options) {
-  // const ERROR_MSG_BROWSER =
-  //   "Sorry, this plugin is only available in browsers at now. If you are using Nuxt.js, turn off ssr for this plugin.";
   const ERROR_MSG_CLIENT = "options must be included clientId";
-
   if (!options.clientId) throw new Error(ERROR_MSG_CLIENT);
 
-  options.ssr ? app.provide(isSSR, options) : setupScript(options);
+  app.provide(installOptions, options);
 }
 
 /**

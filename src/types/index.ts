@@ -6,7 +6,6 @@ export declare namespace naverV3 {
 
     interface options {
       clientId: string;
-      ssr: boolean;
       category?: category;
       subModules?: string;
     }
