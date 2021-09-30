@@ -1,3 +1,12 @@
+# [0.6.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.5.0...v0.6.0) (2021-09-30)
+
+
+### Bug Fixes
+
+* change naver script install process ([9e12ee7](https://github.com/DongKyuuuu/vue3-naver-maps/commit/9e12ee794ada795169a398290a8243d2cffb13cd))
+
+
+
 # [0.5.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.4.0...v0.5.0) (2021-09-30)
 
 
