@@ -18,12 +18,8 @@ export default defineComponent({
   name: "Polyline",
   emits: [...UI_EVENT_POLYLINE, "onLoad"],
   props: {
-    paths: {
-      type: Array as PropType<
-        | naver.maps.ArrayOfCoords
-        | naver.maps.KVOArrayOfCoords
-        | naver.maps.ArrayOfCoordsLiteral
-      >,
+    path: {
+      type: Array as PropType<naver.maps.ArrayOfCoordsLiteral>,
       required: true,
     },
     options: {
@@ -34,14 +30,14 @@ export default defineComponent({
   setup: (props, { emit }) => {
     const map = inject(naverMapObject)!;
     const polyline = ref<naver.maps.Polyline>();
-    const { options, paths } = toRefs(props);
+    const { options, path } = toRefs(props);
 
     const createPolygon = () => {
       polyline.value = new window.naver.maps.Polyline(
         Object.assign(
           {
             map: map.value,
-            paths: paths.value,
+            path: path.value,
           },
           options.value
         )
