@@ -1,12 +1,22 @@
 import { App } from "vue";
-import { installOptions } from "../injectionKeys";
+import { installOptions, isSSR } from "../injectionKeys";
 import type { naverV3 } from "../types";
 
 export function install(app: App<Element>, options: naverV3.install.options) {
+  const mode = typeof window === "undefined";
+
   const ERROR_MSG_CLIENT = "options must be included clientId";
   if (!options.clientId) throw new Error(ERROR_MSG_CLIENT);
 
-  app.provide(installOptions, options);
+  if (mode) {
+    // SSR
+    app.provide(isSSR, true);
+    app.provide(installOptions, options);
+  } else {
+    // SPA
+    app.provide(isSSR, false);
+    setupScript(options);
+  }
 }
 
 /**

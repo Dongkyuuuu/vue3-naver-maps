@@ -14,5 +14,11 @@
       "vue3-naver-maps": ["../dist/vue3-naver-maps.d.ts"]
     }
   },
-  "include": ["./**/*.ts", "./**/*.vue", "vite.config.js", "../dist/*"]
+  "include": [
+    "./**/*.ts",
+    "./**/*.vue",
+    "vite.config.js",
+    "../dist/*",
+    "../node_modules/@types"
+  ]
 }

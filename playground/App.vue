@@ -48,7 +48,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, computed } from "vue";
+import { defineComponent, reactive, ref, onMounted } from "vue";
 import type { naverV3 } from "vue3-naver-maps";
 import {
   NaverMaps,
@@ -74,6 +74,7 @@ export default defineComponent({
   },
   name: "App",
   setup: (props, { emit }) => {
+    console.log("setup", window);
     const map = ref<naver.maps.Map>();
     const marker = ref<naver.maps.Marker>();
     const infoWindow = ref<naver.maps.InfoWindow>();
@@ -106,18 +107,17 @@ export default defineComponent({
       [126.9811162, 37.5651081],
     ]);
     const polyline = ref<naver.maps.Polyline>();
-    const polylinePaths = ref<naver.maps.ArrayOfCoords>([
-      new window.naver.maps.LatLng(37.359924641705476, 127.1148204803467),
-      new window.naver.maps.LatLng(37.36343797188166, 127.11486339569092),
-      new window.naver.maps.LatLng(37.368520071054576, 127.11473464965819),
-      new window.naver.maps.LatLng(37.3685882848096, 127.1088123321533),
-      new window.naver.maps.LatLng(37.37295383612657, 127.10876941680907),
-      new window.naver.maps.LatLng(37.38001321351567, 127.11851119995116),
-      new window.naver.maps.LatLng(37.378546827477855, 127.11984157562254),
-      new window.naver.maps.LatLng(37.376637072444105, 127.12052822113036),
-      new window.naver.maps.LatLng(37.37530703574853, 127.12190151214598),
-      new window.naver.maps.LatLng(37.371657839593894, 127.11645126342773),
-      new window.naver.maps.LatLng(37.36855417793982, 127.1207857131958),
+    const polylinePaths = ref<naver.maps.ArrayOfCoordsLiteral>([
+      [126.9797895, 37.5670131],
+      [126.979215, 37.5649555],
+      [126.9766789, 37.5649082],
+      [126.9789515, 37.5637645],
+      [126.9785598, 37.5614914],
+      [126.9804949, 37.5632666],
+      [126.9827689, 37.5619065],
+      [126.9818039, 37.5639213],
+      [126.9837414, 37.5653719],
+      [126.9811162, 37.5651081],
     ]);
     const infoWindowOptions = ref<naver.maps.InfoWindowOptions>();
     const isOpen = ref<boolean>(false);
@@ -189,6 +189,7 @@ export default defineComponent({
     };
 
     const change = () => {};
+    onMounted(() => console.log(window));
     return {
       mapOptions,
       initLayers,
