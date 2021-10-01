@@ -60,7 +60,6 @@ export default defineComponent({
         window.naver.maps.onJSContentLoaded = () => createMap();
       };
     };
-    const ssrInstallOptions = inject(installOptions)!;
 
     watchEffect(() => {
       if (!map.value) return;
@@ -73,7 +72,7 @@ export default defineComponent({
 
     onBeforeMount(() => {
       // SSR script install
-      inject(isSSR)! ? setupNaverScript(ssrInstallOptions)! : "";
+      inject(isSSR)! ? setupNaverScript(inject(installOptions)!) : "";
     });
     onMounted(() => {
       window.naver ? createMap() : createMapAfterScriptLoaded();
