@@ -19,11 +19,7 @@ export default defineComponent({
   emits: [...UI_EVENT_POLYGON, "onLoad"],
   props: {
     paths: {
-      type: Array as PropType<
-        | naver.maps.ArrayOfCoords
-        | naver.maps.KVOArrayOfCoords
-        | naver.maps.ArrayOfCoordsLiteral
-      >,
+      type: Array as PropType<naver.maps.ArrayOfCoordsLiteral>,
       required: true,
     },
     options: {
