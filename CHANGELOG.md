@@ -1,3 +1,22 @@
+# [0.7.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.6.0...v0.7.0) (2021-10-01)
+
+
+### Bug Fixes
+
+* **polyline:** change types, paths -> path ([f5431e1](https://github.com/DongKyuuuu/vue3-naver-maps/commit/f5431e1a20ffa558936efa8072ccff79e68787d5))
+* SSR, SPA mode spearte script install ([7ba6edf](https://github.com/DongKyuuuu/vue3-naver-maps/commit/7ba6edf151110cde142c648883a3310fc931617d))
+
+
+### Features
+
+* change NaverMaps component ssr ([bbd9e87](https://github.com/DongKyuuuu/vue3-naver-maps/commit/bbd9e8712d83c26fbfaa4fee47bfd663db095305))
+* **dcos:** add polyline docs ([ee10224](https://github.com/DongKyuuuu/vue3-naver-maps/commit/ee10224c5a497dd811a6fdb32d59d81b746a81d7))
+* **docs:** add ssr docs ([b279a60](https://github.com/DongKyuuuu/vue3-naver-maps/commit/b279a60eff85f4b0b6f58c00e866f7612c963614))
+* **polygon:** change polygone props paths type ([5f858b9](https://github.com/DongKyuuuu/vue3-naver-maps/commit/5f858b93e793b75c54f49ad01fb612ca00161a31))
+* **polyline:** add Polyline Component ([2c211f2](https://github.com/DongKyuuuu/vue3-naver-maps/commit/2c211f26b40aa92c36a0044371eec0f01598e0e8))
+
+
+
 # [0.6.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.5.0...v0.6.0) (2021-09-30)
 
 
