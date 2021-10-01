@@ -7,6 +7,7 @@ import NaverCircle from "../../example/Circle.vue";
 import NaverEllipse from "../../example/Ellipse.vue";
 import NaverRectangle from "../../example/Rectangle.vue";
 import NaverPolygon from "../../example/Polygon.vue";
+import NaverPolyline from "../../example/Polyline.vue";
 
 export default {
   ...theme,
@@ -19,5 +20,6 @@ export default {
     app.component("naver-ellipse", NaverEllipse);
     app.component("naver-rectangle", NaverRectangle);
     app.component("naver-polygon", NaverPolygon);
+    app.component("naver-polyline", NaverPolyline);
   },
 };

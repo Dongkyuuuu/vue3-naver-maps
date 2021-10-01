@@ -27,17 +27,18 @@ export function setupScript(options: naverV3.install.options) {
   if (!isExist) {
     const URL = _createURL(options);
 
-    new Promise((resolve, reject) => {
-      const script = document.createElement("script");
-      script.setAttribute("id", "vue3-naver-maps");
-      script.setAttribute("src", URL);
-      script.setAttribute("async", "");
-      script.setAttribute("defer", "");
-      script.onerror = () => {
-        reject(new Error(`[vue3-naver-maps] Failed to load`));
-      };
-      document.head.appendChild(script);
-    });
+    const script = document.createElement("script");
+    script.setAttribute("id", "vue3-naver-maps");
+    script.setAttribute("src", URL);
+    script.setAttribute("async", "");
+    script.setAttribute("defer", "");
+    script.onerror = () => {
+      new Error(`[vue3-naver-maps] Failed to load`);
+    };
+    document.head.appendChild(script);
+    // new Promise((resolve, reject) => {
+
+    // });
   }
 }
 

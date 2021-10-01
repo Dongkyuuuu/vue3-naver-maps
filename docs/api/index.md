@@ -347,37 +347,10 @@ const bounds = {
 ### paths
 
 - **필수**
-- **타입:** `naver.maps.ArrayOfCoords`| `naver.maps.KVOArrayOfCoords` | `naver.maps ArrayOfCoordsLiteral`
+- **타입:** `naver.maps ArrayOfCoordsLiteral`
 - **상세:**
 
 연결 될 각 좌표들을 설정합니다.
-
-```js
-// naver.maps.ArrayOfCoords 타입
-const paths = [
-  new naver.maps.LatLng(38, 127),
-  new naver.maps.LatLng(39, 128),
-  new naver.maps.LatLng(39, 128),
-];
-```
-
-```js
-// naver.maps.KVOArrayOfCoords 타입
-const paths = [
-  {
-    south: 37.566616443521745,
-    north: 38.566616443521745,
-    west: 126.97837068565364,
-    east: 127.97837068565364,
-  },
-  {
-    south: 37.566616443521745,
-    north: 38.566616443521745,
-    west: 126.97837068565364,
-    east: 127.97837068565364,
-  },
-];
-```
 
 ```js
 // naver.maps ArrayOfCoordsLiteral 타입
@@ -411,3 +384,44 @@ const paths = [
 - **선택**
 - **반환타입:** `naver.maps.Polygon`
 - **상세:**
+
+폴리곤 객체를 반환합니다.
+
+## NaverPolyline
+
+폴리라인 컴포넌트에서 사용되는 Props 입니다.
+
+### path
+
+- **필수**
+- **타입:** `naver.maps ArrayOfCoordsLiteral`
+- **상세:**
+
+연결 될 각 좌표들을 설정합니다.
+
+```js
+// naver.maps ArrayOfCoordsLiteral 타입
+const path = [
+  { lat: 37.5670131, lng: 126.9797895 },
+  { lat: 126.979215, lng: 37.5649555 },
+];
+```
+
+위와 같은 예제로 path를 지정할 수 있습니다.
+
+### options
+
+- **선택**
+- **타입:** `naver.maps.PolylineOptions`
+- **기본값:** `{}`
+- **상세:**
+
+폴리라인 컴포넌트에서 사용 가능한 추가적인 옵션을 입력합니다.
+
+### @onLoad
+
+- **선택**
+- **반환타입:** `naver.maps.Polyline`
+- **상세:**
+
+폴리라인 객체를 반환 합니다.

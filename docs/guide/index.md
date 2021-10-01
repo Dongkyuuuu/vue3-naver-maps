@@ -10,7 +10,7 @@
 
 ## naver 객체
 
-모든 컴포넌트는 라이프 사이클 훅 `onMounted`에서 `@onLoad`를 통해 각 객체를 반환합니다. 반환된 객체를 통해서 추가적인 옵션을 적용 시킬 수 있습니다.
+모든 컴포넌트는 `@onLoad`를 통해 각 객체를 반환합니다. 반환된 객체를 통해서 추가적인 옵션을 적용 시킬 수 있습니다.
 
 ```vue
 <template>
@@ -43,6 +43,10 @@ export default {
 ```js
 const LatLng = new window.naver.maps.LatLng(37, 127);
 ```
+
+<u>**lifeCycle에서 window.naver 객체 호출은 불가능 합니다.**</u>(created, onMounted 등...) window에 naver.maps 객체가 생성 되기 전 이기 때문입니다.
+
+각 컴포넌트에서 onLoad 후 window.naver.maps 객체를 사용해주세요.
 
 위의 예제 처럼 Vue 프로젝트 내부에서 `window.naver`를 통해 네이버 객체 생성이 가능 합니다.
 

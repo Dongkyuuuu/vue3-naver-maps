@@ -1,6 +1,10 @@
 <template>
   <button @click="openInfoWindow()">open Infowindow</button>
   <button @click="closeInfoWindow()">close Infowindow</button>
+  <br />
+  <br />
+  <br />
+  <a href="./optionAPI">optionsAPI</a>
   <naver-maps
     :width="mapSize.width"
     :height="mapSize.height"
@@ -8,7 +12,7 @@
     :initLayers="initLayers"
     @onLoad="loadMap($event)"
   >
-    <naver-polyline :paths="polylinePaths" @onLoad="loadPolyline($event)" />
+    <naver-polyline :path="polylinePaths" @onLoad="loadPolyline($event)" />
     <!-- <naver-polygon :paths="polygonPaths" @onLoad="loadPolygon($event)" /> -->
     <!-- <naver-rectangle
       :bounds="rectangleBounds"
@@ -74,7 +78,6 @@ export default defineComponent({
   },
   name: "App",
   setup: (props, { emit }) => {
-    console.log("setup", window);
     const map = ref<naver.maps.Map>();
     const marker = ref<naver.maps.Marker>();
     const infoWindow = ref<naver.maps.InfoWindow>();
@@ -108,16 +111,8 @@ export default defineComponent({
     ]);
     const polyline = ref<naver.maps.Polyline>();
     const polylinePaths = ref<naver.maps.ArrayOfCoordsLiteral>([
-      [126.9797895, 37.5670131],
-      [126.979215, 37.5649555],
-      [126.9766789, 37.5649082],
-      [126.9789515, 37.5637645],
-      [126.9785598, 37.5614914],
-      [126.9804949, 37.5632666],
-      [126.9827689, 37.5619065],
-      [126.9818039, 37.5639213],
-      [126.9837414, 37.5653719],
-      [126.9811162, 37.5651081],
+      { lat: 37.5670131, lng: 126.9797895 },
+      { lat: 126.979215, lng: 37.5649555 },
     ]);
     const infoWindowOptions = ref<naver.maps.InfoWindowOptions>();
     const isOpen = ref<boolean>(false);
@@ -189,7 +184,6 @@ export default defineComponent({
     };
 
     const change = () => {};
-    onMounted(() => console.log(window));
     return {
       mapOptions,
       initLayers,

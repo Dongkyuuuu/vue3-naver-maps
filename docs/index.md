@@ -16,7 +16,7 @@ footer: MIT Licensed | Copyright © 2021-present DongKyuuuu
 :::
 
 ::: info 알림
-`v0.6.0` 이상의 버전부터 `Vue SSR`을 지원합니다. 자세한 정보는 [SSR 지원](./advanced/ssr.md)에서 확인 가능합니다.
+`v0.6.0` 이상의 버전부터 `Vue SSR`을 지원합니다.
 :::
 
 `vue3-naver-maps`는 네이버에서 제공하는 `Naver Maps JavaScript API v3`를 간편하게 Vue.js 컴포넌트로 사용하기 위해서 제공하는 라이브러리 입니다. 컴포넌트 호출 후, 해당 Object를 전달받아 직접 제어할 수 있습니다.
