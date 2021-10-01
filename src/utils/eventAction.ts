@@ -6,6 +6,7 @@ import {
   UI_EVENT_ELLIPSE,
   UI_EVENT_RECTANGLE,
   UI_EVENT_POLYGON,
+  UI_EVENT_POLYLINE,
 } from "./eventList";
 
 export function addEvent(emit: any, target: any, name: string) {
@@ -40,4 +41,8 @@ export function addEventRectangle(emit: any, target: naver.maps.Rectangle) {
 
 export function addEventPolygon(emit: any, target: naver.maps.Polygon) {
   UI_EVENT_POLYGON.forEach((name) => addEvent(emit, target, name));
+}
+
+export function addEventPolyline(emit: any, target: naver.maps.Polyline) {
+  UI_EVENT_POLYLINE.forEach((name) => addEvent(emit, target, name));
 }

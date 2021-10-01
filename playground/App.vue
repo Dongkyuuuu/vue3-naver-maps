@@ -8,7 +8,8 @@
     :initLayers="initLayers"
     @onLoad="loadMap($event)"
   >
-    <naver-polygon :paths="polygonPaths" @onLoad="loadPolygon($event)" />
+    <naver-polyline :paths="polylinePaths" @onLoad="loadPolyline($event)" />
+    <!-- <naver-polygon :paths="polygonPaths" @onLoad="loadPolygon($event)" /> -->
     <!-- <naver-rectangle
       :bounds="rectangleBounds"
       @onLoad="loadRectangle($event)"
@@ -57,6 +58,7 @@ import {
   NaverEllipse,
   NaverRectangle,
   NaverPolygon,
+  NaverPolyline,
 } from "vue3-naver-maps";
 
 export default defineComponent({
@@ -68,6 +70,7 @@ export default defineComponent({
     NaverEllipse,
     NaverRectangle,
     NaverPolygon,
+    NaverPolyline,
   },
   name: "App",
   setup: (props, { emit }) => {
@@ -101,6 +104,20 @@ export default defineComponent({
       [126.9818039, 37.5639213],
       [126.9837414, 37.5653719],
       [126.9811162, 37.5651081],
+    ]);
+    const polyline = ref<naver.maps.Polyline>();
+    const polylinePaths = ref<naver.maps.ArrayOfCoords>([
+      new window.naver.maps.LatLng(37.359924641705476, 127.1148204803467),
+      new window.naver.maps.LatLng(37.36343797188166, 127.11486339569092),
+      new window.naver.maps.LatLng(37.368520071054576, 127.11473464965819),
+      new window.naver.maps.LatLng(37.3685882848096, 127.1088123321533),
+      new window.naver.maps.LatLng(37.37295383612657, 127.10876941680907),
+      new window.naver.maps.LatLng(37.38001321351567, 127.11851119995116),
+      new window.naver.maps.LatLng(37.378546827477855, 127.11984157562254),
+      new window.naver.maps.LatLng(37.376637072444105, 127.12052822113036),
+      new window.naver.maps.LatLng(37.37530703574853, 127.12190151214598),
+      new window.naver.maps.LatLng(37.371657839593894, 127.11645126342773),
+      new window.naver.maps.LatLng(37.36855417793982, 127.1207857131958),
     ]);
     const infoWindowOptions = ref<naver.maps.InfoWindowOptions>();
     const isOpen = ref<boolean>(false);
@@ -149,6 +166,10 @@ export default defineComponent({
       polygon.value = polygonObject;
       console.log(polygon.value);
     };
+    const loadPolyline = (polylineObject: naver.maps.Polyline) => {
+      polyline.value = polylineObject;
+      console.log(polyline.value);
+    };
 
     const openInfoWindow = () => {
       // console.log("openAction: ", infoWindow.value);
@@ -193,6 +214,9 @@ export default defineComponent({
       polygon,
       polygonPaths,
       loadPolygon,
+      polyline,
+      polylinePaths,
+      loadPolyline,
     };
   },
 });
