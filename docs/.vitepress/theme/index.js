@@ -11,6 +11,7 @@ import NaverPolygon from "../../example/Polygon.vue";
 export default {
   ...theme,
   enhanceApp({ app, router, siteData }) {
+    app.config.warnHandler = (msg, vm, trace) => {};
     app.component("naver-maps", NaverMaps);
     app.component("naver-marker", NaverMarker);
     app.component("naver-info-window", NaverInfoWindow);

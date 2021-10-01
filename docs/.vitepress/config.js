@@ -105,6 +105,16 @@ const config = {
             ],
           },
           {
+            text: "고급 가이드",
+            collapsable: false,
+            children: [
+              {
+                text: "SSR 지원",
+                link: "/advanced/ssr",
+              },
+            ],
+          },
+          {
             text: "타입스크립트",
             collapsable: false,
             children: [
