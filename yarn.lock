@@ -539,10 +539,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/navermaps@npm:^3.0.8":
-  version: 3.0.8
-  resolution: "@types/navermaps@npm:3.0.8"
-  checksum: 6f5d03c6afa1e33858079ec880da2c1c596db710329ad299aea8a8eb04f0fb2f09146646f1fe953e624092fdc092c3db77831b6ab2a01c8efa6cb7f0c042bcb8
+"@types/navermaps@npm:^3.0.9":
+  version: 3.0.9
+  resolution: "@types/navermaps@npm:3.0.9"
+  checksum: 66e510c432f8cbee1a95fffba6f2f4526c568eb53bbba334e215bb39254862b035995ea2ba09b1a134037d8d3eb8e2fa5bd55112f4837fa669133fb40cc98081
   languageName: node
   linkType: hard
 
@@ -5165,7 +5165,7 @@ resolve@~1.19.0:
     "@microsoft/api-extractor": ^7.18.5
     "@rollup/plugin-alias": ^3.1.5
     "@rollup/plugin-node-resolve": ^13.0.4
-    "@types/navermaps": ^3.0.8
+    "@types/navermaps": ^3.0.9
     "@vitejs/plugin-vue": ^1.4.0
     "@vue/compiler-sfc": 3.1.0
     conventional-changelog-cli: ^2.1.1
