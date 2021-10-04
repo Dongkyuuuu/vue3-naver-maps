@@ -12,7 +12,8 @@
     :initLayers="initLayers"
     @onLoad="loadMap($event)"
   >
-    <naver-polyline :path="polylinePaths" @onLoad="loadPolyline($event)" />
+    <naver-ground-overlay :url="GroundOverlayImg" :bound="groundOverlayBound" />
+    <!-- <naver-polyline :path="polylinePaths" @onLoad="loadPolyline($event)" /> -->
     <!-- <naver-polygon :paths="polygonPaths" @onLoad="loadPolygon($event)" /> -->
     <!-- <naver-rectangle
       :bounds="rectangleBounds"
@@ -63,7 +64,9 @@ import {
   NaverRectangle,
   NaverPolygon,
   NaverPolyline,
+  NaverGroundOverlay,
 } from "vue3-naver-maps";
+import GroundOverlayImg from "./assets/groundOverlay.jpeg";
 
 export default defineComponent({
   components: {
@@ -75,6 +78,7 @@ export default defineComponent({
     NaverRectangle,
     NaverPolygon,
     NaverPolyline,
+    NaverGroundOverlay,
   },
   name: "App",
   setup: (props, { emit }) => {
@@ -114,6 +118,13 @@ export default defineComponent({
       { lat: 37.5670131, lng: 126.9797895 },
       { lat: 126.979215, lng: 37.5649555 },
     ]);
+    const groundOverlay = ref<naver.maps.GroundOverlay>();
+    const groundOverlayBound = ref<naver.maps.BoundsLiteral>({
+      south: 37.566616443521745,
+      north: 38.566616443521745,
+      west: 126.97837068565364,
+      east: 127.97837068565364,
+    });
     const infoWindowOptions = ref<naver.maps.InfoWindowOptions>();
     const isOpen = ref<boolean>(false);
     const mapSize = reactive({
@@ -165,6 +176,12 @@ export default defineComponent({
       polyline.value = polylineObject;
       console.log(polyline.value);
     };
+    const loadGroundOverlay = (
+      groundOverlayObject: naver.maps.GroundOverlay
+    ) => {
+      groundOverlay.value = groundOverlayObject;
+      console.log(groundOverlay.value);
+    };
 
     const openInfoWindow = () => {
       // console.log("openAction: ", infoWindow.value);
@@ -212,6 +229,10 @@ export default defineComponent({
       polyline,
       polylinePaths,
       loadPolyline,
+      groundOverlay,
+      groundOverlayBound,
+      loadGroundOverlay,
+      GroundOverlayImg,
     };
   },
 });

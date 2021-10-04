@@ -164,3 +164,8 @@ export const UI_EVENT_POLYLINE = [
   "visible_changed",
   "zIndex_changed",
 ];
+
+/**
+ * Naver GroundOverlay UI Event
+ */
+export const UI_EVENT_GROUNDOVERLAY = ["click", "dbclick"];

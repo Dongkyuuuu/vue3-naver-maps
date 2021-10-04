@@ -8,6 +8,7 @@ import NaverEllipse from "./components/Ellipse.vue";
 import NaverRectangle from "./components/Rectangle.vue";
 import NaverPolygon from "./components/Polygon.vue";
 import NaverPolyline from "./components/Polyline.vue";
+import NaverGroundOverlay from "./components/GroundOverlay.vue";
 
 export { naverV3 } from "./types";
 
@@ -23,5 +24,6 @@ export {
   NaverRectangle,
   NaverPolygon,
   NaverPolyline,
+  NaverGroundOverlay,
 };
 export default install;
