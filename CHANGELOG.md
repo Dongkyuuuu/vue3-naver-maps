@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v1.0.0...v1.0.1) (2021-10-10)
+
+
+### Bug Fixes
+
+* **customOverlay:** temporarily delete ([58734c3](https://github.com/DongKyuuuu/vue3-naver-maps/commit/58734c3d714eb3c53cf0861a159e897d301f57ba))
+
+
+
 # [1.0.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.7.0...v1.0.0) (2021-10-10)
 
 
