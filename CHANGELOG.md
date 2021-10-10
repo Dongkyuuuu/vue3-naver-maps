@@ -1,3 +1,13 @@
+# [1.0.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.7.0...v1.0.0) (2021-10-10)
+
+
+### Features
+
+* add CustomOverlay compoennt ([c4762cb](https://github.com/DongKyuuuu/vue3-naver-maps/commit/c4762cb89f711eff45a59a5a6260c35d8f95e718))
+* **GroundOverlaya:** add GroundOverlay component ([9554487](https://github.com/DongKyuuuu/vue3-naver-maps/commit/955448705d301b1017aa0d11f99e5dd98e130a34))
+
+
+
 # [0.7.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v0.6.0...v0.7.0) (2021-10-01)
 
 
