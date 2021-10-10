@@ -1,16 +1,14 @@
-# <h1>vue3-naver-maps (WIP)</h1>
+# <h1>vue3-naver-maps</h1>
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/dongkyuuuu/vue3-naver-maps)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/vue3-naver-maps)
 ![NPM](https://img.shields.io/npm/l/vue3-naver-maps)
 
-본 프로젝트는 <b>개발 진행중인(pre-release)</b> 프로젝트 입니다. **항상 최신버전을 유지해 주세요.**
-
 <u>`v0.6.0` 이상부터 `Vue3 SSR`을 지원합니다.</u>
 
-업데이트에 대한 자세한 현황은 [Update Roadmap](https://github.com/DongKyuuuu/vue3-naver-maps/issues/3)에서 확인 가능합니다.
-
 문서는 [Documentation](https://dongkyuuuu.github.io/vue3-naver-maps/)에서 확인 가능합니다.
+
+정식버전인 `v1.0.0`이상의 버전을 사용해주세요!
 
 ## Introduce
 
@@ -38,4 +36,6 @@ $ yarn add vue3-naver-maps
 
 ## Contributing Guide
 
-현재 `vue3-naver-maps`는 계속 작성해 나가고 있습니다. 자유롭게 [Issue](https://github.com/DongKyuuuu/vue3-naver-maps/issues) 혹은 [Pull Request](https://github.com/DongKyuuuu/vue3-naver-maps/pulls)를 통해 기여 가능합니다. 👍
+버그, 의견, 기능추가 등 자유롭게 [Issue](https://github.com/DongKyuuuu/vue3-naver-maps/issues) 혹은 [Pull Request](https://github.com/DongKyuuuu/vue3-naver-maps/pulls)를 통해 기여 가능합니다. 👍
+
+`@types/navermaps`에 추가적인 타입이 필요하거나, 누락된 건이 있는 경우 해당 [navermaps](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/navermaps)에 contribute 해주시거나 [Issue](https://github.com/DongKyuuuu/vue3-naver-maps/issues)에 남겨주시면 추가하도록 하겠습니다.

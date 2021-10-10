@@ -22,7 +22,7 @@
 
 <script>
 import { ref } from "vue";
-import { NaverMaps, NaverEllipse } from "../../dist/vue3-naver-maps";
+import { NaverMaps, NaverEllipse } from "vue3-naver-maps";
 
 export default {
   components: { NaverMaps, NaverEllipse },

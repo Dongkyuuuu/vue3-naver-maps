@@ -29,11 +29,7 @@
 
 <script>
 import { ref } from "vue";
-import {
-  NaverMaps,
-  NaverMarker,
-  NaverInfoWindow,
-} from "../../dist/vue3-naver-maps";
+import { NaverMaps, NaverMarker, NaverInfoWindow } from "vue3-naver-maps";
 
 export default {
   components: { NaverMaps, NaverMarker, NaverInfoWindow },

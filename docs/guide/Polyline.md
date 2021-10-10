@@ -22,7 +22,7 @@
 
 <script>
 import { ref } from "vue";
-import { NaverMaps, NaverPolyline } from "../../dist/vue3-naver-maps.esm";
+import { NaverMaps, NaverPolyline } from "vue3-naver-maps";
 
 export default {
   components: { NaverMaps, NaverPolyline },

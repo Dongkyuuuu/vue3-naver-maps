@@ -22,7 +22,7 @@
 
 <script>
 import { ref } from "vue";
-import { NaverMaps, NaverPolygon } from "../../dist/vue3-naver-maps";
+import { NaverMaps, NaverPolygon } from "vue3-naver-maps";
 
 export default {
   components: { NaverMaps, NaverPolygon },

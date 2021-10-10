@@ -106,6 +106,14 @@ const config = {
                 text: "Polyline",
                 link: "/guide/Polyline",
               },
+              {
+                text: "GroundOverlay",
+                link: "/guide/GroundOverlay",
+              },
+              {
+                text: "CustomOverlay",
+                link: "/guide/CustomOverlay",
+              },
             ],
           },
           {
