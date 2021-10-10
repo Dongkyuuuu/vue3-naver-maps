@@ -12,7 +12,16 @@
     :initLayers="initLayers"
     @onLoad="loadMap($event)"
   >
-    <naver-ground-overlay :url="GroundOverlayImg" :bound="groundOverlayBound" />
+    <naver-custom-overlay
+      :latitude="37.56663888630603"
+      :longitude="126.97838310403904"
+      @onLoad="loadCustomOverlay($event)"
+    >
+      <div style="background-color: red; width: 200px; height: 200px">
+        sdlfkjsdlkfjdlkj
+      </div>
+    </naver-custom-overlay>
+    <!-- <naver-ground-overlay :url="GroundOverlayImg" :bound="groundOverlayBound" /> -->
     <!-- <naver-polyline :path="polylinePaths" @onLoad="loadPolyline($event)" /> -->
     <!-- <naver-polygon :paths="polygonPaths" @onLoad="loadPolygon($event)" /> -->
     <!-- <naver-rectangle
@@ -65,6 +74,7 @@ import {
   NaverPolygon,
   NaverPolyline,
   NaverGroundOverlay,
+  NaverCustomOverlay,
 } from "vue3-naver-maps";
 import GroundOverlayImg from "./assets/groundOverlay.jpeg";
 
@@ -79,6 +89,7 @@ export default defineComponent({
     NaverPolygon,
     NaverPolyline,
     NaverGroundOverlay,
+    NaverCustomOverlay,
   },
   name: "App",
   setup: (props, { emit }) => {
@@ -125,6 +136,7 @@ export default defineComponent({
       west: 126.97837068565364,
       east: 127.97837068565364,
     });
+    const customOverlay = ref<naver.maps.OverlayView>();
     const infoWindowOptions = ref<naver.maps.InfoWindowOptions>();
     const isOpen = ref<boolean>(false);
     const mapSize = reactive({
@@ -152,6 +164,7 @@ export default defineComponent({
     };
     const loadMarker = (markerObjecy: naver.maps.Marker) => {
       marker.value = markerObjecy;
+      console.log(marker.value);
     };
     const loadInfoWindow = (infoWindowObjevt: naver.maps.InfoWindow) => {
       infoWindow.value = infoWindowObjevt;
@@ -182,6 +195,10 @@ export default defineComponent({
       groundOverlay.value = groundOverlayObject;
       console.log(groundOverlay.value);
     };
+    const loadCustomOverlay = (customOverlayObjevt: naver.maps.OverlayView) => {
+      customOverlay.value = customOverlayObjevt;
+      // console.log(customOverlay.value);
+    };
 
     const openInfoWindow = () => {
       // console.log("openAction: ", infoWindow.value);
@@ -202,6 +219,8 @@ export default defineComponent({
 
     const change = () => {};
     return {
+      customOverlay,
+      loadCustomOverlay,
       mapOptions,
       initLayers,
       loadMap,

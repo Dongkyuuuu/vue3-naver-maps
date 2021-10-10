@@ -56,4 +56,10 @@ export declare namespace naverV3 {
       y: number;
     };
   }
+
+  interface customOverlayOptions {
+    map: naver.maps.Map;
+    position: naver.maps.LatLng;
+    content: HTMLDivElement;
+  }
 }
