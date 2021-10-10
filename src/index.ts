@@ -9,7 +9,7 @@ import NaverRectangle from "./components/Rectangle.vue";
 import NaverPolygon from "./components/Polygon.vue";
 import NaverPolyline from "./components/Polyline.vue";
 import NaverGroundOverlay from "./components/GroundOverlay.vue";
-import NaverCustomOverlay from "./components/CutsomOverlay.vue";
+// import NaverCustomOverlay from "./components/CutsomOverlay.vue";
 
 export { naverV3 } from "./types";
 
@@ -26,6 +26,6 @@ export {
   NaverPolygon,
   NaverPolyline,
   NaverGroundOverlay,
-  NaverCustomOverlay,
+  // NaverCustomOverlay,
 };
 export default install;
