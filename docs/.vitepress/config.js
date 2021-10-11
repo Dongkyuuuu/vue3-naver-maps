@@ -110,10 +110,10 @@ const config = {
                 text: "GroundOverlay",
                 link: "/guide/GroundOverlay",
               },
-              {
-                text: "CustomOverlay",
-                link: "/guide/CustomOverlay",
-              },
+              // {
+              //   text: "CustomOverlay",
+              //   link: "/guide/CustomOverlay",
+              // },
             ],
           },
           {
