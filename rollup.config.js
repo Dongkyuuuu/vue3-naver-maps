@@ -2,7 +2,7 @@ import path from "path";
 import alias from "@rollup/plugin-alias";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import typescript from "rollup-plugin-typescript2";
-import vue from "rollup-plugin-vue";
+import vue from "@vitejs/plugin-vue";
 import { terser } from "rollup-plugin-terser";
 
 const pkg = require("./package.json");
