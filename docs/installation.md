@@ -1,20 +1,18 @@
 # 설치하기
 
-`TypeScript`를 이용한 프로젝트를 진행하고 있으시다면, `@types/navermaps`를 필수적으로 설치해주세요.
-
-`Javascript`로 프로젝트를 진행하고 있으시다면, ` @types/navermaps`를 제외하고 설치합니다.
-
 ### npm
 
 ```bash
-$ npm install vue3-naver-maps @types/navermaps --save
+$ npm install vue3-naver-maps --save
 ```
 
 ### Yarn
 
 ```bash
-$ yarn add vue3-naver-maps @types/navermaps
+$ yarn add vue3-naver-maps
 ```
+
+`TypeScript`를 이용한 프로젝트를 진행하고 있으시다면, `@types/navermaps`를 추가 설치 해주세요
 
 ## 설정
 

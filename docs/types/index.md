@@ -10,7 +10,7 @@
 
 ```vue
 <template>
-  <naver-maps :mapOptions="mapOptions" @onLoad="onLoadMap($evnet)">
+  <naver-maps :mapOptions="mapOptions" @onLoad="onLoadMap($event)">
   </naver-maps>
 </template>
 

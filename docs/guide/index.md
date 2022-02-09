@@ -14,7 +14,7 @@
 
 ```vue
 <template>
-  <naver-maps @onLoad="onLoadMap($evnet)"> </naver-maps>
+  <naver-maps @onLoad="onLoadMap($event)"> </naver-maps>
 </template>
 
 <script>

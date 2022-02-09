@@ -9,7 +9,7 @@ import NaverRectangle from "../../example/Rectangle.vue";
 import NaverPolygon from "../../example/Polygon.vue";
 import NaverPolyline from "../../example/Polyline.vue";
 import NaverGroundOverlay from "../../example/GroundOverlay.vue";
-import NaverCustomOverlay from "../../example/CustomOverlay.vue";
+// import NaverCustomOverlay from "../../example/CustomOverlay.vue";
 
 export default {
   ...theme,
@@ -24,6 +24,6 @@ export default {
     app.component("naver-polygon", NaverPolygon);
     app.component("naver-polyline", NaverPolyline);
     app.component("naver-ground-overlay", NaverGroundOverlay);
-    app.component("naver-custom-overlay", NaverCustomOverlay);
+    // app.component("naver-custom-overlay", NaverCustomOverlay);
   },
 };

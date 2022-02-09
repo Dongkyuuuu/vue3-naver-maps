@@ -18,7 +18,7 @@
     "dev": "vite --config playground/vite.config.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
     "release": "bash scripts/release.sh",
-    "docs:dev": "vitepress dev docs",
+    "docs:dev": "yarn build && yarn build:dts && vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "docs:release": "bash scripts/docs-release.sh"
