@@ -3,12 +3,7 @@ import App from "./App.vue";
 import OptionsAPI from "./optionAPI.vue";
 import navermaps from "vue3-naver-maps";
 
-/**
- * create config.ts file
- * export default "yout clientId"
- */
-import clientId from "./config";
-
 const app = createApp(App);
 
-app.use(navermaps, { clientId: clientId }).mount("#app");
+// Add your clientId
+app.use(navermaps, { clientId: "" }).mount("#app");

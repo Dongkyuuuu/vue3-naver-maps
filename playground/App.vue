@@ -74,7 +74,6 @@ import {
   NaverPolygon,
   NaverPolyline,
   NaverGroundOverlay,
-  NaverCustomOverlay,
 } from "vue3-naver-maps";
 import GroundOverlayImg from "./assets/groundOverlay.jpeg";
 
@@ -89,7 +88,6 @@ export default defineComponent({
     NaverPolygon,
     NaverPolyline,
     NaverGroundOverlay,
-    NaverCustomOverlay,
   },
   name: "App",
   setup: (props, { emit }) => {

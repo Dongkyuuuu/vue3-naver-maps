@@ -10,7 +10,9 @@ footer: MIT Licensed | Copyright © 2021-present DongKyuuuu
 ![NPM](https://img.shields.io/npm/l/vue3-naver-maps)
 
 ::: info 알림
-정식버전인 `v1.0.0` 이상버전으로 사용해주세요. `v0.6.0` 이상의 버전부터 `Vue SSR`을 지원합니다.
+`v2.0.0`이상 부터는 `Vue@3.2.0`이상 `@vue/compiler-sfc@3.2.0`이상의 버전이 필요합니다.
+
+`Vue@3.2.0`미만 버전사용자는 `vue3-naver-maps@^1.0.1`를 사용해주세요.
 :::
 
 `vue3-naver-maps`는 네이버에서 제공하는 `Naver Maps JavaScript API v3`를 간편하게 Vue.js 컴포넌트로 사용하기 위해서 제공하는 라이브러리 입니다. 컴포넌트 호출 후, 해당 Object를 전달받아 직접 제어할 수 있습니다.
@@ -30,7 +32,7 @@ footer: MIT Licensed | Copyright © 2021-present DongKyuuuu
 - `NaverPolygon` : 폴리곤 컴포넌트
 - `NaverPolyline` : 폴리라인 컴포넌트
 - `NaverGroundOverlay` : 지상 오버레이 컴포넌트
-- `NaverCustomOverlay` : 사용자정의 오버레이 컴포넌트
+<!-- - `NaverCustomOverlay` : 사용자정의 오버레이 컴포넌트 -->
 
 ## 사용
 

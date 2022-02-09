@@ -5,7 +5,8 @@
 ## 예시
 
 \
-<naver-custom-overlay />
+
+<!-- <naver-custom-overlay /> -->
 
 ```vue
 <template>
