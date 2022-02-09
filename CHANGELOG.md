@@ -1,5 +1,7 @@
 # [2.0.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v1.0.1...v2.0.0) (2022-02-09)
 
+### Breaking Change
+
 `v2.0.0` need upper `Vue@3.2.0` and `@vue/compiler-sfc@3.2.0`.
 
 ### Features
