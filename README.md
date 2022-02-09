@@ -4,11 +4,7 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/min/vue3-naver-maps)
 ![NPM](https://img.shields.io/npm/l/vue3-naver-maps)
 
-<u>`v0.6.0` 이상부터 `Vue3 SSR`을 지원합니다.</u>
-
 문서는 [Documentation](https://dongkyuuuu.github.io/vue3-naver-maps/)에서 확인 가능합니다.
-
-정식버전인 `v1.0.0`이상의 버전을 사용해주세요!
 
 ## Introduce
 
