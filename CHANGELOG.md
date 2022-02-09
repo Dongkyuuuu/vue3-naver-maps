@@ -1,3 +1,12 @@
+# [2.0.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v1.0.1...v2.0.0) (2022-02-09)
+
+
+### Features
+
+* **docs:** installation, guide ([ead8a33](https://github.com/DongKyuuuu/vue3-naver-maps/commit/ead8a33eb35d1e8c68e1bac2eed67ec53de8c9fb))
+
+
+
 ## [1.0.1](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v1.0.0...v1.0.1) (2021-10-10)
 
 
