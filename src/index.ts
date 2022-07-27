@@ -11,8 +11,6 @@ import NaverPolyline from "./components/Polyline.vue";
 import NaverGroundOverlay from "./components/GroundOverlay.vue";
 // import NaverCustomOverlay from "./components/CutsomOverlay.vue";
 
-export { naverV3 } from "./types";
-
 export {
   /**
    * Export Components
