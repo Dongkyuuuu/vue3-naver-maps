@@ -10,6 +10,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "allowJs": false,
+    "jsx": "preserve",
 
     "noUnusedLocals": true,
     "strictNullChecks": true,

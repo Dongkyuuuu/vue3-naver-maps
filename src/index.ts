@@ -1,4 +1,4 @@
-import installer from "./config/install";
+import installer from "./config/installer";
 
 import NaverMaps from "./components/Map.vue";
 import NaverMarker from "./components/Marker.vue";

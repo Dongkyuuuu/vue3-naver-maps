@@ -1,3 +1,4 @@
+import { onUnmounted } from "vue";
 import {
   UI_EVENT_MAP,
   UI_EVENT_OBJECT,
@@ -8,11 +9,15 @@ import {
   UI_EVENT_POLYGON,
   UI_EVENT_POLYLINE,
   UI_EVENT_GROUNDOVERLAY,
-} from "./eventList";
+} from "@/assets/event";
 
 export function addEvent(emit: any, target: any, name: string) {
-  window.naver.maps.Event.addListener(target, name, (event) => {
-    emit(name, event);
+  const event = window.naver.maps.Event.addListener(target, name, (event) =>
+    emit(name, event)
+  );
+
+  onUnmounted(() => {
+    window.naver.maps.Event.removeListener(event);
   });
 }
 
