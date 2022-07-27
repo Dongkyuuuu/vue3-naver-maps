@@ -1,65 +1,33 @@
-<template></template>
+<script lang="ts" setup>
+import { ref, inject, onMounted, onUnmounted, toRefs } from "vue";
+import { addEventPolyline } from "@/composables/useEvent";
+import { UI_EVENT_POLYLINE } from "@/assets/event";
+import { MAPS_INSTANCE } from "@/config/keys";
 
-<script lang="ts">
-import {
-  defineComponent,
-  PropType,
-  inject,
-  ref,
-  toRefs,
-  onMounted,
-  onUnmounted,
-  watchEffect,
-} from "vue";
-import { naverMapObject } from "../injectionKeys";
-import { UI_EVENT_POLYLINE, addEventPolyline } from "../utils";
+const props = defineProps<{
+  path:
+    | naver.maps.ArrayOfCoords
+    | naver.maps.KVOArrayOfCoords
+    | naver.maps.ArrayOfCoordsLiteral;
+  options?: naver.maps.CircleOptions;
+}>();
+const emits = defineEmits(["onLoad", ...UI_EVENT_POLYLINE]);
 
-export default defineComponent({
-  name: "Polyline",
-  emits: [...UI_EVENT_POLYLINE, "onLoad"],
-  props: {
-    path: {
-      type: Array as PropType<naver.maps.ArrayOfCoordsLiteral>,
-      required: true,
-    },
-    options: {
-      type: Object as PropType<naver.maps.PolylineOptions>,
-      default: {},
-    },
-  },
-  setup: (props, { emit }) => {
-    const map = inject(naverMapObject)!;
-    const polyline = ref<naver.maps.Polyline>();
-    const { options, path } = toRefs(props);
+const { path, options } = toRefs(props);
+const map = inject(MAPS_INSTANCE)!;
+const polyline = ref<naver.maps.Polyline>();
 
-    const createPolygon = () => {
-      polyline.value = new window.naver.maps.Polyline(
-        Object.assign(
-          {
-            map: map.value,
-            path: path.value,
-          },
-          options.value
-        )
-      );
+const getPolylineInstance = () => {
+  polyline.value = new window.naver.maps.Polyline(
+    Object.assign({ map: map.value, path: path.value }, options?.value ?? {})
+  );
 
-      addEventPolyline(emit, polyline.value);
-      emit("onLoad", polyline.value);
-    };
+  addEventPolyline(emits, polyline.value);
+  emits("onLoad", polyline.value);
+};
 
-    const setPolygon = (newOptions: naver.maps.PolylineOptions) => {
-      polyline.value!.setOptions(newOptions);
-    };
-
-    onMounted(() => {
-      watchEffect(() => {
-        const newOptions = options.value;
-        if (!map.value) return;
-        polyline.value ? setPolygon(newOptions) : createPolygon();
-      });
-    });
-
-    onUnmounted(() => polyline.value!.setMap(null));
-  },
-});
+onMounted(() => getPolylineInstance());
+onUnmounted(() => polyline.value!.setMap(null));
 </script>
+
+<template></template>
