@@ -1,65 +1,33 @@
-<template></template>
+<script lang="ts" setup>
+import { ref, inject, onMounted, onUnmounted, toRefs } from "vue";
+import { addEventPolygon } from "@/composables/useEvent";
+import { UI_EVENT_POLYGON } from "@/assets/event";
+import { MAPS_INSTANCE } from "@/config/keys";
 
-<script lang="ts">
-import {
-  defineComponent,
-  PropType,
-  inject,
-  ref,
-  toRefs,
-  onMounted,
-  onUnmounted,
-  watchEffect,
-} from "vue";
-import { naverMapObject } from "../injectionKeys";
-import { UI_EVENT_POLYGON, addEventPolygon } from "../utils";
+const props = defineProps<{
+  paths:
+    | naver.maps.ArrayOfCoords
+    | naver.maps.KVOArrayOfCoords
+    | naver.maps.ArrayOfCoordsLiteral;
+  options?: naver.maps.CircleOptions;
+}>();
+const emits = defineEmits(["onLoad", ...UI_EVENT_POLYGON]);
 
-export default defineComponent({
-  name: "Polygon",
-  emits: [...UI_EVENT_POLYGON, "onLoad"],
-  props: {
-    paths: {
-      type: Array as PropType<naver.maps.ArrayOfCoordsLiteral>,
-      required: true,
-    },
-    options: {
-      type: Object as PropType<naver.maps.PolygonOptions>,
-      default: {},
-    },
-  },
-  setup: (props, { emit }) => {
-    const map = inject(naverMapObject)!;
-    const polygon = ref<naver.maps.Polygon>();
-    const { options, paths } = toRefs(props);
+const { paths, options } = toRefs(props);
+const map = inject(MAPS_INSTANCE)!;
+const polygon = ref<naver.maps.Polygon>();
 
-    const createPolygon = () => {
-      polygon.value = new window.naver.maps.Polygon(
-        Object.assign(
-          {
-            map: map.value,
-            paths: paths.value,
-          },
-          options.value
-        )
-      );
+const getPolygonInstance = () => {
+  polygon.value = new window.naver.maps.Polygon(
+    Object.assign({ map: map.value, paths: paths.value }, options?.value ?? {})
+  );
 
-      addEventPolygon(emit, polygon.value);
-      emit("onLoad", polygon.value);
-    };
+  addEventPolygon(emits, polygon.value);
+  emits("onLoad", polygon.value);
+};
 
-    const setPolygon = (newOptions: naver.maps.PolygonOptions) => {
-      polygon.value!.setOptions(newOptions);
-    };
-
-    onMounted(() => {
-      watchEffect(() => {
-        const newOptions = options.value;
-        if (!map.value) return;
-        polygon.value ? setPolygon(newOptions) : createPolygon();
-      });
-    });
-
-    onUnmounted(() => polygon.value!.setMap(null));
-  },
-});
+onMounted(() => getPolygonInstance());
+onUnmounted(() => polygon.value!.setMap(null));
 </script>
+
+<template></template>
