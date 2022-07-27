@@ -25,7 +25,7 @@ const map = inject(MAPS_INSTANCE)!;
 const infoWindow = ref<naver.maps.InfoWindow>();
 
 const setInfoWindow = (open: boolean) => {
-  if (!infoWindow.value) return;
+  if (!infoWindow.value) throw new Error("InfoWindow is not initialized");
 
   if (open) infoWindow.value.open(map.value, marker.value);
   else infoWindow.value.close();
@@ -47,7 +47,6 @@ const getInfoWindowInstance = () => {
 watch(
   () => open.value,
   (newValue) => {
-    if (!infoWindow.value) return;
     setInfoWindow(newValue);
   },
   { immediate: false }

@@ -56,7 +56,7 @@ const waitScriptLoaded = () => {
 watch(
   () => props,
   (newOption) => {
-    if (!map.value) return;
+    if (!map.value) throw new Error("Map is not initialized");
     useMapSettings.setSettings(newOption.initLayers, newOption.mapOptions);
     map.value!.setOptions(useMapSettings.getSettings());
   },

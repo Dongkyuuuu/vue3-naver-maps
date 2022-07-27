@@ -43,7 +43,7 @@ const getMarkerInstance = () => {
 watch(
   () => props,
   (newOption) => {
-    if (!marker.value) return;
+    if (!marker.value) throw new Error("Marker is not initialized");
     marker.value.setPosition(
       new naver.maps.LatLng(newOption.latitude, newOption.longitude)
     );
