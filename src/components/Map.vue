@@ -1,91 +1,74 @@
+<script lang="ts" setup>
+import {
+  ref,
+  toRefs,
+  inject,
+  provide,
+  onMounted,
+  watch,
+  computed,
+  onUnmounted,
+} from "vue";
+import installer, { NAVER_MAP_ELEMENT_ID } from "@/config/installer";
+import { MapSettings } from "@/composables/useMapSettings";
+import { addEventMap } from "@/composables/useEvent";
+import { UI_EVENT_MAP } from "@/assets/event";
+import {
+  MAPS_IS_SSR,
+  MAPS_INSTALL_OPTIONS,
+  MAPS_INSTANCE,
+} from "@/config/keys";
+import type { Layers, MapOptions } from "@/composables/useMapSettings";
+
+const props = defineProps<{
+  mapOptions?: MapOptions;
+  initLayers?: Layers[];
+}>();
+const emits = defineEmits([...UI_EVENT_MAP, "onLoad"]);
+
+const { mapOptions, initLayers } = toRefs(props);
+const useMapSettings = new MapSettings(initLayers?.value, mapOptions?.value);
+const mapRef = ref<HTMLElement>();
+const map = ref<naver.maps.Map>();
+const isSSR = inject(MAPS_IS_SSR);
+const installOptions = inject(MAPS_INSTALL_OPTIONS);
+
+// If SSR, create naver map script
+if (isSSR) installer.ssrInstall(installOptions!);
+
+const getMapInstance = () => {
+  const options = useMapSettings.getSettings();
+  map.value = new window.naver.maps.Map(mapRef.value!, options);
+  addEventMap(emits, map.value); // Map Event Listener
+  provide(
+    MAPS_INSTANCE,
+    computed(() => map.value)
+  );
+  emits("onLoad", map.value);
+};
+const waitScriptLoaded = () => {
+  const script = document.getElementById(NAVER_MAP_ELEMENT_ID);
+  script!.onload = () => {
+    window.naver.maps.onJSContentLoaded = () => getMapInstance();
+  };
+};
+
+watch(
+  () => props,
+  (newOption) => {
+    if (!map.value) return;
+    useMapSettings.setSettings(newOption.initLayers, newOption.mapOptions);
+    map.value!.setOptions(useMapSettings.getSettings());
+  },
+  { immediate: false, deep: true }
+);
+
+onMounted(() => (window.naver ? getMapInstance() : waitScriptLoaded()));
+onUnmounted(() => map.value!.destroy());
+</script>
+
 <template>
-  <div ref="mapRef" :style="{ width: width, height: height }">
+  <div ref="mapRef">
     <slot></slot>
   </div>
 </template>
-
-<script lang="ts">
-import {
-  defineComponent,
-  PropType,
-  toRefs,
-  ref,
-  onMounted,
-  onUnmounted,
-  watchEffect,
-  provide,
-  inject,
-  onBeforeMount,
-} from "vue";
-import { useMapInitOptions, addEventMap, UI_EVENT_MAP } from "../utils";
-import { naverMapObject, installOptions, isSSR } from "../injectionKeys";
-import { setupScript as setupNaverScript } from "../config/install";
-import type { naverV3 } from "../types";
-
-export default defineComponent({
-  name: "Map",
-  emits: ["onLoad", ...UI_EVENT_MAP],
-  props: {
-    width: { type: String, default: "400px" },
-    height: { type: String, default: "400px" },
-    mapOptions: {
-      type: Object as PropType<naverV3.mapOptions>,
-      default: { maxZoom: 21, minZoom: 0 },
-    },
-    initLayers: {
-      type: Array as PropType<naverV3.initLayer[]>,
-      default: [],
-    },
-  },
-  setup: (props, { emit }) => {
-    const map = ref<naver.maps.Map | null>(null);
-    const mapRef = ref<HTMLDivElement | null>(null);
-    const { width, height, mapOptions, initLayers } = toRefs(props);
-    const { mapSettings, mapLayers } = useMapInitOptions();
-
-    provide(naverMapObject, map);
-
-    const createMap = () => {
-      map.value = new window.naver.maps.Map(mapRef.value!, {
-        ...mapSettings(mapOptions.value),
-        ...mapLayers(initLayers.value),
-      });
-      // add map UI event
-      addEventMap(emit, map.value);
-      emit("onLoad", map.value);
-    };
-
-    const createMapAfterScriptLoaded = () => {
-      document.getElementById("vue3-naver-maps")!.onload = () => {
-        window.naver.maps.onJSContentLoaded = () => createMap();
-      };
-    };
-
-    watchEffect(() => {
-      if (!map.value) return;
-
-      map.value!.setOptions({
-        ...mapSettings(mapOptions.value),
-        ...mapLayers(initLayers.value),
-      });
-    });
-
-    onBeforeMount(() => {
-      // SSR script install
-      inject(isSSR)! ? setupNaverScript(inject(installOptions)!) : "";
-    });
-    onMounted(() => {
-      window.naver ? createMap() : createMapAfterScriptLoaded();
-    });
-    onUnmounted(() => {
-      map.value!.destroy();
-    });
-
-    return {
-      width,
-      height,
-      mapRef,
-    };
-  },
-});
-</script>
