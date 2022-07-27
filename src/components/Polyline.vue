@@ -9,7 +9,7 @@ const props = defineProps<{
     | naver.maps.ArrayOfCoords
     | naver.maps.KVOArrayOfCoords
     | naver.maps.ArrayOfCoordsLiteral;
-  options?: naver.maps.CircleOptions;
+  options?: naver.maps.PolylineOptions;
 }>();
 const emits = defineEmits(["onLoad", ...UI_EVENT_POLYLINE]);
 
