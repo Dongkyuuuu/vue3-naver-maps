@@ -1,91 +1,62 @@
+<script lang="ts" setup>
+import {
+  inject,
+  ref,
+  toRefs,
+  useSlots,
+  watch,
+  onMounted,
+  onUnmounted,
+} from "vue";
+import { MAPS_INSTANCE } from "@/config/keys";
+import { UI_EVENT_OBJECT } from "@/assets/event";
+import { getIcon } from "@/composables/useMarkerSettings";
+import { addEventMarker } from "@/composables/useEvent";
+import type { HtmlIcon } from "@/composables/useMarkerSettings";
+
+const props = defineProps<{
+  latitude: number;
+  longitude: number;
+  htmlIcon?: HtmlIcon;
+}>();
+const emits = defineEmits([...UI_EVENT_OBJECT, "onLoad"]);
+
+const { latitude, longitude, htmlIcon } = toRefs(props);
+const slots = useSlots();
+const map = inject(MAPS_INSTANCE)!;
+const marker = ref<naver.maps.Marker>();
+const markerRef = ref<HTMLElement>();
+
+const getMarkerInstance = () => {
+  marker.value = new naver.maps.Marker({
+    position: new naver.maps.LatLng(latitude.value, longitude.value),
+    map: map.value,
+    icon: getIcon(slots.default as any, htmlIcon?.value),
+  });
+
+  addEventMarker(emits, marker.value); // Marker Event Listener
+  emits("onLoad", marker.value);
+};
+
+// Update only latitude and longitude
+// If you want to update icon options, use OnLoad(emit) Marker Instance
+watch(
+  () => props,
+  (newOption) => {
+    if (!marker.value) return;
+    marker.value.setPosition(
+      new naver.maps.LatLng(newOption.latitude, newOption.longitude)
+    );
+  },
+  { immediate: false, deep: true }
+);
+
+onMounted(() => getMarkerInstance());
+onUnmounted(() => marker.value!.setMap(null));
+</script>
+
 <template>
-  <div style="display: none">
-    <div ref="markerRef">
-      <slot></slot>
-    </div>
+  <div v-if="map" ref="markerRef">
+    <slot></slot>
   </div>
 </template>
-
-<script lang="ts">
-import {
-  defineComponent,
-  ref,
-  onUnmounted,
-  inject,
-  watchEffect,
-  toRefs,
-  PropType,
-  onMounted,
-} from "vue";
-import { addEventMarker, UI_EVENT_OBJECT } from "../utils";
-import { naverMapObject } from "../injectionKeys";
-import type { naverV3 } from "../types";
-
-export default defineComponent({
-  name: "Marker",
-  emits: ["onLoad", ...UI_EVENT_OBJECT],
-  props: {
-    latitude: { type: Number, required: true },
-    longitude: { type: Number, required: true },
-    htmlIcon: {
-      type: Object as PropType<naverV3.htmlIcon>,
-      default: { size: { width: 0, height: 0 }, anchor: { x: 0, y: 0 } },
-    },
-  },
-  setup: (props, { emit, slots }) => {
-    const map = inject(naverMapObject)!;
-    const marker = ref<naver.maps.Marker>();
-    const markerRef = ref<HTMLDivElement>();
-    const { latitude, longitude, htmlIcon } = toRefs(props);
-
-    const createIcon = (): naver.maps.HtmlIcon | null => {
-      const icon = markerRef.value!.innerHTML;
-      if (!icon) return null;
-
-      return {
-        content: icon,
-        size: new window.naver.maps.Size(
-          htmlIcon.value.size.width || 0,
-          htmlIcon.value.size.height || 0
-        ),
-        anchor: new window.naver.maps.Point(
-          htmlIcon.value.anchor.x || 0,
-          htmlIcon.value.anchor.y || 0
-        ),
-      } as naver.maps.HtmlIcon;
-    };
-
-    const createMarker = (position: naver.maps.LatLng) => {
-      marker.value = new window.naver.maps.Marker({
-        map: map.value!,
-        position: position,
-      });
-      // set htmlIcon
-      createIcon() ? marker.value.setIcon(createIcon()!) : "";
-      // add marker UI event
-      addEventMarker(emit, marker.value);
-      emit("onLoad", marker.value);
-    };
-
-    const changeMarker = (position: naver.maps.LatLng) => {
-      marker.value!.setPosition(position);
-    };
-
-    onMounted(() => {
-      watchEffect(() => {
-        if (!map.value) return;
-        const position: naver.maps.LatLng = new window.naver.maps.LatLng(
-          latitude.value,
-          longitude.value
-        );
-        marker.value ? changeMarker(position) : createMarker(position);
-      });
-    });
-    onUnmounted(() => marker.value!.setMap(null));
-
-    return {
-      markerRef,
-    };
-  },
-});
-</script>

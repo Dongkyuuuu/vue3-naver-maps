@@ -27,11 +27,11 @@ const props = defineProps<{
 const emits = defineEmits([...UI_EVENT_MAP, "onLoad"]);
 
 const { mapOptions, initLayers } = toRefs(props);
-const useMapSettings = new MapSettings(initLayers?.value, mapOptions?.value);
 const mapRef = ref<HTMLElement>();
 const map = ref<naver.maps.Map>();
 const isSSR = inject(MAPS_IS_SSR);
 const installOptions = inject(MAPS_INSTALL_OPTIONS);
+const useMapSettings = new MapSettings(initLayers?.value, mapOptions?.value);
 
 // If SSR, create naver map script
 if (isSSR) installer.ssrInstall(installOptions!);
