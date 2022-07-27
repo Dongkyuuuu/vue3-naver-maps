@@ -1,65 +1,33 @@
-<template></template>
+<script lang="ts" setup>
+import { ref, inject, onMounted, onUnmounted, toRefs } from "vue";
+import { addEventGroundOverlay } from "@/composables/useEvent";
+import { UI_EVENT_GROUNDOVERLAY } from "@/assets/event";
+import { MAPS_INSTANCE } from "@/config/keys";
 
-<script lang="ts">
-import {
-  defineComponent,
-  onMounted,
-  onUnmounted,
-  PropType,
-  ref,
-  toRefs,
-  watchEffect,
-  inject,
-} from "vue";
-import { naverMapObject } from "../injectionKeys";
-import { UI_EVENT_GROUNDOVERLAY, addEventGroundOverlay } from "../utils";
+const props = defineProps<{
+  url: string;
+  bounds: naver.maps.Bounds | naver.maps.BoundsLiteral;
+  options?: naver.maps.GroundOverlayOptions;
+}>();
+const emits = defineEmits(["onLoad", ...UI_EVENT_GROUNDOVERLAY]);
 
-export default defineComponent({
-  name: "GroundOverlay",
-  emits: ["onLoad", ...UI_EVENT_GROUNDOVERLAY],
-  props: {
-    url: { type: String, required: true },
-    bound: {
-      type: Object as PropType<naver.maps.BoundsLiteral>,
-      required: true,
-    },
-    options: {
-      type: Object as PropType<naver.maps.GroundOverlayOptions>,
-      default: {},
-    },
-  },
-  setup: (props, { emit }) => {
-    const map = inject(naverMapObject)!;
-    const groundOverlay = ref<naver.maps.GroundOverlay>();
-    const { url, bound, options } = toRefs(props);
+const { bounds, url, options } = toRefs(props);
+const map = inject(MAPS_INSTANCE)!;
+const groundOverlay = ref<naver.maps.GroundOverlay>();
 
-    const createGroundOverlay = () => {
-      groundOverlay.value = new window.naver.maps.GroundOverlay(
-        url.value!,
-        bound.value!,
-        Object.assign({ map: map.value! }, options.value)
-      );
+const getGroundOverlayInstance = () => {
+  groundOverlay.value = new naver.maps.GroundOverlay(
+    url.value,
+    bounds.value,
+    Object.assign({ map: map.value }, options?.value ?? {})
+  );
 
-      addEventGroundOverlay(emit, groundOverlay.value);
-      emit("onLoad", groundOverlay.value);
-    };
-    const setGroundOverlay = (newOptions: naver.maps.GroundOverlayOptions) => {
-      groundOverlay.value!.setOpacity(
-        newOptions.opacity ? newOptions.opacity : 0
-      );
-    };
+  addEventGroundOverlay(emits, groundOverlay.value);
+  emits("onLoad", groundOverlay.value);
+};
 
-    onMounted(() => {
-      watchEffect(() => {
-        const newOptions = options.value;
-        if (!map.value) return;
-
-        groundOverlay.value
-          ? setGroundOverlay(newOptions)
-          : createGroundOverlay();
-      });
-    });
-    onUnmounted(() => groundOverlay.value!.setMap(null));
-  },
-});
+onMounted(() => getGroundOverlayInstance());
+onUnmounted(() => groundOverlay.value!.setMap(null));
 </script>
+
+<template></template>
