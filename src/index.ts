@@ -1,4 +1,4 @@
-import installer from "./config/installer";
+import { installer } from "./config/installer";
 
 import NaverMaps from "./components/Map.vue";
 import NaverMarker from "./components/Marker.vue";
@@ -26,4 +26,5 @@ export {
   NaverGroundOverlay,
   // NaverCustomOverlay,
 };
-export default installer.install;
+
+export default installer;
