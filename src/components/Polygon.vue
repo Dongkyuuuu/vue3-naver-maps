@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { ref, inject, onMounted, onUnmounted, toRefs } from "vue";
+import { ref, onMounted, onUnmounted, toRefs } from "vue";
 import { addEventPolygon } from "@/composables/useEvent";
 import { UI_EVENT_POLYGON } from "@/assets/event";
-import { MAPS_INSTANCE } from "@/config/keys";
+import { mapInstance, mapsCallbackList } from "@/store";
 
 const props = defineProps<{
   paths:
@@ -14,19 +14,22 @@ const props = defineProps<{
 const emits = defineEmits(["onLoad", ...UI_EVENT_POLYGON]);
 
 const { paths, options } = toRefs(props);
-const map = inject(MAPS_INSTANCE)!;
 const polygon = ref<naver.maps.Polygon>();
 
-const getPolygonInstance = () => {
+const getPolygonInstance = (map: naver.maps.Map) => {
   polygon.value = new window.naver.maps.Polygon(
-    Object.assign({ map: map.value, paths: paths.value }, options?.value ?? {})
+    Object.assign({ map: map, paths: paths.value }, options?.value ?? {})
   );
 
   addEventPolygon(emits, polygon.value);
   emits("onLoad", polygon.value);
 };
 
-onMounted(() => getPolygonInstance());
+onMounted(() =>
+  window.naver
+    ? getPolygonInstance(mapInstance.value!)
+    : mapsCallbackList.value.push(getPolygonInstance)
+);
 onUnmounted(() => polygon.value!.setMap(null));
 </script>
 

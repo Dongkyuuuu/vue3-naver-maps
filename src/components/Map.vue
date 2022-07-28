@@ -1,23 +1,11 @@
 <script lang="ts" setup>
-import {
-  ref,
-  toRefs,
-  inject,
-  provide,
-  onMounted,
-  watch,
-  computed,
-  onUnmounted,
-} from "vue";
-import installer, { NAVER_MAP_ELEMENT_ID } from "@/config/installer";
+import { ref, toRefs, inject, onMounted, watch, onUnmounted } from "vue";
+import { NAVER_MAP_ELEMENT_ID, createScript } from "@/config/installer";
 import { MapSettings } from "@/composables/useMapSettings";
 import { addEventMap } from "@/composables/useEvent";
 import { UI_EVENT_MAP } from "@/assets/event";
-import {
-  MAPS_IS_SSR,
-  MAPS_INSTALL_OPTIONS,
-  MAPS_INSTANCE,
-} from "@/config/keys";
+import { MAPS_IS_SSR, MAPS_INSTALL_OPTIONS } from "@/config/keys";
+import { mapInstance, mapsCallbackList } from "@/store";
 import type { Layers, MapOptions } from "@/composables/useMapSettings";
 
 const props = defineProps<{
@@ -30,20 +18,23 @@ const { mapOptions, initLayers } = toRefs(props);
 const mapRef = ref<HTMLElement>();
 const map = ref<naver.maps.Map>();
 const isSSR = inject(MAPS_IS_SSR);
-const installOptions = inject(MAPS_INSTALL_OPTIONS);
+const installOptions = inject(MAPS_INSTALL_OPTIONS)!;
 const useMapSettings = new MapSettings(initLayers?.value, mapOptions?.value);
 
-// If SSR, create naver map script
-if (isSSR) installer.ssrInstall(installOptions!);
+// For Server-Side-Render, create script in Map component
+// this function is called client level
+if (isSSR) createScript(installOptions);
 
 const getMapInstance = () => {
   const options = useMapSettings.getSettings();
   map.value = new window.naver.maps.Map(mapRef.value!, options);
   addEventMap(emits, map.value); // Map Event Listener
-  provide(
-    MAPS_INSTANCE,
-    computed(() => map.value)
-  );
+  mapInstance.value = map.value; // Map instance is ready
+
+  // Create naver object before map initialization
+  if (mapsCallbackList.value.length) {
+    mapsCallbackList.value.forEach((callback) => callback(map.value!));
+  }
   emits("onLoad", map.value);
 };
 const waitScriptLoaded = () => {

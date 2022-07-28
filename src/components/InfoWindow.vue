@@ -1,14 +1,6 @@
 <script lang="ts" setup>
-import {
-  inject,
-  ref,
-  toRefs,
-  useSlots,
-  watch,
-  onMounted,
-  onUnmounted,
-} from "vue";
-import { MAPS_INSTANCE } from "@/config/keys";
+import { ref, toRefs, useSlots, watch, onMounted, onUnmounted } from "vue";
+import { mapInstance } from "@/store";
 import { UI_EVENT_INFOWINDOW } from "@/assets/event";
 import { addEventInfoWindow } from "@/composables/useEvent";
 
@@ -21,13 +13,13 @@ const emits = defineEmits([...UI_EVENT_INFOWINDOW, "onLoad"]);
 
 const { marker, open, options } = toRefs(props);
 const slots = useSlots();
-const map = inject(MAPS_INSTANCE)!;
 const infoWindow = ref<naver.maps.InfoWindow>();
 
 const setInfoWindow = (open: boolean) => {
   if (!infoWindow.value) throw new Error("InfoWindow is not initialized");
+  if (!mapInstance.value) throw new Error("Map is not initialized");
 
-  if (open) infoWindow.value.open(map.value, marker.value);
+  if (open) infoWindow.value.open(mapInstance.value, marker.value);
   else infoWindow.value.close();
 };
 const getInfoWindowInstance = () => {
@@ -57,7 +49,7 @@ onUnmounted(() => infoWindow.value!.close());
 </script>
 
 <template>
-  <div v-if="map && marker">
+  <div v-if="marker">
     <slot></slot>
   </div>
 </template>

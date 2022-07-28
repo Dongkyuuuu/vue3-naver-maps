@@ -1,4 +1,3 @@
-import { onUnmounted } from "vue";
 import {
   UI_EVENT_MAP,
   UI_EVENT_OBJECT,
@@ -12,13 +11,9 @@ import {
 } from "@/assets/event";
 
 export function addEvent(emit: any, target: any, name: string) {
-  const event = window.naver.maps.Event.addListener(target, name, (event) =>
+  window.naver.maps.Event.addListener(target, name, (event) =>
     emit(name, event)
   );
-
-  onUnmounted(() => {
-    window.naver.maps.Event.removeListener(event);
-  });
 }
 
 export function addEventMap(emit: any, target: naver.maps.Map) {

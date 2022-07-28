@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { ref, inject, onMounted, onUnmounted, toRefs } from "vue";
+import { ref, onMounted, onUnmounted, toRefs } from "vue";
 import { addEventEllipse } from "@/composables/useEvent";
 import { UI_EVENT_ELLIPSE } from "@/assets/event";
-import { MAPS_INSTANCE } from "@/config/keys";
+import { mapInstance, mapsCallbackList } from "@/store";
 
 const props = defineProps<{
   bounds: naver.maps.Bounds | naver.maps.BoundsLiteral;
@@ -11,12 +11,11 @@ const props = defineProps<{
 const emits = defineEmits(["onLoad", ...UI_EVENT_ELLIPSE]);
 
 const { bounds, options } = toRefs(props);
-const map = inject(MAPS_INSTANCE)!;
 const ellipse = ref<naver.maps.Ellipse>();
 
-const getEllipseInstance = () => {
+const getEllipseInstance = (map: naver.maps.Map) => {
   const ellipseOption = {
-    map: map.value,
+    map: map,
     bounds: bounds.value,
   };
   ellipse.value = new naver.maps.Ellipse(
@@ -27,7 +26,11 @@ const getEllipseInstance = () => {
   emits("onLoad", ellipse.value);
 };
 
-onMounted(() => getEllipseInstance());
+onMounted(() =>
+  window.naver
+    ? getEllipseInstance(mapInstance.value!)
+    : mapsCallbackList.value.push(getEllipseInstance)
+);
 onUnmounted(() => ellipse.value!.setMap(null));
 </script>
 
