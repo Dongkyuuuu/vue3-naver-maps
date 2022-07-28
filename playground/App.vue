@@ -6,21 +6,11 @@
   <br />
   <a href="./optionAPI">optionsAPI</a>
   <naver-maps
-    :width="mapSize.width"
-    :height="mapSize.height"
+    style="width: 100%; height: 400px"
     :mapOptions="mapOptions"
     :initLayers="initLayers"
     @onLoad="loadMap($event)"
   >
-    <naver-custom-overlay
-      :latitude="37.56663888630603"
-      :longitude="126.97838310403904"
-      @onLoad="loadCustomOverlay($event)"
-    >
-      <div style="background-color: red; width: 200px; height: 200px">
-        sdlfkjsdlkfjdlkj
-      </div>
-    </naver-custom-overlay>
     <!-- <naver-ground-overlay :url="GroundOverlayImg" :bound="groundOverlayBound" /> -->
     <!-- <naver-polyline :path="polylinePaths" @onLoad="loadPolyline($event)" /> -->
     <!-- <naver-polygon :paths="polygonPaths" @onLoad="loadPolygon($event)" /> -->
@@ -38,12 +28,12 @@
       :radius="100"
       @onLoad="loadCircle($event)"
     ></naver-circle> -->
-    <!-- <naver-marker
+    <naver-marker
       :latitude="37.566616443521745"
       :longitude="126.97837068565364"
       @onLoad="loadMarker($event)"
     >
-    </naver-marker> -->
+    </naver-marker>
     <!-- <naver-info-window
       :marker="marker"
       :isOpen="isOpen"
@@ -63,7 +53,6 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref, onMounted } from "vue";
-import type { naverV3 } from "vue3-naver-maps";
 import {
   NaverMaps,
   NaverMarker,
@@ -141,7 +130,7 @@ export default defineComponent({
       width: "400px",
       height: "400px",
     });
-    const mapOptions = ref<naverV3.mapOptions>({
+    const mapOptions = ref({
       // latitude: 36,
       // longitude: 126,
       zoom: 16,
@@ -149,7 +138,7 @@ export default defineComponent({
       zoomControlOptions: { position: "TOP_RIGHT" },
       mapTypeControl: false,
     });
-    const initLayers = ref<naverV3.initLayer[]>([
+    const initLayers = ref([
       "BACKGROUND",
       "BACKGROUND_DETAIL",
       "POI_KOREAN",
