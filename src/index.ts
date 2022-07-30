@@ -1,6 +1,6 @@
 import { installer } from "./config/installer";
 
-import NaverMaps from "./components/Map.vue";
+import NaverMap from "./components/Map.vue";
 import NaverMarker from "./components/Marker.vue";
 import NaverInfoWindow from "./components/InfoWindow.vue";
 import NaverCircle from "./components/Circle.vue";
@@ -15,7 +15,7 @@ export {
   /**
    * Export Components
    */
-  NaverMaps,
+  NaverMap,
   NaverMarker,
   NaverInfoWindow,
   NaverCircle,
