@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, toRefs, watch, onMounted, onBeforeUnmount } from "vue";
+import { ref, toRefs, watch, onMounted, onUnmounted } from "vue";
 import { UI_EVENT_OBJECT } from "@/assets/event";
 import { getIcon } from "@/composables/useMarkerSettings";
 import { addEventMarker } from "@/composables/useEvent";
@@ -42,9 +42,7 @@ watch(
 );
 
 onMounted(() => useLoad(getMarkerInstance));
-onBeforeUnmount(() => {
-  marker.value!.setMap(null);
-});
+onUnmounted(() => marker.value!.setMap(null));
 </script>
 
 <template>
