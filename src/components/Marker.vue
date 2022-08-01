@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { ref, toRefs, watch, onUnmounted, onMounted } from "vue";
+import { ref, toRefs, watch, onMounted, onBeforeUnmount } from "vue";
 import { UI_EVENT_OBJECT } from "@/assets/event";
 import { getIcon } from "@/composables/useMarkerSettings";
 import { addEventMarker } from "@/composables/useEvent";
-import { mapsCallbackList } from "@/store";
+import { useLoad } from "@/composables/useLoad";
 import type { HtmlIcon } from "@/composables/useMarkerSettings";
 
 const props = defineProps<{
@@ -41,8 +41,10 @@ watch(
   { immediate: false, deep: true }
 );
 
-onMounted(() => mapsCallbackList.value.push(getMarkerInstance));
-onUnmounted(() => marker.value!.setMap(null));
+onMounted(() => useLoad(getMarkerInstance));
+onBeforeUnmount(() => {
+  marker.value!.setMap(null);
+});
 </script>
 
 <template>

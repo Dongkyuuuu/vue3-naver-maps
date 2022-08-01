@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted, toRefs } from "vue";
 import { addEventPolygon } from "@/composables/useEvent";
 import { UI_EVENT_POLYGON } from "@/assets/event";
-import { mapsCallbackList } from "@/store";
+import { useLoad } from "@/composables/useLoad";
 
 const props = defineProps<{
   paths:
@@ -25,7 +25,7 @@ const getPolygonInstance = (map: naver.maps.Map) => {
   emits("onLoad", polygon.value);
 };
 
-onMounted(() => mapsCallbackList.value.push(getPolygonInstance));
+onMounted(() => useLoad(getPolygonInstance));
 onUnmounted(() => polygon.value!.setMap(null));
 </script>
 

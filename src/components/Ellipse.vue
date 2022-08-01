@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted, toRefs } from "vue";
 import { addEventEllipse } from "@/composables/useEvent";
 import { UI_EVENT_ELLIPSE } from "@/assets/event";
-import { mapsCallbackList } from "@/store";
+import { useLoad } from "@/composables/useLoad";
 
 const props = defineProps<{
   bounds: naver.maps.Bounds | naver.maps.BoundsLiteral;
@@ -26,7 +26,7 @@ const getEllipseInstance = (map: naver.maps.Map) => {
   emits("onLoad", ellipse.value);
 };
 
-onMounted(() => mapsCallbackList.value.push(getEllipseInstance));
+onMounted(() => useLoad(getEllipseInstance));
 onUnmounted(() => ellipse.value!.setMap(null));
 </script>
 

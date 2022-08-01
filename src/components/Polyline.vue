@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted, toRefs } from "vue";
 import { addEventPolyline } from "@/composables/useEvent";
 import { UI_EVENT_POLYLINE } from "@/assets/event";
-import { mapInstance, mapsCallbackList } from "@/store";
+import { useLoad } from "@/composables/useLoad";
 
 const props = defineProps<{
   path:
@@ -25,11 +25,7 @@ const getPolylineInstance = (map: naver.maps.Map) => {
   emits("onLoad", polyline.value);
 };
 
-onMounted(() =>
-  window.naver
-    ? getPolylineInstance(mapInstance.value!)
-    : mapsCallbackList.value.push(getPolylineInstance)
-);
+onMounted(() => useLoad(getPolylineInstance));
 onUnmounted(() => polyline.value!.setMap(null));
 </script>
 

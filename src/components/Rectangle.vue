@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted, toRefs } from "vue";
 import { addEventRectangle } from "@/composables/useEvent";
 import { UI_EVENT_RECTANGLE } from "@/assets/event";
-import { mapsCallbackList } from "@/store";
+import { useLoad } from "@/composables/useLoad";
 
 const props = defineProps<{
   bounds: naver.maps.Bounds | naver.maps.BoundsLiteral;
@@ -22,7 +22,7 @@ const getRectangleInstance = (map: naver.maps.Map) => {
   emits("onLoad", rectangle.value);
 };
 
-onMounted(() => mapsCallbackList.value.push(getRectangleInstance));
+onMounted(() => useLoad(getRectangleInstance));
 onUnmounted(() => rectangle.value!.setMap(null));
 </script>
 
