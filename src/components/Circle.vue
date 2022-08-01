@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted, toRefs } from "vue";
 import { addEventCircle } from "@/composables/useEvent";
 import { UI_EVENT_CIRCLE } from "@/assets/event";
-import { mapsCallbackList, mapInstance } from "@/store";
+import { mapsCallbackList } from "@/store";
 
 const props = defineProps<{
   latitude: number;
@@ -29,11 +29,7 @@ const getCircleInstance = (map: naver.maps.Map) => {
   emits("onLoad", circle.value);
 };
 
-onMounted(() =>
-  window.naver
-    ? getCircleInstance(mapInstance.value!)
-    : mapsCallbackList.value.push(getCircleInstance)
-);
+onMounted(() => mapsCallbackList.value.push(getCircleInstance));
 onUnmounted(() => circle.value!.setMap(null));
 </script>
 

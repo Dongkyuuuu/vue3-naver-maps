@@ -6,15 +6,17 @@ import { addEventMap } from "@/composables/useEvent";
 import { UI_EVENT_MAP } from "@/assets/event";
 import { MAPS_IS_SSR, MAPS_INSTALL_OPTIONS } from "@/config/keys";
 import { mapInstance, mapsCallbackList } from "@/store";
+import type { CSSProperties } from "vue";
 import type { Layers, MapOptions } from "@/composables/useMapSettings";
 
 const props = defineProps<{
+  mapStyle?: CSSProperties;
   mapOptions?: MapOptions;
   initLayers?: Layers[];
 }>();
 const emits = defineEmits([...UI_EVENT_MAP, "onLoad"]);
 
-const { mapOptions, initLayers } = toRefs(props);
+const { mapOptions, initLayers, mapStyle } = toRefs(props);
 const mapRef = ref<HTMLElement>();
 const map = ref<naver.maps.Map>();
 const isSSR = inject(MAPS_IS_SSR);
@@ -30,7 +32,6 @@ const getMapInstance = () => {
   map.value = new window.naver.maps.Map(mapRef.value!, options);
   addEventMap(emits, map.value); // Map Event Listener
   mapInstance.value = map.value; // Map instance is ready
-
   // Create naver object before map initialization
   if (mapsCallbackList.value.length) {
     mapsCallbackList.value.forEach((callback) => callback(map.value!));
@@ -54,12 +55,12 @@ watch(
   { immediate: false, deep: true }
 );
 
-onMounted(() => (window.naver ? getMapInstance() : waitScriptLoaded()));
+onMounted(() => (mapInstance.value ? getMapInstance() : waitScriptLoaded()));
 onUnmounted(() => map.value!.destroy());
 </script>
 
 <template>
-  <div ref="mapRef">
+  <div ref="mapRef" :style="mapStyle">
     <slot></slot>
   </div>
 </template>

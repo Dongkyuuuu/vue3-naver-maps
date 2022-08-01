@@ -3,7 +3,7 @@ import { ref, toRefs, watch, onUnmounted, onMounted } from "vue";
 import { UI_EVENT_OBJECT } from "@/assets/event";
 import { getIcon } from "@/composables/useMarkerSettings";
 import { addEventMarker } from "@/composables/useEvent";
-import { mapInstance, mapsCallbackList } from "@/store";
+import { mapsCallbackList } from "@/store";
 import type { HtmlIcon } from "@/composables/useMarkerSettings";
 
 const props = defineProps<{
@@ -41,11 +41,7 @@ watch(
   { immediate: false, deep: true }
 );
 
-onMounted(() =>
-  window.naver
-    ? getMarkerInstance(mapInstance.value!)
-    : mapsCallbackList.value.push(getMarkerInstance)
-);
+onMounted(() => mapsCallbackList.value.push(getMarkerInstance));
 onUnmounted(() => marker.value!.setMap(null));
 </script>
 

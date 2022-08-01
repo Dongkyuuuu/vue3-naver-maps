@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted, toRefs } from "vue";
 import { addEventGroundOverlay } from "@/composables/useEvent";
 import { UI_EVENT_GROUNDOVERLAY } from "@/assets/event";
-import { mapInstance, mapsCallbackList } from "@/store";
+import { mapsCallbackList } from "@/store";
 
 const props = defineProps<{
   url: string;
@@ -25,11 +25,7 @@ const getGroundOverlayInstance = (map: naver.maps.Map) => {
   emits("onLoad", groundOverlay.value);
 };
 
-onMounted(() =>
-  window.naver
-    ? getGroundOverlayInstance(mapInstance.value!)
-    : mapsCallbackList.value.push(getGroundOverlayInstance)
-);
+onMounted(() => mapsCallbackList.value.push(getGroundOverlayInstance));
 onUnmounted(() => groundOverlay.value!.setMap(null));
 </script>
 
