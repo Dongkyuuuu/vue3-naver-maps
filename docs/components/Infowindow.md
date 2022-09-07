@@ -4,8 +4,7 @@
 
 ## 예시
 
-\
-<naver-info-window />
+<InfoWindow />
 
 ```vue
 <template>

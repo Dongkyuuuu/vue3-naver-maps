@@ -18,9 +18,9 @@
     "dev": "vite --config playground/vite.config.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
     "release": "bash scripts/release.sh",
-    "docs:dev": "yarn build && yarn build:dts && vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs",
+    "docs:dev": "yarn build && vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:serve": "vuepress serve docs",
     "docs:release": "bash scripts/docs-release.sh"
   },
   "repository": {
@@ -44,6 +44,9 @@
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@types/navermaps": "^3.0.17",
     "@vitejs/plugin-vue": "^3.0.1",
+    "@vuepress/plugin-container": "next",
+    "@vuepress/plugin-docsearch": "next",
+    "@vuepress/plugin-register-components": "next",
     "conventional-changelog-cli": "^2.2.2",
     "rollup": "^2.77.1",
     "rollup-plugin-analyzer": "^4.0.0",
@@ -52,8 +55,8 @@
     "tslib": "^2.4.0",
     "typescript": "^4.7.4",
     "vite": "^3.0.3",
-    "vitepress": "^1.0.0-alpha.4",
     "vue": "^3.2.30",
-    "vue-tsc": "^0.39.0"
+    "vue-tsc": "^0.39.0",
+    "vuepress": "next"
   }
 }

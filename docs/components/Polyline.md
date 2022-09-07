@@ -1,5 +1,15 @@
+# Polyline
+
+`NaverPolyline`는 폴리곤을 생성하는 컴포넌트 입니다. `NaverMaps` 생성 이후에 사용 가능합니다.
+
+## 예시
+
+\
+<naver-polyline />
+
+```vue
 <template>
-  <naver-map
+  <naver-maps
     width="100%"
     height="400px"
     :mapOptions="mapOptions"
@@ -7,19 +17,19 @@
     @onLoad="onLoadMap($event)"
   >
     <naver-polyline :path="path" @onLoad="onLoadPolyline($event)" />
-  </naver-map>
+  </naver-maps>
 </template>
 
 <script>
 import { ref } from "vue";
-import { NaverMap, NaverPolyline } from "../../dist/vue3-naver-maps.esm";
+import { NaverMaps, NaverPolyline } from "vue3-naver-maps";
 
 export default {
-  components: { NaverMap, NaverPolyline },
+  components: { NaverMaps, NaverPolyline },
   setup: () => {
     const map = ref();
     const polyline = ref();
-    const path = ref([
+    const paths = ref([
       { lat: 37.5670131, lng: 126.9797895 },
       { lat: 126.979215, lng: 37.5649555 },
     ]);
@@ -51,8 +61,29 @@ export default {
       initLayers,
       onLoadMap,
       onLoadPolyline,
-      path,
+      paths,
     };
   },
 };
 </script>
+```
+
+자세한 Props, Emit 옵션은 [NaverPolyline](../api/#naverpolyline)에서 확인 가능합니다.
+
+## 설정
+
+`path`는 필수적으로 입력해 주셔야 합니다. 연결할 각 좌표를 의미 합니다.
+
+## UI 이벤트
+
+이벤트에 대한 자세한 설명은 [이벤트 상세설명](https://navermaps.github.io/maps.js.ncp/docs/naver.maps.Polyline.html#toc26__anchor)에서 확인 가능합니다.
+
+- click
+- clickable_changed
+- dblclick
+- mousedown
+- mouseout
+- mouseover
+- mouseup
+- visible_changed
+- zIndex_changed

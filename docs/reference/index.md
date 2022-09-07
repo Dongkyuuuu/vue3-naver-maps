@@ -1,8 +1,4 @@
----
-sidebar: auto
----
-
-# API 레퍼런스
+# 레퍼런스
 
 ## 설치옵션
 
@@ -35,9 +31,9 @@ app.use(naver, { clientId: "your clientId" }).mount("#app");
 
 사용할 클라이언트 종류를 입력합니다. `ncp`가 기본값으로 설정 되어 있습니다. 다른 클라이언트 타입을 이용하고 있는경우 사용해주세요.
 
-`ncp`: 네이버클라우드 플랫폼<br/>
-`gov`: 공공기관용<br/>
-`fin`: 금융기관용
+- [네이버 클라우드 플랫폼](https://console.ncloud.com/mc/solution/naverService/application)
+- [공공기관용](https://console.gov-ncloud.com/mc/solution/naverService/application)
+- [금융기관용](https://www.fin-ncloud.com/)
 
 ```javascript
 // main.js
@@ -55,7 +51,7 @@ app.use(naver, { clientId: "your clientId", category: "gov" }).mount("#app");
 - **타입:** `string`
 - **상세:**
 
-사용할 서브모듈을 생성합니다. 여러개의 서브모듈을 이용할 경우 `콤마(,)`를 이용하여 작성해야 합니다.
+  지도의 서브모듈을 추가할 경우 사용 되는 옵션 입니다. 사용 하는 서브모듈의 이름을 작성해주면 됩니다. 여러 서브모듈을 사용하는 경우 `,`로 공백없이 이어서 입력하면 됩니다. 제공하는 서브모듈은 [공식문서](https://navermaps.github.io/maps.js.ncp/docs/tutorial-4-Submodules.html)를 참고해주세요.
 
 ```javascript
 // main.js

@@ -1,5 +1,15 @@
+# Polygon
+
+`NaverPolygon`는 폴리곤을 생성하는 컴포넌트 입니다. `NaverMaps` 생성 이후에 사용 가능합니다.
+
+## 예시
+
+\
+<naver-polygon />
+
+```vue
 <template>
-  <naver-map
+  <naver-maps
     width="100%"
     height="400px"
     :mapOptions="mapOptions"
@@ -7,15 +17,15 @@
     @onLoad="onLoadMap($event)"
   >
     <naver-polygon :paths="paths" @onLoad="onLoadPolygon($event)" />
-  </naver-map>
+  </naver-maps>
 </template>
 
 <script>
 import { ref } from "vue";
-import { NaverMap, NaverPolygon } from "../../dist/vue3-naver-maps.esm";
+import { NaverMaps, NaverPolygon } from "vue3-naver-maps";
 
 export default {
-  components: { NaverMap, NaverPolygon },
+  components: { NaverMaps, NaverPolygon },
   setup: () => {
     const map = ref();
     const polygon = ref();
@@ -64,3 +74,24 @@ export default {
   },
 };
 </script>
+```
+
+자세한 Props, Emit 옵션은 [NaverPolygon](../api/#naverpolygon)에서 확인 가능합니다.
+
+## 설정
+
+`paths`는 필수적으로 입력해 주셔야 합니다. 연결할 각 좌표를 의미 합니다.
+
+## UI 이벤트
+
+이벤트에 대한 자세한 설명은 [이벤트 상세설명](https://navermaps.github.io/maps.js.ncp/docs/naver.maps.Polygon.html#toc28__anchor)에서 확인 가능합니다.
+
+- click
+- clickable_changed
+- dblclick
+- mousedown
+- mouseout
+- mouseover
+- mouseup
+- visible_changed
+- zIndex_changed

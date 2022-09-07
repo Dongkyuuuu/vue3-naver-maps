@@ -54,7 +54,7 @@
 <script lang="ts">
 import { defineComponent, reactive, ref, onMounted } from "vue";
 import {
-  NaverMaps,
+  NaverMap,
   NaverMarker,
   NaverInfoWindow,
   NaverCircle,
@@ -68,7 +68,7 @@ import GroundOverlayImg from "./assets/groundOverlay.jpeg";
 
 export default defineComponent({
   components: {
-    NaverMaps,
+    NaverMap,
     NaverMarker,
     NaverInfoWindow,
     NaverCircle,

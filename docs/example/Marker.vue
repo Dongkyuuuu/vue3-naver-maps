@@ -1,28 +1,27 @@
-<template>
-  <naver-maps width="100%">
-    <naver-marker
-      :latitude="37.56663888630603"
-      :longitude="126.97838310403904"
-      @onLoad="onLoadMarker($event)"
-    >
-      <!-- Html Icon  -->
-    </naver-marker>
-  </naver-maps>
-</template>
-
-<script>
+<script setup>
 import { ref } from "vue";
-import { NaverMaps, NaverMarker } from "../../dist/vue3-naver-maps.esm";
+import { NaverMap, NaverMarker } from "../../dist/vue3-naver-maps.esm";
 
-export default {
-  components: { NaverMaps, NaverMarker },
-  setup: () => {
-    const marker = ref();
-    const onLoadMarker = (markerObject) => {
-      marker.value = markerObject;
-    };
-
-    return { onLoadMarker };
-  },
+const marker = ref();
+const onLoadMarker = (markerObject) => {
+  marker.value = markerObject;
+};
+const mapOptions = {
+  latitude: 37.51347, // 지도 중앙 위도
+  longitude: 127.041722, // 지도 중앙 경도
+  zoom: 13,
+  zoomControl: false,
+  zoomControlOptions: { position: "TOP_RIGHT" },
 };
 </script>
+
+<template>
+  <naver-map style="width: 100%; height: 400px" :mapOptions="mapOptions">
+    <naver-marker
+      :latitude="37.51347"
+      :longitude="127.041722"
+      @onLoad="onLoadMarker($event)"
+    >
+    </naver-marker>
+  </naver-map>
+</template>

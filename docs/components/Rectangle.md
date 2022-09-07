@@ -1,5 +1,15 @@
+# Rectangle
+
+`NaverRectangle`는 사각형을 생성하는 컴포넌트 입니다. `NaverMaps` 생성 이후에 사용 가능합니다.
+
+## 예시
+
+\
+<naver-rectangle />
+
+```vue
 <template>
-  <naver-map
+  <naver-maps
     width="100%"
     height="400px"
     :mapOptions="mapOptions"
@@ -10,15 +20,15 @@
       :bounds="rectangleBound"
       @onLoad="onLoadRectangle($event)"
     />
-  </naver-map>
+  </naver-maps>
 </template>
 
 <script>
 import { ref } from "vue";
-import { NaverMap, NaverRectangle } from "../../dist/vue3-naver-maps.esm";
+import { NaverMaps, NaverRectangle } from "vue3-naver-maps";
 
 export default {
-  components: { NaverMap, NaverRectangle },
+  components: { NaverMaps, NaverRectangle },
   setup: () => {
     const map = ref();
     const rectangle = ref();
@@ -61,3 +71,27 @@ export default {
   },
 };
 </script>
+```
+
+자세한 Props, Emit 옵션은 [NaverRectangle](../api/#naverrectangle)에서 확인 가능합니다.
+
+## 설정
+
+`bounds`는 필수적으로 입력해 주셔야 합니다.
+
+`options`로 옵션을 넘겨 줄 수 있습니다.
+
+## UI 이벤트
+
+이벤트에 대한 자세한 설명은 [이벤트 상세설명](https://navermaps.github.io/maps.js.ncp/docs/naver.maps.Rectangle.html#toc25__anchor)에서 확인 가능합니다.
+
+- bounds_changed
+- click
+- clickable_changed
+- dblclick
+- mousedown
+- mouseout
+- mouseover
+- mouseup
+- visible_changed
+- zIndex_changed

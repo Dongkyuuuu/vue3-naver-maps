@@ -5,7 +5,7 @@
 ## 예시
 
 \
-<naver-maps />
+<naver-map />
 
 ```vue
 <template>

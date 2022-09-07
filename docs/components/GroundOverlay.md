@@ -1,5 +1,15 @@
+# GroundOverlay
+
+`NaverGroundOverlay`는 지상 오버레이를 생성하는 컴포넌트 입니다. `NaverMaps` 생성 이후에 사용 가능합니다.
+
+## 예시
+
+\
+<naver-ground-overlay />
+
+```vue
 <template>
-  <naver-map
+  <naver-maps
     width="100%"
     height="400px"
     :mapOptions="mapOptions"
@@ -11,15 +21,15 @@
       :bound="groundOverlayBound"
       @onLoad="onLoadGroundOverlay($event)"
     />
-  </naver-map>
+  </naver-maps>
 </template>
 
 <script>
 import { ref } from "vue";
-import { NaverMap, NaverGroundOverlay } from "../../dist/vue3-naver-maps.esm";
+import { NaverMaps, NaverGroundOverlay } from "vue3-naver-maps";
 
 export default {
-  components: { NaverMap, NaverGroundOverlay },
+  components: { NaverMaps, NaverGroundOverlay },
   setup: () => {
     const map = ref();
     const groundOverlay = ref();
@@ -63,3 +73,17 @@ export default {
   },
 };
 </script>
+```
+
+자세한 Props, Emit 옵션은 [NaverGroundOverlay](../api/#navergroundoverlay)에서 확인 가능합니다.
+
+## 설정
+
+`url` `bound`는 필수적으로 입력해 주셔야 합니다. 사용할 이미지와 생성될 위치를 지정합니다.
+
+## UI 이벤트
+
+이벤트에 대한 자세한 설명은 [이벤트 상세설명](https://navermaps.github.io/maps.js.ncp/docs/naver.maps.GroundOverlay.html#toc13__anchor)에서 확인 가능합니다.
+
+- click
+- dblclick
