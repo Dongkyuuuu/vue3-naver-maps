@@ -46,7 +46,7 @@ onUnmounted(() => marker.value!.setMap(null));
 </script>
 
 <template>
-  <div ref="markerRef">
-    <slot></slot>
+  <div>
+    <slot ref="markerRef"></slot>
   </div>
 </template>
