@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-import { ref, toRefs, useSlots, watch, onMounted, onUnmounted } from "vue";
+import { ref, toRefs, watch, onUnmounted } from "vue";
 import { mapInstance } from "@/store";
 import { UI_EVENT_INFOWINDOW } from "@/assets/event";
 import { addEventInfoWindow } from "@/composables/useEvent";
+import { useLoad } from "@/composables/useLoad";
 
 const props = defineProps<{
   marker: naver.maps.Marker;
@@ -12,8 +13,8 @@ const props = defineProps<{
 const emits = defineEmits([...UI_EVENT_INFOWINDOW, "onLoad"]);
 
 const { marker, open, options } = toRefs(props);
-const slots = useSlots();
 const infoWindow = ref<naver.maps.InfoWindow>();
+const contentRef = ref<HTMLElement>();
 
 const setInfoWindow = (open: boolean) => {
   if (!infoWindow.value) throw new Error("InfoWindow is not initialized");
@@ -26,12 +27,13 @@ const getInfoWindowInstance = () => {
   infoWindow.value = new naver.maps.InfoWindow(
     Object.assign(
       {
-        content: slots.default as any,
+        content: contentRef.value ?? "",
       },
       options?.value ?? {}
     )
   );
 
+  setInfoWindow(open.value);
   addEventInfoWindow(emits, infoWindow.value); // InfoWindow Event Listener
   emits("onLoad", infoWindow.value);
 };
@@ -44,12 +46,19 @@ watch(
   { immediate: false }
 );
 
-onMounted(() => getInfoWindowInstance());
+watch(
+  () => marker.value,
+  (newValue) => {
+    if (!newValue) return;
+    useLoad(getInfoWindowInstance);
+  }
+);
+
 onUnmounted(() => infoWindow.value!.close());
 </script>
 
 <template>
-  <div v-if="marker">
+  <div ref="contentRef">
     <slot></slot>
   </div>
 </template>
