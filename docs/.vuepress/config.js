@@ -3,13 +3,6 @@ import { docsearchPlugin } from "@vuepress/plugin-docsearch";
 import { containerPlugin } from "@vuepress/plugin-container";
 import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
 import path from "path";
-// const { defaultTheme } = require("vuepress");
-// const { docsearchPlugin } = require("@vuepress/plugin-docsearch");
-// const { containerPlugin } = require("@vuepress/plugin-container");
-// const {
-//   registerComponentsPlugin,
-// } = require("@vuepress/plugin-register-components");
-// const path = require("path");
 
 const config = {
   locales: {
@@ -128,22 +121,21 @@ const config = {
           },
         ],
       },
-      "/en/": {
-        selectLanguageName: "English",
-        navbar: [
-          {
-            text: "ChangeLog",
-            link: "https://github.com/DongKyuuuu/vue3-naver-maps/blob/main/CHANGELOG.md",
-          },
-          {
-            text: "NaverMaps Document",
-            link: "https://navermaps.github.io/maps.js.ncp/",
-          },
-        ],
-      },
+      // "/en/": {
+      //   selectLanguageName: "English",
+      //   navbar: [
+      //     {
+      //       text: "ChangeLog",
+      //       link: "https://github.com/DongKyuuuu/vue3-naver-maps/blob/main/CHANGELOG.md",
+      //     },
+      //     {
+      //       text: "NaverMaps Document",
+      //       link: "https://navermaps.github.io/maps.js.ncp/",
+      //     },
+      //   ],
+      // },
     },
   }),
-  base: "/vue3-naver-maps/",
   head: [
     [
       "script",
@@ -155,7 +147,7 @@ const config = {
       },
     ],
   ],
-
+  base: "/vue3-naver-maps/",
   plugins: [
     containerPlugin({
       type: "tip",

@@ -1,8 +1,3 @@
----
-home: false
-footer: MIT Licensed | Copyright © 2021-present DongKyuuuu
----
-
 # vue3-naver-maps는 무엇인가요?
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/dongkyuuuu/vue3-naver-maps)&nbsp;
