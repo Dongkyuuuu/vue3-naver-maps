@@ -136,6 +136,17 @@ const config = {
       // },
     },
   }),
+  head: [
+    [
+      "script",
+      {
+        id: "vue3-naver-maps",
+        src: "https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=krm0ye8xno",
+        async: "",
+        defer: "",
+      },
+    ],
+  ],
   base: "/vue3-naver-maps/",
   plugins: [
     containerPlugin({
