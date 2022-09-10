@@ -15,7 +15,7 @@ then
   rm -rf node_modules/.rts2_cache
 
   # generate the version so that the changelog can be generated too
-  yarn version $VERSION
+  yarn version --new-version $VERSION
 
   yarn run build
   yarn run build:dts
@@ -31,7 +31,7 @@ then
   git tag "v$VERSION"
 
   # commit
-  yarn npm publish
+  yarn publish
 
   # publish
   git push origin refs/tags/v$VERSION

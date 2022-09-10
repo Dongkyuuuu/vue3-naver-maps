@@ -30,6 +30,10 @@ $ npm install vue3-naver-maps --save
 $ yarn add vue3-naver-maps
 ```
 
+## 2.x 마이그레이션
+
+[2.x 버전으로 부터 마이그레이션](https://dongkyuuuu.github.io/vue3-naver-maps/migrations/from2.html) 문서를 확인해주세요.
+
 ## Contributing Guide
 
 버그, 의견, 기능추가 등 자유롭게 [Issue](https://github.com/DongKyuuuu/vue3-naver-maps/issues) 혹은 [Pull Request](https://github.com/DongKyuuuu/vue3-naver-maps/pulls)를 통해 기여 가능합니다. 👍
