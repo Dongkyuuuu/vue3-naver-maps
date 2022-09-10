@@ -1,58 +1,28 @@
+<script setup>
+import { ref } from "vue";
+import { NaverMap, NaverCircle } from "../../dist/vue3-naver-maps.esm";
+
+const circle = ref();
+const mapOptions = {
+  latitude: 37.51347, // 지도 중앙 위도
+  longitude: 127.041722, // 지도 중앙 경도
+  zoom: 16,
+  zoomControl: false,
+  zoomControlOptions: { position: "TOP_RIGHT" },
+};
+
+const onLoadCircle = (circleObject) => {
+  circle.value = circleObject;
+};
+</script>
+
 <template>
-  <naver-map
-    width="100%"
-    height="400px"
-    :mapOptions="mapOptions"
-    :initLayers="initLayers"
-    @onLoad="onLoadMap($event)"
-  >
+  <naver-map style="width: 100%; height: 400px" :mapOptions="mapOptions">
     <naver-circle
-      :latitude="37.56663888630603"
-      :longitude="126.97838310403904"
+      :latitude="37.51347"
+      :longitude="127.041722"
       :radius="350"
       @onLoad="onLoadCircle($event)"
     />
   </naver-map>
 </template>
-
-<script>
-import { ref } from "vue";
-import { NaverMap, NaverCircle } from "../../dist/vue3-naver-maps.esm";
-
-export default {
-  components: { NaverMap, NaverCircle },
-  setup: () => {
-    const map = ref();
-    const circle = ref();
-    const mapOptions = {
-      latitude: 37.56663888630603, // 지도 중앙 위도
-      longitude: 126.97838310403904, // 지도 중앙 경도
-      zoom: 16,
-      zoomControl: false,
-      zoomControlOptions: { position: "TOP_RIGHT" },
-    };
-    const initLayers = [
-      "BACKGROUND",
-      "BACKGROUND_DETAIL",
-      "POI_KOREAN",
-      "TRANSIT",
-      "ENGLISH",
-    ];
-
-    const onLoadMap = (mapObject) => {
-      map.value = mapObject;
-    };
-    const onLoadCircle = (circleObject) => {
-      circle.value = circleObject;
-    };
-
-    return {
-      map,
-      mapOptions,
-      initLayers,
-      onLoadMap,
-      onLoadCircle,
-    };
-  },
-};
-</script>

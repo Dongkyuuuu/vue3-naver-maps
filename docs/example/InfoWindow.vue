@@ -29,6 +29,7 @@ const mapOptions = {
 <template>
   <naver-map style="width: 100%; height: 400px" :mapOptions="mapOptions">
     <naver-marker
+      @click="isOpen = !isOpen"
       :latitude="37.51347"
       :longitude="127.041722"
       @onLoad="onLoadMarker($event)"
@@ -36,7 +37,7 @@ const mapOptions = {
     </naver-marker>
     <naver-info-window
       :marker="marker"
-      :isOpen="isOpen"
+      :open="isOpen"
       @onLoad="onLoadInfoWindow($event)"
     >
       <div class="infowindow-style">click Marker!😎</div>
@@ -46,6 +47,7 @@ const mapOptions = {
 
 <style>
 .infowindow-style {
+  color: black;
   background-color: white;
   text-align: center;
   font-weight: 600;

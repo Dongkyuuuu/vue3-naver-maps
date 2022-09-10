@@ -1,74 +1,43 @@
 # Circle
 
-`NaverCircle`는 원을 생성하는 컴포넌트 입니다. `NaverMaps` 생성 이후에 사용 가능합니다.
+`NaverCircle`는 원을 생성하는 컴포넌트 입니다. `NaverMap` 생성 이후에 사용 가능합니다.
 
 ## 예시
 
-\
-<naver-circle />
+자세한 Props, Emit 옵션은 [NaverCircle](../reference/#navercircle)에서 확인 가능합니다.
+
+<Circle />
 
 ```vue
+<script setup>
+import { ref } from "vue";
+import { NaverMap, NaverCircle } from "../../dist/vue3-naver-maps.esm";
+
+const circle = ref();
+const mapOptions = {
+  latitude: 37.51347, // 지도 중앙 위도
+  longitude: 127.041722, // 지도 중앙 경도
+  zoom: 13,
+  zoomControl: false,
+  zoomControlOptions: { position: "TOP_RIGHT" },
+};
+
+const onLoadCircle = (circleObject) => {
+  circle.value = circleObject;
+};
+</script>
+
 <template>
-  <naver-maps
-    width="100%"
-    height="400px"
-    :mapOptions="mapOptions"
-    :initLayers="initLayers"
-    @onLoad="onLoadMap($event)"
-  >
+  <naver-map width="100%" height="400px" :mapOptions="mapOptions">
     <naver-circle
-      :latitude="37.56663888630603"
-      :longitude="126.97838310403904"
+      :latitude="37.51347"
+      :longitude="127.041722"
       :radius="350"
       @onLoad="onLoadCircle($event)"
     />
-  </naver-maps>
+  </naver-map>
 </template>
-
-<script>
-import { ref } from "vue";
-import { NaverMaps, NaverCircle } from "vue3-naver-maps";
-
-export default {
-  components: { NaverMaps, NaverCircle },
-  setup: () => {
-    const map = ref();
-    const circle = ref();
-    const mapOptions = {
-      latitude: 37.56663888630603, // 지도 중앙 위도
-      longitude: 126.97838310403904, // 지도 중앙 경도
-      zoom: 16,
-      zoomControl: false,
-      zoomControlOptions: { position: "TOP_RIGHT" },
-    };
-    const initLayers = [
-      "BACKGROUND",
-      "BACKGROUND_DETAIL",
-      "POI_KOREAN",
-      "TRANSIT",
-      "ENGLISH",
-    ];
-
-    const onLoadMap = (mapObject) => {
-      map.value = mapObject;
-    };
-    const onLoadCircle = (circleObject) => {
-      circle.value = circleObject;
-    };
-
-    return {
-      map,
-      mapOptions,
-      initLayers,
-      onLoadMap,
-      onLoadCircle,
-    };
-  },
-};
-</script>
 ```
-
-자세한 Props, Emit 옵션은 [NaverCircle](../api/#navercircle)에서 확인 가능합니다.
 
 ## 설정
 

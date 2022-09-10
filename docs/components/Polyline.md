@@ -1,74 +1,41 @@
 # Polyline
 
-`NaverPolyline`는 폴리곤을 생성하는 컴포넌트 입니다. `NaverMaps` 생성 이후에 사용 가능합니다.
+`NaverPolyline`는 폴리곤을 생성하는 컴포넌트 입니다. `NaverMap` 생성 이후에 사용 가능합니다.
 
 ## 예시
 
-\
-<naver-polyline />
+자세한 Props, Emit 옵션은 [NaverPolyline](../reference/#naverpolyline)에서 확인 가능합니다.
+
+<Polyline />
 
 ```vue
-<template>
-  <naver-maps
-    width="100%"
-    height="400px"
-    :mapOptions="mapOptions"
-    :initLayers="initLayers"
-    @onLoad="onLoadMap($event)"
-  >
-    <naver-polyline :path="path" @onLoad="onLoadPolyline($event)" />
-  </naver-maps>
-</template>
-
-<script>
+<script setup>
 import { ref } from "vue";
-import { NaverMaps, NaverPolyline } from "vue3-naver-maps";
+import { NaverMap, NaverPolyline } from "../../dist/vue3-naver-maps.esm";
 
-export default {
-  components: { NaverMaps, NaverPolyline },
-  setup: () => {
-    const map = ref();
-    const polyline = ref();
-    const paths = ref([
-      { lat: 37.5670131, lng: 126.9797895 },
-      { lat: 126.979215, lng: 37.5649555 },
-    ]);
-    const mapOptions = {
-      latitude: 37.56663888630603, // 지도 중앙 위도
-      longitude: 126.97838310403904, // 지도 중앙 경도
-      zoom: 8,
-      zoomControl: false,
-      zoomControlOptions: { position: "TOP_RIGHT" },
-    };
-    const initLayers = [
-      "BACKGROUND",
-      "BACKGROUND_DETAIL",
-      "POI_KOREAN",
-      "TRANSIT",
-      "ENGLISH",
-    ];
+const path = ref([
+  { lat: 37.5670131, lng: 126.9797895 },
+  { lat: 126.979215, lng: 37.5649555 },
+]);
+const mapOptions = {
+  latitude: 37.56663888630603, // 지도 중앙 위도
+  longitude: 126.97838310403904, // 지도 중앙 경도
+  zoom: 7,
+  zoomControl: false,
+  zoomControlOptions: { position: "TOP_RIGHT" },
+};
 
-    const onLoadMap = (mapObject) => {
-      map.value = mapObject;
-    };
-    const onLoadPolyline = (polylineObject) => {
-      polyline.value = polylineObject;
-    };
-
-    return {
-      map,
-      mapOptions,
-      initLayers,
-      onLoadMap,
-      onLoadPolyline,
-      paths,
-    };
-  },
+const onLoadPolyline = (polylineObject) => {
+  polyline.value = polylineObject;
 };
 </script>
-```
 
-자세한 Props, Emit 옵션은 [NaverPolyline](../api/#naverpolyline)에서 확인 가능합니다.
+<template>
+  <naver-map style="width: 100%; height: 400px" :mapOptions="mapOptions">
+    <naver-polyline :path="path" @onLoad="onLoadPolyline($event)" />
+  </naver-map>
+</template>
+```
 
 ## 설정
 
