@@ -28,11 +28,11 @@ then
   # commit and tag
   git add .
   git commit -m "release: v$VERSION"
-  git tag "v$VERSION"
 
   # publish
   git push origin refs/tags/v$VERSION
   git push
+  git tag "v$VERSION"
 
   # commit
   yarn publish --new-version $VERSION
