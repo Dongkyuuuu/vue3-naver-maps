@@ -30,9 +30,9 @@ then
   git commit -m "release: v$VERSION"
 
   # publish
-  git push origin refs/tags/v$VERSION
   git push
-  git tag "v$VERSION"
+  git push origin refs/tags/v$VERSION
+  # git tag "v$VERSION"
 
   # commit
   yarn publish --new-version $VERSION
