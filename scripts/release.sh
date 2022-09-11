@@ -18,13 +18,13 @@ then
   # generate the version so that the changelog can be generated too
   yarn version --new-version $VERSION
 
+  yarn run build
+  yarn run build:dts
+
   # changelog
   yarn run changelog
   echo "Please check the git history and the changelog and press enter"
   read OKAY
-
-  yarn run build
-  yarn run build:dts
 
   # commit and tag
   git add .
