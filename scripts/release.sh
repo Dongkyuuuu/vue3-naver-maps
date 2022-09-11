@@ -19,7 +19,6 @@ then
   yarn version --new-version $VERSION
 
   yarn run build
-  yarn run build:dts
 
   # changelog
   yarn run changelog
