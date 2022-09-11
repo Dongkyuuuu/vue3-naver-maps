@@ -2,9 +2,6 @@
 # yarn npm login --publish
 set -e
 
-yarn run build
-yarn run build:dts
-
 echo "Current version:" $(grep version package.json | sed -E 's/^.*"([0-9][^"]+)".*$/\1/')
 echo "Enter version e.g., 4.0.1: "
 read VERSION
@@ -26,8 +23,11 @@ then
   echo "Please check the git history and the changelog and press enter"
   read OKAY
 
+  yarn run build
+  yarn run build:dts
+
   # commit and tag
-  git add CHANGELOG.md package.json
+  git add .
   git commit -m "release: v$VERSION"
   git tag "v$VERSION"
 
