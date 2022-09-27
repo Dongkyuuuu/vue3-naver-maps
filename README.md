@@ -6,6 +6,8 @@
 
 문서는 [Documentation](https://dongkyuuuu.github.io/vue3-naver-maps/)에서 확인 가능합니다.
 
+3.x 버전으로 업데이트 되었습니다. 사용에 변경사항이 있으니 [2.x 버전으로 부터 마이그레이션](https://dongkyuuuu.github.io/vue3-naver-maps/migrations/from2.html) 문서를 참고해주세요.
+
 ## Introduce
 
 `vue3-naver-maps`는 `NAVER 지도 API v3` Vue3에서 간편하게 사용하기 위해 작성 된 라이브러리 입니다.
@@ -29,10 +31,6 @@ $ npm install vue3-naver-maps --save
 ```bash
 $ yarn add vue3-naver-maps
 ```
-
-## 2.x 마이그레이션
-
-[2.x 버전으로 부터 마이그레이션](https://dongkyuuuu.github.io/vue3-naver-maps/migrations/from2.html) 문서를 확인해주세요.
 
 ## Contributing Guide
 
