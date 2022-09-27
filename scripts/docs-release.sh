@@ -21,6 +21,6 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:DongKyuuuu/vue3-naver-maps.git master:gh-pages
+git push -f git@github.com:DongKyuuuu/vue3-naver-maps.git main:gh-pages
 
 cd -
