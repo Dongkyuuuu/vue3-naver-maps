@@ -31,8 +31,8 @@ then
 
   # publish
   git push
-  git push origin refs/tags/v$VERSION
-  # git tag "v$VERSION"
+  # git push origin refs/tags/v$VERSION
+  git tag "v$VERSION"
 
   # commit
   yarn publish --new-version $VERSION

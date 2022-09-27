@@ -1,3 +1,17 @@
+## [3.1.1](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v3.1.0...v3.1.1) (2022-09-27)
+
+
+### Bug Fixes
+
+* **Marker:** HtmlIcon children nodes issue ([a971d6b](https://github.com/DongKyuuuu/vue3-naver-maps/commit/a971d6b7a8af54185264203c5d3404ed3d8a5e71))
+
+
+### Features
+
+* **docs:** update marker document ([27590b1](https://github.com/DongKyuuuu/vue3-naver-maps/commit/27590b11df694b59f78132e66e6410ebf0248777))
+
+
+
 # [3.1.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v3.0.14...v3.1.0) (2022-09-27)
 
 ### Bug Fixes
