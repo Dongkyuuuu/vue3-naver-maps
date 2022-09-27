@@ -13,9 +13,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "yarn env:delete && rollup -c rollup.config.js && yarn build:dts",
+    "build": "rollup -c rollup.config.js && yarn build:dts",
     "build:dts": "api-extractor run --local --verbose",
-    "env:delete": "echo '' > .env",
     "dev": "yarn build && vite --config playground/vite.config.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
     "release": "bash scripts/release.sh",

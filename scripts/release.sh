@@ -2,6 +2,7 @@
 # yarn npm login --publish
 set -e
 
+echo "" > .env
 echo "Current version:" $(grep version package.json | sed -E 's/^.*"([0-9][^"]+)".*$/\1/')
 echo "Enter version e.g., 4.0.1: "
 read VERSION
