@@ -5,7 +5,7 @@
   <br />
   <br />
   <a href="./optionAPI">optionsAPI</a>
-  <naver-maps
+  <naver-map
     style="width: 100%; height: 400px"
     :mapOptions="mapOptions"
     :initLayers="initLayers"
@@ -33,6 +33,7 @@
       :longitude="126.97837068565364"
       @onLoad="loadMarker($event)"
     >
+      <div>asdsd</div>
     </naver-marker>
     <!-- <naver-info-window
       :marker="marker"
@@ -43,7 +44,7 @@
     >
       <div>hello, InfoWindow!</div>
     </naver-info-window> -->
-  </naver-maps>
+  </naver-map>
   <br />
   <br />
   <br />
