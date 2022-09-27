@@ -1,3 +1,9 @@
+# [3.1.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v3.0.14...v3.1.0) (2022-09-27)
+
+### Bug Fixes
+
+- **Marker:** HtmlIcon issue fix ([78f8675](https://github.com/DongKyuuuu/vue3-naver-maps/commit/78f86759c1649c955f6f57d90007817adb16a94d))
+
 # [2.0.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v1.0.1...v2.0.0) (2022-02-09)
 
 ### Breaking Change
