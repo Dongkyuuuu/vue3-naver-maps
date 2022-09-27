@@ -45,5 +45,5 @@ export const installer = (app: App, options: Options) => {
   app.provide(MAPS_IS_SSR, MODE);
   app.provide(MAPS_INSTALL_OPTIONS, options);
 
-  createScript(options);
+  !MODE && createScript(options);
 };
