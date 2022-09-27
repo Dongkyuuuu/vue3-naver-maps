@@ -42,7 +42,13 @@ const mapOptions = {
 
 `latitude`, `longitude`는 필수적으로 입력해 주셔야 합니다.
 
-컴포넌트 내부에 코드를 작성하면 `HtmlIcon`이 적용 됩니다. `HtmlIcon`사용 시 `anchor`와 `size`를 별도로 지정해 주셔야 마커위치를 정확히 유지 할 수 있습니다.
+컴포넌트 내부에 코드를 작성하면 `HtmlIcon`이 적용 됩니다. 무조건 하나이상의 `element(div, span 등...)`을 넣어 주셔야 HtmlIcon 형태로 사용 가능합니다.
+
+:::warning
+마커에 Element 없이 텍스트만 입력하면 기본 마커 스타일로 적용 됩니다.
+:::
+
+`HtmlIcon`사용 시 `anchor`와 `size`를 별도로 지정해 주셔야 마커위치를 정확히 유지 할 수 있습니다.
 
 :::tip
 HtmlIcon을 사용하지 않으면 네이버 기본 마커 스타일이 적용 됩니다.
