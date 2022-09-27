@@ -3,8 +3,6 @@
 # abort on errors
 set -e
 
-echo "" > .env
-echo "VITE_RELEASE_TYPE=DOCS" > .env
 
 # build
 yarn run docs:build

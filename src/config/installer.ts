@@ -21,6 +21,7 @@ const getNaverMapUrl = (options: Options) => {
 
 // Create navermaps script tag
 export const createScript = (options: Options) => {
+  if (typeof document == "undefined") return;
   const isExist = document.getElementById(NAVER_MAP_ELEMENT_ID);
 
   if (isExist) return;
@@ -38,12 +39,11 @@ export const createScript = (options: Options) => {
 };
 
 export const installer = (app: App, options: Options) => {
-  const MODE = typeof window === "undefined"; // true: SSR, false: client
-  const RELEASE_TYPE = (import.meta as any).env.VITE_RELEASE_TYPE; // Docs Release
+  const MODE = typeof window == "undefined"; // true: SSR, false: client
   if (!options.clientId) throw new Error(ERROR_NONE_CLIENT_ID);
 
   app.provide(MAPS_IS_SSR, MODE);
   app.provide(MAPS_INSTALL_OPTIONS, options);
 
-  !MODE && RELEASE_TYPE !== "DOCS" && createScript(options);
+  createScript(options);
 };
