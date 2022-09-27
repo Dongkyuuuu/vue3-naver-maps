@@ -39,7 +39,7 @@ export const createScript = (options: Options) => {
 
 export const installer = (app: App, options: Options) => {
   const MODE = typeof window === "undefined"; // true: SSR, false: client
-  const RELEASE_TYPE = (import.meta as any).env.RELEASE_TYPE; // Docs Release
+  const RELEASE_TYPE = (import.meta as any).env.VITE_RELEASE_TYPE; // Docs Release
   if (!options.clientId) throw new Error(ERROR_NONE_CLIENT_ID);
 
   app.provide(MAPS_IS_SSR, MODE);
