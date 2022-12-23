@@ -54,13 +54,23 @@ export class MapSettings {
       CHINESE: "lzh",
       JAPANESE: "lja",
     };
+    const overlayType = this._layers
+      .map((layer) => LAYER_HASH_TABLE[layer])
+      .join(".");
 
     return {
       mapTypes: new window.naver.maps.MapTypeRegistry({
         normal: window.naver.maps.NaverStyleMapTypeOptions.getNormalMap({
-          overlayType: this._layers
-            .map((layer) => LAYER_HASH_TABLE[layer])
-            .join("."),
+          overlayType: overlayType,
+        }),
+        satellite: window.naver.maps.NaverStyleMapTypeOptions.getSatelliteMap({
+          overlayType: overlayType,
+        }),
+        hybrid: window.naver.maps.NaverStyleMapTypeOptions.getHybridMap({
+          overlayType: overlayType,
+        }),
+        terrain: window.naver.maps.NaverStyleMapTypeOptions.getTerrainMap({
+          overlayType: overlayType,
         }),
       }),
     };
