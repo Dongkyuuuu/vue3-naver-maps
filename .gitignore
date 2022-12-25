@@ -4,14 +4,14 @@
 temp
 playground/config.ts
 
-# yarn berry- not using Zero-install
+# yarn berry zero-install
 .yarn/*
+!.yarn/cache
 !.yarn/patches
-!.yarn/releases
 !.yarn/plugins
+!.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-.pnp.*
 
 # Logs
 logs
