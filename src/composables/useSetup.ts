@@ -1,8 +1,8 @@
 import { inject } from "vue";
 import { useGetApiUrl } from "./useGetApiUrl";
 import { NAVER_MAPS_INSTALL_OPTIONS } from "@/constants/keys";
-import { ERROR_NONE_CLIENT_ID } from "@/constants/errors";
 import { NAVER_MAP_SCRIPT_ID } from "@/constants/ids";
+import { ERROR_NONE_CLIENT_ID, ERROR_SCRIPT_LOAD } from "@/constants/errors";
 
 import type { App } from "vue";
 import type { Options } from "@/types";
@@ -21,7 +21,7 @@ export const useSetupScript = (initMap: () => void) => {
   script.setAttribute("async", "");
   script.setAttribute("defer", "");
 
-  script.onerror = () => new Error();
+  script.onerror = () => new Error(ERROR_SCRIPT_LOAD);
   script.onload = () => {
     window.naver.maps.onJsContentLoaded = () => initMap();
   };
