@@ -6,3 +6,6 @@ export const ERROR_SUBMODULE_TYPES =
 
 export const ERROR_SCRIPT_LOAD =
   "[vue3-naver-maps] naver script load is failed";
+
+export const ERROR_NONE_MARKER_POSITION =
+  "[vue3-naver-maps] marker must have latitude, longtitude";
