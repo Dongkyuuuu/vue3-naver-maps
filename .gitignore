@@ -1,5 +1,6 @@
 
 # Custom
+.env
 .DS_Store
 temp
 playground/config.ts

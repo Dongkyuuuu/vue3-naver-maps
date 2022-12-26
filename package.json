@@ -15,14 +15,14 @@
   "scripts": {
     "build": "rollup -c rollup.config.js && yarn build:dts",
     "build:dts": "api-extractor run --local --verbose",
-    "dev": "yarn build && vite --config playground/vite.config.js",
+    "dev": "vite dev ./playground",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
     "release": "bash scripts/release.sh",
     "docs:dev": "yarn build && vuepress dev docs",
     "docs:build": "yarn build && vuepress build docs --clean-cache --clean-temp",
     "docs:serve": "vuepress serve docs",
     "docs:release": "bash scripts/docs-release.sh",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore docs",
+    "lint": "eslint ./src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
     "type-check": "vue-tsc --noEmit"
   },
   "repository": {
@@ -52,6 +52,7 @@
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rushstack/eslint-patch": "^1.1.4",
     "@types/navermaps": "^3.6.1",
+    "@types/node": "^18.11.17",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^11.0.0",

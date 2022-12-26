@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, useAttrs, toRefs } from "vue";
-import { useSetupScript } from "@/composables/useSetup";
 import { mapInstance, mapCallbackList, mapIsLoaded } from "@/stores";
+import { addEventMap } from "@/composables/useEvent";
+import { useSetupScript } from "@/composables/useSetup";
 import { LAYER_TABLE } from "@/constants/tables";
+import { UI_EVENT_MAP } from "@/constants/events";
 
 import type { MapOptions, Layers } from "@/types";
 
-defineEmits<{}>();
+const emits = defineEmits([...UI_EVENT_MAP, "onLoad"]);
 const props = defineProps<{
   mapOptions?: MapOptions;
   initLayers?: Layers[];
@@ -56,22 +58,26 @@ const useInitMap = () => {
     mapElement.value!,
     useMapSettings()
   );
+  addEventMap(emits, mapInstance.value); // add event
   mapIsLoaded.value = true;
   mapCallbackList.value.map((item) => item(mapInstance.value!));
   mapCallbackList.value = [];
 
-  onUnmounted(() => {
-    mapInstance.value?.destroy();
-    mapInstance.value = undefined;
-    mapIsLoaded.value = false;
-  });
+  emits("onLoad", mapInstance.value);
 };
 
-onMounted(() => (window.naver ? useInitMap() : useSetupScript(useInitMap)));
+onMounted(() => {
+  window.naver ? useInitMap() : useSetupScript(useInitMap);
+});
+onUnmounted(() => {
+  mapInstance.value?.destroy();
+  mapInstance.value = undefined;
+  mapIsLoaded.value = false;
+});
 </script>
 
 <template>
   <div ref="mapElement" v-bind="attrs">
-    <slot />
+    <slot></slot>
   </div>
 </template>

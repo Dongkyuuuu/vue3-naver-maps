@@ -22,9 +22,9 @@ export const useSetupScript = (initMap: () => void) => {
   script.setAttribute("defer", "");
 
   script.onerror = () => new Error(ERROR_SCRIPT_LOAD);
-  script.onload = () => {
-    window.naver.maps.onJsContentLoaded = () => initMap();
-  };
+  script.onload = () => initMap();
+
+  document.head.appendChild(script);
 };
 
 export default function setup(app: App, options: Options) {

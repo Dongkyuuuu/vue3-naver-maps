@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rollup/plugin-node-resolve", "virtual:3e27c3ef2f8a3c8afb73a6a67fbfaa03159e57429f6278ea20c0aeda75f96a8c29598188ae41a7813c58f1fd42dce5b53ddf79a29ab75ab415fb2e8ba3703757#npm:13.3.0"],\
             ["@rushstack/eslint-patch", "npm:1.2.0"],\
             ["@types/navermaps", "npm:3.6.1"],\
+            ["@types/node", "npm:18.11.17"],\
             ["@vitejs/plugin-vue", "virtual:3e27c3ef2f8a3c8afb73a6a67fbfaa03159e57429f6278ea20c0aeda75f96a8c29598188ae41a7813c58f1fd42dce5b53ddf79a29ab75ab415fb2e8ba3703757#npm:4.0.0"],\
             ["@vue/eslint-config-prettier", "virtual:3e27c3ef2f8a3c8afb73a6a67fbfaa03159e57429f6278ea20c0aeda75f96a8c29598188ae41a7813c58f1fd42dce5b53ddf79a29ab75ab415fb2e8ba3703757#npm:7.0.0"],\
             ["@vue/eslint-config-typescript", "virtual:3e27c3ef2f8a3c8afb73a6a67fbfaa03159e57429f6278ea20c0aeda75f96a8c29598188ae41a7813c58f1fd42dce5b53ddf79a29ab75ab415fb2e8ba3703757#npm:11.0.2"],\
@@ -1498,6 +1499,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
+        ["npm:18.11.17", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-18.11.17-897ad73ae4-1933afd068.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:18.11.17"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:18.7.16", {\
           "packageLocation": "./.yarn/cache/@types-node-npm-18.7.16-f7271d701b-01a3d35c76.zip/node_modules/@types/node/",\
           "packageDependencies": [\
@@ -2201,7 +2209,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/@vue-tsconfig-virtual-a93b3900c1/0/cache/@vue-tsconfig-npm-0.1.3-07ae9b676e-8150a24497.zip/node_modules/@vue/tsconfig/",\
           "packageDependencies": [\
             ["@vue/tsconfig", "virtual:3e27c3ef2f8a3c8afb73a6a67fbfaa03159e57429f6278ea20c0aeda75f96a8c29598188ae41a7813c58f1fd42dce5b53ddf79a29ab75ab415fb2e8ba3703757#npm:0.1.3"],\
-            ["@types/node", null]\
+            ["@types/node", "npm:18.11.17"]\
           ],\
           "packagePeers": [\
             "@types/node"\
@@ -8090,7 +8098,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["vite", "virtual:3e27c3ef2f8a3c8afb73a6a67fbfaa03159e57429f6278ea20c0aeda75f96a8c29598188ae41a7813c58f1fd42dce5b53ddf79a29ab75ab415fb2e8ba3703757#npm:4.0.3"],\
             ["@types/less", null],\
-            ["@types/node", null],\
+            ["@types/node", "npm:18.11.17"],\
             ["@types/sass", null],\
             ["@types/stylus", null],\
             ["@types/sugarss", null],\
@@ -8304,6 +8312,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rollup/plugin-node-resolve", "virtual:3e27c3ef2f8a3c8afb73a6a67fbfaa03159e57429f6278ea20c0aeda75f96a8c29598188ae41a7813c58f1fd42dce5b53ddf79a29ab75ab415fb2e8ba3703757#npm:13.3.0"],\
             ["@rushstack/eslint-patch", "npm:1.2.0"],\
             ["@types/navermaps", "npm:3.6.1"],\
+            ["@types/node", "npm:18.11.17"],\
             ["@vitejs/plugin-vue", "virtual:3e27c3ef2f8a3c8afb73a6a67fbfaa03159e57429f6278ea20c0aeda75f96a8c29598188ae41a7813c58f1fd42dce5b53ddf79a29ab75ab415fb2e8ba3703757#npm:4.0.0"],\
             ["@vue/eslint-config-prettier", "virtual:3e27c3ef2f8a3c8afb73a6a67fbfaa03159e57429f6278ea20c0aeda75f96a8c29598188ae41a7813c58f1fd42dce5b53ddf79a29ab75ab415fb2e8ba3703757#npm:7.0.0"],\
             ["@vue/eslint-config-typescript", "virtual:3e27c3ef2f8a3c8afb73a6a67fbfaa03159e57429f6278ea20c0aeda75f96a8c29598188ae41a7813c58f1fd42dce5b53ddf79a29ab75ab415fb2e8ba3703757#npm:11.0.2"],\
