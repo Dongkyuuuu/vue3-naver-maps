@@ -47,6 +47,7 @@ const createConfigs = (format, output) => {
       }),
       typescript({
         tsconfig: path.resolve(__dirname, "tsconfig.json"),
+        clean: true,
         tsconfigOverride: {
           compilerOptions: {
             sourceMap: false,

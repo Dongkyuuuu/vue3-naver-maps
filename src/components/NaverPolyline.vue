@@ -9,7 +9,7 @@ const props = defineProps<{
   path:
     | naver.maps.ArrayOfCoords[]
     | naver.maps.KVOArrayOfCoords[]
-    | naver.maps.ArrayOfCoordsLiteral;
+    | naver.maps.ArrayOfCoordsLiteral[];
   options?: naver.maps.PolylineOptions;
 }>();
 

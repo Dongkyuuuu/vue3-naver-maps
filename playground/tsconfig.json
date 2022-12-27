@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "include": ["env.d.ts", "*"],
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["../src/*"],
+      "~/*": ["../*"]
+    }
+  }
+}

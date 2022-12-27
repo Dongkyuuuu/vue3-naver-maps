@@ -29,7 +29,7 @@ const groundOverlayBound = ref<naver.maps.BoundsLiteral>({
   east: 126.979668,
 });
 
-const polygonPaths = ref<naver.maps.ArrayOfCoordsLiteral>([
+const polygonPaths = ref<any>([
   [126.9797895, 37.5670131],
   [126.979215, 37.5649555],
   [126.9766789, 37.5649082],
@@ -42,7 +42,7 @@ const polygonPaths = ref<naver.maps.ArrayOfCoordsLiteral>([
   [126.9811162, 37.5651081],
 ]);
 
-const polylinePaths = ref<naver.maps.ArrayOfCoordsLiteral>([
+const polylinePaths = ref<any>([
   { lat: 37.570053, lng: 126.983005 },
   { lat: 37.566343, lng: 126.982671 },
 ]);

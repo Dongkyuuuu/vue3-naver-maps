@@ -6,6 +6,7 @@
     "cypress.config.*",
     "playwright.config.*"
   ],
+  "exclude": [],
   "compilerOptions": {
     "composite": true,
     "types": ["node"]
