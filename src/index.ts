@@ -6,6 +6,7 @@ export { default as NaverMap } from "./components/NaverMap.vue";
 export { default as NaverMarker } from "./components/NaverMarker.vue";
 export { default as NaverInfoWindow } from "./components/NaverInfoWindow.vue";
 export { default as NaverCircle } from "./components/NaverCircle.vue";
+export { default as NaverEllipse } from "./components/NaverEllipse.vue";
 
 /** Exports types  */
 export * from "./types";

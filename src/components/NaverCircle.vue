@@ -32,4 +32,6 @@ onMounted(() => useLoad(useInitCircle));
 onUnmounted(() => circle.value && circle.value.setMap(null));
 </script>
 
-<template></template>
+<template>
+  <div></div>
+</template>
