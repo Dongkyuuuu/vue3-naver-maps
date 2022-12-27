@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { NaverMap, NaverEllipse } from "../../dist/vue3-naver-maps.esm";
+import { NaverMap, NaverEllipse } from "../../src";
 
 const ellipse = ref();
 const ellipseBound = ref({

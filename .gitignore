@@ -4,6 +4,7 @@
 .DS_Store
 temp
 playground/config.ts
+dist/
 
 # yarn berry zero-install
 .pnp.*

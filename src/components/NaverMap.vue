@@ -29,7 +29,7 @@ const useMapSettings = (): naver.maps.MapOptions => {
   if (setCetner) {
     options.center = new window.naver.maps.LatLng(
       options.latitude!,
-      options.latitude!
+      options.longitude!
     );
   }
 

@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { NaverMap, NaverRectangle } from "../../dist/vue3-naver-maps.esm";
+import { NaverMap, NaverRectangle } from "../../src";
 
 const rectangle = ref();
 const mapOptions = {

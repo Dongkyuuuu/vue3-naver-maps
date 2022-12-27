@@ -5,6 +5,9 @@ import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
 import path from "path";
 
 const config = {
+   alias: {
+    '@': path.resolve(__dirname, '../../src')
+  },
   locales: {
     "/": {
       lang: "ko",

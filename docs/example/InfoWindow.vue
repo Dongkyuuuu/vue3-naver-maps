@@ -4,7 +4,7 @@ import {
   NaverMap,
   NaverMarker,
   NaverInfoWindow,
-} from "../../dist/vue3-naver-maps.esm";
+} from "../../src";
 
 const marker = ref();
 const infoWindow = ref();

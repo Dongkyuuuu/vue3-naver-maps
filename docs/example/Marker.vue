@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { NaverMap, NaverMarker } from "../../dist/vue3-naver-maps.esm";
+import { NaverMap, NaverMarker } from "../../src";
 
 const marker = ref();
 const onLoadMarker = (markerObject) => {
@@ -16,7 +16,7 @@ const mapOptions = {
 </script>
 
 <template>
-  <naver-map style="width: 100%; height: 400px" :mapOptions="mapOptions">
+  <naver-map style="width: 100%; height: 400px"  :mapOptions="mapOptions">
     <naver-marker
       :latitude="37.51347"
       :longitude="127.041722"

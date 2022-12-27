@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { NaverMap } from "../../dist/vue3-naver-maps.esm";
+import { NaverMap } from "../../src";
 
 const map = ref();
 const mapOptions = {
