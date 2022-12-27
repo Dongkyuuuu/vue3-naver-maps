@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { NaverMap, NaverMarker, NaverInfoWindow } from "~/src";
-import type {} from "~/src";
+import { NaverMap, NaverMarker, NaverInfoWindow, NaverCircle } from "~/src";
 
 const marker = ref();
 </script>
@@ -13,16 +12,14 @@ const marker = ref();
       :longitude="126.97837068565364"
       @on-load="marker = $event"
     />
-
-    <NaverInfoWindow
-      :marker="marker"
-      :open="true"
-      :options="{
-        content: 'asdsd',
-      }"
-    >
-      <!-- Hello, Infowindow! -->
+    <NaverInfoWindow :marker="marker" :open="true">
+      Hello, Infowindow!
     </NaverInfoWindow>
+
+    <NaverCircle
+      :latitude="37.566616443521745"
+      :longitude="126.97837068565364"
+    />
   </NaverMap>
 </template>
 
