@@ -15,11 +15,11 @@
 ```javascript
 // main.js
 import { createApp } from "vue";
-import naver from "vue3-naver-maps";
+import { createNaverMap } from "vue3-naver-maps";
 
 const app = createApp(App);
 
-app.use(naver, { clientId: "your clientId" }).mount("#app");
+app.use(createNaverMap, { clientId: "your clientId" }).mount("#app");
 ```
 
 ### category
@@ -38,17 +38,19 @@ app.use(naver, { clientId: "your clientId" }).mount("#app");
 ```javascript
 // main.js
 import { createApp } from "vue";
-import naver from "vue3-naver-maps";
+import { createNaverMap } from "vue3-naver-maps";
 
 const app = createApp(App);
 
-app.use(naver, { clientId: "your clientId", category: "gov" }).mount("#app");
+app
+  .use(createNaverMap, { clientId: "your clientId", category: "gov" })
+  .mount("#app");
 ```
 
 ### subModules
 
 - **선택**
-- **타입:** `string`
+- **타입:** `array`
 - **상세:**
 
   지도의 서브모듈을 추가할 경우 사용 되는 옵션 입니다. 사용 하는 서브모듈의 이름을 작성해주면 됩니다. 여러 서브모듈을 사용하는 경우 `,`로 공백없이 이어서 입력하면 됩니다. 제공하는 서브모듈은 [공식문서](https://navermaps.github.io/maps.js.ncp/docs/tutorial-4-Submodules.html)를 참고해주세요.
@@ -56,12 +58,15 @@ app.use(naver, { clientId: "your clientId", category: "gov" }).mount("#app");
 ```javascript
 // main.js
 import { createApp } from "vue";
-import naver from "vue3-naver-maps";
+import { createNaverMap } from "vue3-naver-maps";
 
 const app = createApp(App);
 
 app
-  .use(naver, { clientId: "your clientId", subModules: "panorama,geocoder" })
+  .use(createNaverMap, {
+    clientId: "your clientId",
+    subModules: ["panorama", "geocoder"],
+  })
   .mount("#app");
 ```
 
