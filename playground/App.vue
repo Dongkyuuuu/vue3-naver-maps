@@ -7,6 +7,7 @@ import {
   NaverCircle,
   NaverEllipse,
   NaverGroundOverlay,
+  NaverPolygon,
 } from "~/src";
 
 const marker = ref();
@@ -25,6 +26,19 @@ const groundOverlayBound = ref<naver.maps.BoundsLiteral>({
   west: 126.978879,
   east: 126.979668,
 });
+
+const polygonPaths = ref<naver.maps.ArrayOfCoordsLiteral>([
+  [126.9797895, 37.5670131],
+  [126.979215, 37.5649555],
+  [126.9766789, 37.5649082],
+  [126.9789515, 37.5637645],
+  [126.9785598, 37.5614914],
+  [126.9804949, 37.5632666],
+  [126.9827689, 37.5619065],
+  [126.9818039, 37.5639213],
+  [126.9837414, 37.5653719],
+  [126.9811162, 37.5651081],
+]);
 </script>
 
 <template>
@@ -46,6 +60,8 @@ const groundOverlayBound = ref<naver.maps.BoundsLiteral>({
     <NaverEllipse :bounds="ellipseBounds" />
 
     <NaverGroundOverlay :url="groundOverlayImg" :bounds="groundOverlayBound" />
+
+    <NaverPolygon :paths="polygonPaths" />
   </NaverMap>
 </template>
 
