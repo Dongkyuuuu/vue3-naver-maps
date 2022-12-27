@@ -1,12 +1,14 @@
-import { defaultTheme, defineUserConfig } from "vuepress";
+import { defaultTheme, defineUserConfig, viteBundler } from "vuepress";
+// import { webpackBundler } from "@vuepress/bundler-webpack";
 import { docsearchPlugin } from "@vuepress/plugin-docsearch";
 import { containerPlugin } from "@vuepress/plugin-container";
 import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
 import path from "path";
 
 const config = {
-   alias: {
-    '@': path.resolve(__dirname, '../../src')
+  bundler: viteBundler(),
+  alias: {
+    "@": path.resolve(__dirname, "../../src"),
   },
   locales: {
     "/": {
