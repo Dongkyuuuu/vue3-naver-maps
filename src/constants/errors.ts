@@ -9,3 +9,9 @@ export const ERROR_SCRIPT_LOAD =
 
 export const ERROR_NONE_MARKER_POSITION =
   "[vue3-naver-maps] marker must have latitude, longtitude";
+
+export const ERROR_NONE_INFOWINDOW =
+  "[vue3-naver-maps] infoWindow is not defined";
+
+export const ERROR_MAP_IS_NOT_DEFINED =
+  "[vue3-naver-maps] map instance is not initialized";
