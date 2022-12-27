@@ -6,6 +6,7 @@ import {
   NaverInfoWindow,
   NaverCircle,
   NaverEllipse,
+  NaverGroundOverlay,
 } from "~/src";
 
 const marker = ref();
@@ -14,6 +15,15 @@ const ellipseBounds = ref<naver.maps.BoundsLiteral>({
   north: 37.5651,
   west: 126.978467,
   east: 126.977357,
+});
+
+const groundOverlayImg =
+  "http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcQkrjYxSfSHeCEA7hkPy8e2JphDsfFHZVKqx-3t37E4XKr-AT7DML8IwtwY0TnZsUcQ";
+const groundOverlayBound = ref<naver.maps.BoundsLiteral>({
+  south: 37.565316,
+  north: 37.565985,
+  west: 126.978879,
+  east: 126.979668,
 });
 </script>
 
@@ -34,6 +44,8 @@ const ellipseBounds = ref<naver.maps.BoundsLiteral>({
     />
 
     <NaverEllipse :bounds="ellipseBounds" />
+
+    <NaverGroundOverlay :url="groundOverlayImg" :bounds="groundOverlayBound" />
   </NaverMap>
 </template>
 
