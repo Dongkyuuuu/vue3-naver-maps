@@ -1,0 +1,14 @@
+name: "CheckLint"
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+name: Lint
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    setps:
+      - name: Start Lint Script
+        run: yarn lint
