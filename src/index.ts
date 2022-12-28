@@ -1,5 +1,3 @@
-
-
 /** Exports installer */
 export { default as createNaverMap } from "./composables/useSetup";
 
@@ -15,4 +13,10 @@ export { default as NaverPolyline } from "./components/NaverPolyline.vue";
 export { default as NaverRectangle } from "./components/NaverRectangle.vue";
 
 /** Exports types  */
-export type {InitCallBacks, Layers, MapOptions, Options, SubModules} from "./types";
+export type {
+  InitCallBacks,
+  Layers,
+  MapOptions,
+  Options,
+  SubModules,
+} from "./types";
