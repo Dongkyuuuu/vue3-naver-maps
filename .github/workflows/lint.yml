@@ -8,5 +8,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - name: Install dependencies
+        run: yarn install
+
       - name: Start Lint Script
         run: yarn lint
