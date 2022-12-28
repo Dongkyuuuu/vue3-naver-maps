@@ -1,10 +1,8 @@
-name: "CheckLint"
+name: "Lint"
 
 on:
   pull_request:
     types: [opened, synchronize]
-
-name: Lint
 
 jobs:
   lint:
