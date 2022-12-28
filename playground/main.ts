@@ -1,9 +1,11 @@
 import { createApp } from "vue";
+import { createNaverMap } from "~/src";
+
 import App from "./App.vue";
-import OptionsAPI from "./optionAPI.vue";
-import navermaps from "vue3-naver-maps";
 
 const app = createApp(App);
+app.use(createNaverMap, {
+  clientId: import.meta.env.VITE_NAVER_MAP_KEY,
+});
 
-// Add your clientId
-app.use(navermaps, { clientId: "" }).mount("#app");
+app.mount("#app");

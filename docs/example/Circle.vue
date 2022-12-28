@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { NaverMap, NaverCircle } from "../../dist/vue3-naver-maps.esm";
+import { NaverMap, NaverCircle } from "../../src";
 
 const circle = ref();
 const mapOptions = {

@@ -32,15 +32,15 @@ npm install @types/navermaps --save-dev
 // main.js
 import { createApp } from "vue";
 import App from "./app.vue";
-import naver from "vue3-naver-maps";
+import { createNaverMap } from "vue3-naver-maps";
 
 const app = createApp(App);
 
 app
-  .use(naver, {
+  .use(createNaverMap, {
     clientId: "your clientId", // Required
     category: "ncp", // Optional
-    subModules: "", // Optional
+    subModules: [], // Optional, "panorama" | "geocoder" | "drawing" | "visualization"
   })
   .mount("#app");
 ```

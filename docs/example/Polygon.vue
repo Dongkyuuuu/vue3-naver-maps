@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { NaverMap, NaverPolygon } from "../../dist/vue3-naver-maps.esm";
+import { NaverMap, NaverPolygon } from "../../src";
 
 const polygon = ref();
 const paths = ref([

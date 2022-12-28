@@ -8,7 +8,7 @@ import {
   UI_EVENT_POLYGON,
   UI_EVENT_POLYLINE,
   UI_EVENT_GROUNDOVERLAY,
-} from "@/assets/event";
+} from "@/constants/events";
 
 export function addEvent(emit: any, target: any, name: string) {
   window.naver.maps.Event.addListener(target, name, (event) =>

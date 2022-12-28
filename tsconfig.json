@@ -1,41 +1,19 @@
 {
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "compilerOptions": {
-    "baseUrl": ".",
-    "rootDir": ".",
-    "outDir": "dist",
-    "sourceMap": false,
-    "noEmit": true,
-
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "allowJs": false,
-    "jsx": "preserve",
-
     "noUnusedLocals": true,
-    "strictNullChecks": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "noImplicitReturns": true,
-    "strict": true,
-
-    "experimentalDecorators": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "removeComments": false,
-    "importHelpers": true,
-    "allowSyntheticDefaultImports": true,
-
+    "noUnusedParameters": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
-    },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+      "@/*": ["./src/*"],
+      "~/*": ["./*"]
+    }
   },
-  "include": [
-    "src/**/*.vue",
-    "src/**/*.ts",
-    "__tests__/**/*.ts",
-    "node_modules/@types"
-  ],
-  "exclude": ["node_modules", "playground"]
+
+  "references": [
+    {
+      "path": "./tsconfig.config.json"
+    }
+  ]
 }

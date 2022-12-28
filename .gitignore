@@ -1,17 +1,19 @@
 
 # Custom
+.env
 .DS_Store
 temp
 playground/config.ts
+dist/
 
-# yarn berry- not using Zero-install
+# yarn berry zero-install
+.pnp.*
 .yarn/*
 !.yarn/patches
-!.yarn/releases
 !.yarn/plugins
+!.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-.pnp.*
 
 # Logs
 logs

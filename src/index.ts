@@ -1,30 +1,22 @@
-import { installer } from "./config/installer";
+/** Exports installer */
+export { default as createNaverMap } from "./composables/useSetup";
 
-import NaverMap from "./components/Map.vue";
-import NaverMarker from "./components/Marker.vue";
-import NaverInfoWindow from "./components/InfoWindow.vue";
-import NaverCircle from "./components/Circle.vue";
-import NaverEllipse from "./components/Ellipse.vue";
-import NaverRectangle from "./components/Rectangle.vue";
-import NaverPolygon from "./components/Polygon.vue";
-import NaverPolyline from "./components/Polyline.vue";
-import NaverGroundOverlay from "./components/GroundOverlay.vue";
-// import NaverCustomOverlay from "./components/CutsomOverlay.vue";
+/** Exports Components */
+export { default as NaverMap } from "./components/NaverMap.vue";
+export { default as NaverMarker } from "./components/NaverMarker.vue";
+export { default as NaverInfoWindow } from "./components/NaverInfoWindow.vue";
+export { default as NaverCircle } from "./components/NaverCircle.vue";
+export { default as NaverEllipse } from "./components/NaverEllipse.vue";
+export { default as NaverGroundOverlay } from "./components/NaverGroundOverlay.vue";
+export { default as NaverPolygon } from "./components/NaverPolygon.vue";
+export { default as NaverPolyline } from "./components/NaverPolyline.vue";
+export { default as NaverRectangle } from "./components/NaverRectangle.vue";
 
-export {
-  /**
-   * Export Components
-   */
-  NaverMap,
-  NaverMarker,
-  NaverInfoWindow,
-  NaverCircle,
-  NaverEllipse,
-  NaverRectangle,
-  NaverPolygon,
-  NaverPolyline,
-  NaverGroundOverlay,
-  // NaverCustomOverlay,
-};
-
-export default installer;
+/** Exports types  */
+export type {
+  InitCallBacks,
+  Layers,
+  MapOptions,
+  Options,
+  SubModules,
+} from "./types";

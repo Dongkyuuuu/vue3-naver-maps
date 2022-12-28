@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { NaverMap, NaverPolyline } from "../../dist/vue3-naver-maps.esm";
+import { NaverMap, NaverPolyline } from "../../src";
 
 const path = ref([
   { lat: 37.5670131, lng: 126.9797895 },

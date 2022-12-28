@@ -1,7 +1,7 @@
-import { mapInstance, mapsCallbackList, mapIsLoaded } from "@/store";
+import { mapIsLoaded, mapCallbackList, mapInstance } from "@/stores";
 
 export const useLoad = (action: (map: naver.maps.Map) => void) => {
   mapIsLoaded.value
     ? action(mapInstance.value!)
-    : mapsCallbackList.value.push(action);
+    : mapCallbackList.value.push(action);
 };

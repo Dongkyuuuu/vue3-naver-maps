@@ -8,7 +8,7 @@ import { terser } from "rollup-plugin-terser";
 const pkg = require("./package.json");
 const banner = `/*!
   * ${pkg.name} v${pkg.version}
-  * (c) ${new Date().getFullYear()} Dongkyuuuu
+  * (c) ${new Date().getFullYear()}. Dongkyuuuu All rights reserved.
   * @license MIT
   */`;
 
@@ -47,6 +47,7 @@ const createConfigs = (format, output) => {
       }),
       typescript({
         tsconfig: path.resolve(__dirname, "tsconfig.json"),
+        clean: true,
         tsconfigOverride: {
           compilerOptions: {
             sourceMap: false,

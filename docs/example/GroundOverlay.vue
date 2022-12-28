@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { NaverMap, NaverGroundOverlay } from "../../dist/vue3-naver-maps.esm";
+import { NaverMap, NaverGroundOverlay } from "../../src";
 
 const groundOverlay = ref();
 const groundOverlayBound = ref({

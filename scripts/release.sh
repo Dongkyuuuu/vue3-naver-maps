@@ -1,40 +1,39 @@
-# before start 
-# yarn npm login --publish
+# Release 
 set -e
 
 echo "Current version:" $(grep version package.json | sed -E 's/^.*"([0-9][^"]+)".*$/\1/')
-echo "Enter version e.g., 4.0.1: "
-read VERSION
+echo "Enter bump version e.g., decline | major | minor | patch | prerelease: "
+read BUMP
+
+# Bump/Save version
+yarn version $BUMP
+VERSION=$(grep version package.json | sed -E 's/^.*"([0-9][^"]+)".*$/\1/')
 
 read -p "Releasing v$VERSION - are you sure? (y/n)" -n 1 -r
-echo    # (optional) move to a new line
+echo
+
+# If user enter 'y' or 'Y' 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-  echo "Releasing v$VERSION ..."
+    echo "Releasing v$VERSION ..."
 
-  # clear existing ts cache
-  rm -rf node_modules/.rts2_cache
+    # Build
+    yarn run build 
 
-  # generate the version so that the changelog can be generated too
-  yarn version --new-version $VERSION
+    # Changelog
+    yarn run standard-changelog
+    echo "Please check the git history and the changelog and press enter"
+    read OKAY
 
-  yarn run build
+    # Save Commits
+    git add .
+    git commit -m "release: v$VERSION"
+    git push || git reset HEAD^
 
-  # changelog
-  yarn run changelog
-  echo "Please check the git history and the changelog and press enter"
-  read OKAY
+    # Tagging
+    git tag "v$VERSION"
+    git push origin refs/tags/v$VERSION
 
-  # commit and tag
-  git add .
-  git commit -m "release: v$VERSION"
-
-  # publish
-  git push
-  git tag "v$VERSION"
-
-  git push origin refs/tags/v$VERSION
-
-  # commit
-  yarn publish --new-version $VERSION
+    # Publish 
+    yarn npm publish || echo "try again `yarn npm publish`"
 fi
