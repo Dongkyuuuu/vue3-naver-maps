@@ -1,3 +1,19 @@
+# [4.0.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v3.2.1...v4.0.0) (2022-12-28)
+
+
+### Features
+
+* **docs:** add new docs migration from 3.x ([#10](https://github.com/DongKyuuuu/vue3-naver-maps/issues/10)) ([6db989f](https://github.com/DongKyuuuu/vue3-naver-maps/commit/6db989f71341fc95f03814139479408e5ceb483c))
+* refactoring the entire code ([65f073d](https://github.com/DongKyuuuu/vue3-naver-maps/commit/65f073d6bc82bbf9f130e7600277184cad96cb86))
+
+
+### BREAKING CHANGES
+
+* the installation module called `export default` has been changed to `createNaverMap` module.
+* install options `subModule` type is changed. (`string` to `array`)
+
+
+
 ## [3.1.1](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v3.1.0...v3.1.1) (2022-09-27)
 
 
