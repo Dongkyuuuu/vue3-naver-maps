@@ -1,3 +1,12 @@
+## [4.0.1](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v4.0.0...v4.0.1) (2022-12-28)
+
+
+### Features
+
+* **docs:** update README.md ([#11](https://github.com/DongKyuuuu/vue3-naver-maps/issues/11)) ([1c65af8](https://github.com/DongKyuuuu/vue3-naver-maps/commit/1c65af8168710127ab0d5d35e4544cc4c4f92c21))
+
+
+
 # [4.0.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v3.2.1...v4.0.0) (2022-12-28)
 
 
