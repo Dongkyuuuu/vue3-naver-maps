@@ -122,6 +122,10 @@ const config = {
                 text: "2.x 버전으로 부터 마이그레이션",
                 link: "/migrations/from2",
               },
+              {
+                text: "3.x 버전으로 부터 마이그레이션",
+                link: "/migrations/from3",
+              },
             ],
           },
         ],
