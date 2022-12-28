@@ -7,6 +7,6 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    setps:
+    steps:
       - name: Start Lint Script
         run: yarn lint
