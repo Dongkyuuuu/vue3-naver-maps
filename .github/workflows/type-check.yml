@@ -14,4 +14,4 @@ jobs:
         run: yarn install
 
       - name: Start type-check script
-        run: yarn type-checkz
+        run: yarn type-check
