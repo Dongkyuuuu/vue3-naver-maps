@@ -10,7 +10,7 @@ export const useGetApiUrl = (options: Options) => {
 
   const query = Qs.stringify({
     [`${options.category ?? "ncp"}ClientId`]: options.clientId,
-    subModules: options.subModules?.join() ?? "",
+    submodules: options.subModules?.join() ?? "",
   });
 
   return `https://openapi.map.naver.com/openapi/v3/maps.js?${query}`;
