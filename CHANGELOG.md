@@ -1,3 +1,12 @@
+# [4.1.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v4.0.1...v4.1.0) (2023-02-27)
+
+
+### Bug Fixes
+
+* naver maps submodule parameter name changed ([#16](https://github.com/DongKyuuuu/vue3-naver-maps/issues/16)) ([e3dcc17](https://github.com/DongKyuuuu/vue3-naver-maps/commit/e3dcc17c89bf38f0b2547ce8191c6146ab047945))
+
+
+
 ## [4.0.1](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v4.0.0...v4.0.1) (2022-12-28)
 
 
