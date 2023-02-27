@@ -29,7 +29,7 @@ describe("useGetApiUrl() must return naverMap openApi url", () => {
   it("Get naver url", () => {
     // Given
     const expectResult =
-      "https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=test&subModules=drawing%2Cgeocoder";
+      "https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=test&submodules=drawing%2Cgeocoder";
     const options: Options = {
       clientId: "test",
       category: "ncp",
