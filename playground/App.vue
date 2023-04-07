@@ -56,6 +56,8 @@ const rectangleBounds = ref<naver.maps.BoundsLiteral>({
 </script>
 
 <template>
+  <RouterLink to="/test">gogo</RouterLink>
+
   <NaverMap style="width: 90vw; height: 80vh">
     <NaverMarker
       :latitude="37.566616443521745"
