@@ -12,10 +12,10 @@ Vue3를 지원하는 `Nuxt3 RC9`를 기준으로 작성되었습니다. 아직 `
 
 ```javascript
 // plugins/vue3-naver-maps.client.js
-import naver from "vue3-naver-maps";
+import { createNaverMap } from "vue3-naver-maps";
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(naver, {
+  nuxtApp.vueApp.use(createNaverMap, {
     clientId: "your clientId", // Required
     category: "ncp", // Optional
     subModules: "", // Optional
