@@ -18,7 +18,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(createNaverMap, {
     clientId: "your clientId", // Required
     category: "ncp", // Optional
-    subModules: "", // Optional
+    subModules: [], // Optional, "panorama" | "geocoder" | "drawing" | "visualization"
   });
 });
 ```
