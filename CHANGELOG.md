@@ -1,3 +1,18 @@
+# [4.2.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v4.1.0...v4.2.0) (2023-08-11)
+
+
+### Bug Fixes
+
+* 네이버지도 API 변경 대응 ([#23](https://github.com/DongKyuuuu/vue3-naver-maps/issues/23)) ([99f1136](https://github.com/DongKyuuuu/vue3-naver-maps/commit/99f1136bedd0175a31894433d25791d6b3b42a69))
+
+
+### Features
+
+* **docs:** update nuxt section ([3f32653](https://github.com/DongKyuuuu/vue3-naver-maps/commit/3f32653999528b5a1998581442c11430151f6830))
+* update nuxt docs ([a1add22](https://github.com/DongKyuuuu/vue3-naver-maps/commit/a1add22d20a740d9b67ba04dd7179a14e14de420))
+
+
+
 # [4.1.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v4.0.1...v4.1.0) (2023-02-27)
 
 
