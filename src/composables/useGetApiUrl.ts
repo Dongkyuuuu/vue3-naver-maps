@@ -13,5 +13,5 @@ export const useGetApiUrl = (options: Options) => {
     submodules: options.subModules?.join() ?? "",
   });
 
-  return `https://openapi.map.naver.com/openapi/v3/maps.js?${query}`;
+  return `https://oapi.map.naver.com/openapi/v3/maps.js?${query}`;
 };
