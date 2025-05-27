@@ -14,8 +14,8 @@ export const useGetApiUrl = ({
     throw new Error(ERROR_SUBMODULE_TYPES);
 
   const clientIdParams = enableAiMaps
-    ? "ncpKeyId"
-    : `${category ?? "ncp"}ClientId`;
+    ? `${category ?? "ncp"}ClientId`
+    : "ncpKeyId";
 
   const query = Qs.stringify({
     [clientIdParams]: clientId,
