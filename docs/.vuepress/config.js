@@ -150,7 +150,7 @@ const config = {
       "script",
       {
         id: "vue3-naver-maps",
-        src: "https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=krm0ye8xno",
+        src: "https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=fspce45tye",
         async: "",
         defer: "",
       },
