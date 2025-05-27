@@ -3,7 +3,7 @@ import { createNaverMap } from "../../src";
 
 export default defineClientConfig({
   enhance({ app, router, siteData }) {
-    app.use(createNaverMap, { clientId: "krm0ye8xno" });
+    app.use(createNaverMap, { clientId: "fspce45tye", enableAiMaps: false });
   },
   setup() {},
   rootComponents: [],
