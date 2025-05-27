@@ -7,7 +7,7 @@ import { ERROR_NONE_CLIENT_ID, ERROR_SCRIPT_LOAD } from "@/constants/errors";
 import type { App } from "vue";
 import type { Options } from "@/types";
 
-/** Setup nvermaps script */
+/** Setup navermaps script */
 export const useSetupScript = (initMap: () => void) => {
   const isExistScript = document.getElementById(NAVER_MAP_SCRIPT_ID);
   if (isExistScript) return;

@@ -26,14 +26,32 @@ describe("useGetApiUrl() must return naverMap openApi url", () => {
     expect(execResult).toBeTruthy();
   });
 
-  it("Get naver url", () => {
+  it("구버전 서비스 사용하는 URL", () => {
     // Given
     const expectResult =
-      "https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=test&submodules=drawing%2Cgeocoder";
+      "https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=test&submodules=drawing%2Cgeocoder";
     const options: Options = {
       clientId: "test",
       category: "ncp",
       subModules: ["drawing", "geocoder"],
+    };
+
+    // When
+    const execResult = useGetApiUrl(options);
+
+    // Then
+    expect(execResult).toBe(expectResult);
+  });
+
+  it("신버전 서비스 사용하는 URL", () => {
+    // Given
+    const expectResult =
+      "https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=test&submodules=drawing%2Cgeocoder";
+    const options: Options = {
+      clientId: "test",
+      category: "ncp",
+      subModules: ["drawing", "geocoder"],
+      enableAiMaps: false,
     };
 
     // When

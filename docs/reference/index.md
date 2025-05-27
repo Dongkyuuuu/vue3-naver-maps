@@ -4,7 +4,7 @@
 
 `main.js`에서 vue3-naver-maps를 설치 할 때, 사용할 수 있는 옵션 입니다.
 
-### clinetId
+### clientId
 
 - **필수**
 - **타입:** `string`
@@ -20,6 +20,26 @@ import { createNaverMap } from "vue3-naver-maps";
 const app = createApp(App);
 
 app.use(createNaverMap, { clientId: "your clientId" }).mount("#app");
+```
+
+### enableAiMaps
+
+- **선택**
+- **타입:** `boolean`
+- **상세:**
+
+  25.04부터 신규 Maps 서비스가 출시됨에 따라 구버전 서비스를 사용할지 신버전 서비스를 사용할지 선택하는 분기. 하위 호환성을 위해 기본값은 `true`입니다. 자세한 내용은 [공지사항](https://www.ncloud.com/support/notice/all/1930)과 [공식문서](https://navermaps.github.io/maps.js.ncp/docs/tutorial-2-Getting-Started.html)를 확인해주세요
+
+```javascript
+// main.js
+import { createApp } from "vue";
+import { createNaverMap } from "vue3-naver-maps";
+
+const app = createApp(App);
+
+app
+  .use(createNaverMap, { clientId: "your clientId", enableAiMaps: true })
+  .mount("#app");
 ```
 
 ### category

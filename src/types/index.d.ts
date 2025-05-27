@@ -1,7 +1,8 @@
-export type SubModules = "panorama" | "geocoder" | "drawing" | "visualization"; // NaverMap SubModul Options
+export type SubModules = "panorama" | "geocoder" | "drawing" | "visualization"; // NaverMap SubModule Options
 
 export interface Options {
   clientId: string;
+  enableAiMaps?: boolean;
   category?: "gov" | "ncp" | "fin";
   subModules?: SubModules[];
 }
