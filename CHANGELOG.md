@@ -1,3 +1,12 @@
+# [4.3.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v4.2.0...v4.3.0) (2025-05-27)
+
+
+### Features
+
+* 네이버 클라우드 콘솔 개편에 따른 분기옵션 추가  ([#29](https://github.com/DongKyuuuu/vue3-naver-maps/issues/29)) ([c611d10](https://github.com/DongKyuuuu/vue3-naver-maps/commit/c611d1090f2baa7dd6b1c80e729e0ff2f2b12279))
+
+
+
 # [4.2.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v4.1.0...v4.2.0) (2023-08-11)
 
 
