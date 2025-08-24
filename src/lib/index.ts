@@ -8,7 +8,10 @@ import { NaverMapError } from "@/exceptions";
 import type { InitializeOptions } from "@/types";
 
 /** create naver-maps script */
-const createScript = (options: InitializeOptions) => {
+export const createScript = (
+  options: InitializeOptions,
+  callback?: () => void,
+) => {
   const { clientId, category, enableAiMaps = true, subModules } = options;
   const isScriptExist = document.getElementById(NAVER_MAPS_SCRIPT_ID);
   if (isScriptExist) return;
@@ -32,6 +35,9 @@ const createScript = (options: InitializeOptions) => {
   script.setAttribute("defer", "");
 
   script.onerror = () => new NaverMapError("Failed to load Naver Maps script");
+  script.onload = () => {
+    callback?.();
+  };
 
   document.head.appendChild(script);
 };
@@ -42,6 +48,5 @@ export const createNaverMap = (app: App, options: InitializeOptions) => {
     throw new Error("clientId is required");
   }
 
-  createScript(options);
   app.provide(NAVER_MAPS_INSTALL_OPTIONS_INJECT_KEY, options);
 };

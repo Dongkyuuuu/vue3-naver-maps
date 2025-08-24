@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, provide, ref, useAttrs } from "vue";
 
+import { useGlobalNaverMapOptions } from "@/composables/useGlobalNaverMapOptions";
 import {
   LAYER_TABLE,
   NAVER_MAPS_INSTANCE_INJECT_KEY,
   NAVER_MAPS_SCRIPT_ID,
   UI_EVENT_MAP,
 } from "@/constants";
+import { createScript } from "@/lib";
 import type { Layers, MapInitializeCallbacks, MapOptions } from "@/types";
 import { addEventMap } from "@/utils";
 
@@ -21,6 +23,7 @@ const mapElement = ref<HTMLElement>();
 const mapInstance = ref<naver.maps.Map>();
 /** Map이 호출되기 이전에 하위컴포넌트에서 호출된 실행들이 있는경우 Map 호출 후 실행해줌 */
 const mapCallbacks = ref<MapInitializeCallbacks>([]);
+const globalOptions = useGlobalNaverMapOptions();
 
 const handleAddCallback = (event: MapInitializeCallbacks[number]) => {
   mapCallbacks.value.push(event);
@@ -75,9 +78,7 @@ onMounted(() => {
   if (scripts && window.naver?.maps) {
     initializeNaverMap();
   } else {
-    scripts!.onload = () => {
-      initializeNaverMap();
-    };
+    createScript(globalOptions, initializeNaverMap);
   }
 });
 onUnmounted(() => {
