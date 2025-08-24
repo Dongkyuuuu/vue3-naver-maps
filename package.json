@@ -34,7 +34,8 @@
     "docs:release": "bash scripts/docs-release.sh",
     "release:commit": "pnpm changeset",
     "release:version": "pnpm changeset version",
-    "release": "pnpm changeset publish"
+    "release": "pnpm changeset publish",
+    "dev": "vite dev ./playground"
   },
   "repository": {
     "type": "git",
