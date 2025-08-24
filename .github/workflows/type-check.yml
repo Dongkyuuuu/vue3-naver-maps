@@ -9,9 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.15.0
 
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
 
       - name: Start type-check script
-        run: yarn type-check
+        run: pnpm type-check
