@@ -1,18 +1,29 @@
-import pluginVue from 'eslint-plugin-vue';
-import globals from 'globals';
+import eslint from "@eslint/js";
+import eslintConfigPrettier from "eslint-config-prettier";
+import eslintPluginVue from "eslint-plugin-vue";
+import globals from "globals";
+import typescriptEslint from "typescript-eslint";
 
-export default [
-    ...pluginVue.configs['flat/recommended'],
-    {
-        rules: {
-            // override/add rules settings here, such as:
-            // 'vue/no-unused-vars': 'error'
-        },
-        languageOptions: {
-            sourceType: 'module',
-            globals: {
-                ...globals.browser,
-            },
-        },
+export default typescriptEslint.config(
+  { ignores: ["*.d.ts", "**/coverage", "**/dist"] },
+  {
+    extends: [
+      eslint.configs.recommended,
+      ...typescriptEslint.configs.recommended,
+      ...eslintPluginVue.configs["flat/recommended"],
+    ],
+    files: ["**/*.{ts,vue}"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: globals.browser,
+      parserOptions: {
+        parser: typescriptEslint.parser,
+      },
     },
-];
+    rules: {
+      // your rules
+    },
+  },
+  eslintConfigPrettier,
+);

@@ -1,18 +1,18 @@
 import {
-  UI_EVENT_MAP,
-  UI_EVENT_OBJECT,
-  UI_EVENT_INFOWINDOW,
   UI_EVENT_CIRCLE,
   UI_EVENT_ELLIPSE,
-  UI_EVENT_RECTANGLE,
+  UI_EVENT_GROUNDOVERLAY,
+  UI_EVENT_INFOWINDOW,
+  UI_EVENT_MAP,
+  UI_EVENT_OBJECT,
   UI_EVENT_POLYGON,
   UI_EVENT_POLYLINE,
-  UI_EVENT_GROUNDOVERLAY,
-} from "@/constants/events";
+  UI_EVENT_RECTANGLE,
+} from "@/constants";
 
 export function addEvent(emit: any, target: any, name: string) {
   window.naver.maps.Event.addListener(target, name, (event) =>
-    emit(name, event)
+    emit(name, event),
   );
 }
 
@@ -49,8 +49,8 @@ export function addEventPolyline(emit: any, target: naver.maps.Polyline) {
 }
 
 export function addEventGroundOverlay(
-  emit: any,
-  target: naver.maps.GroundOverlay
+  emit: EmitFn,
+  target: naver.maps.GroundOverlay,
 ) {
   UI_EVENT_GROUNDOVERLAY.forEach((name) => addEvent(emit, target, name));
 }

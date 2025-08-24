@@ -1,11 +1,16 @@
-import type { InjectionKey } from "vue";
+import type { InjectionKey, Ref } from "vue";
 
-import type { InitializeOptions } from "@/types";
+import type { InitializeOptions, MapInitializeCallbacks } from "@/types";
 
 export const NAVER_MAPS_SCRIPT_ID = "vue3-naver-maps";
 
 export const NAVER_MAPS_INSTALL_OPTIONS_INJECT_KEY: InjectionKey<InitializeOptions> =
   Symbol("vue3-naver-maps-install-options");
+
+export const NAVER_MAPS_INSTANCE_INJECT_KEY: InjectionKey<{
+  mapInstance: Ref<naver.maps.Map | undefined>;
+  addCallback: (callback: MapInitializeCallbacks[number]) => void;
+}> = Symbol("vue3-naver-maps-instance");
 
 export const LAYER_TABLE = {
   BACKGROUND: "bg",

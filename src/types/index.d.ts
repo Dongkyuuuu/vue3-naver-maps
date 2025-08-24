@@ -7,7 +7,7 @@ export interface InitializeOptions {
   subModules?: SubModules[];
 }
 
-export type InitCallBacks = Array<(map: naver.maps.Map) => void>;
+export type MapInitializeCallbacks = Array<(map: naver.maps.Map) => void>;
 
 export type Layers =
   | "BACKGROUND"
