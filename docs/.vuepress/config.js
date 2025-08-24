@@ -1,9 +1,9 @@
-import { defaultTheme, defineUserConfig, viteBundler } from "vuepress";
+import { containerPlugin } from "@vuepress/plugin-container";
 // import { webpackBundler } from "@vuepress/bundler-webpack";
 import { docsearchPlugin } from "@vuepress/plugin-docsearch";
-import { containerPlugin } from "@vuepress/plugin-container";
 import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
 import path from "path";
+import { defaultTheme, defineUserConfig, viteBundler } from "vuepress";
 
 const config = {
   bundler: viteBundler(),

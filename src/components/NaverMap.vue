@@ -1,83 +1,98 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, useAttrs, toRefs } from "vue";
-import { mapInstance, mapCallbackList, mapIsLoaded } from "@/stores";
-import { addEventMap } from "@/composables/useEvent";
-import { useSetupScript } from "@/composables/useSetup";
-import { LAYER_TABLE } from "@/constants/tables";
-import { UI_EVENT_MAP } from "@/constants/events";
+import { onMounted, onUnmounted, provide, ref, useAttrs } from "vue";
 
-import type { MapOptions, Layers } from "@/types";
+import { useGlobalNaverMapOptions } from "@/composables/useGlobalNaverMapOptions";
+import {
+  LAYER_TABLE,
+  NAVER_MAPS_INSTANCE_INJECT_KEY,
+  NAVER_MAPS_SCRIPT_ID,
+  UI_EVENT_MAP,
+} from "@/constants";
+import { createScript } from "@/lib";
+import type { Layers, MapInitializeCallbacks, MapOptions } from "@/types";
+import { addEventMap } from "@/utils";
 
 const emits = defineEmits([...UI_EVENT_MAP, "onLoad"]);
-const props = defineProps<{
+const { initLayers = [], mapOptions = {} } = defineProps<{
   mapOptions?: MapOptions;
   initLayers?: Layers[];
 }>();
 
 const attrs = useAttrs();
-const mapElement = ref<HTMLDivElement>();
-const { initLayers, mapOptions } = toRefs(props);
+const mapElement = ref<HTMLElement>();
+const mapInstance = ref<naver.maps.Map>();
+/** Map이 호출되기 이전에 하위컴포넌트에서 호출된 실행들이 있는경우 Map 호출 후 실행해줌 */
+const mapCallbacks = ref<MapInitializeCallbacks>([]);
+const globalOptions = useGlobalNaverMapOptions();
 
-/** Get map options */
-const useMapSettings = (): naver.maps.MapOptions => {
-  const options = mapOptions?.value ?? {};
-  const layers = initLayers?.value ?? [];
+const handleAddCallback = (event: MapInitializeCallbacks[number]) => {
+  mapCallbacks.value.push(event);
+};
 
-  const overlayType = layers.map((layer) => LAYER_TABLE[layer]).join(".");
-  const setCetner = options.latitude && options.longitude && true;
+/** Map options setting */
+const handleMapSetting = () => {
+  const newMapOptions = mapOptions;
+  const overlayType = initLayers.map((layer) => LAYER_TABLE[layer]).join(".");
+  const setCenter = mapOptions.latitude && mapOptions.longitude;
 
-  if (setCetner) {
-    options.center = new window.naver.maps.LatLng(
-      options.latitude!,
-      options.longitude!
+  if (setCenter) {
+    newMapOptions.center = new window.naver.maps.LatLng(
+      mapOptions.latitude!,
+      mapOptions.longitude!,
     );
   }
 
   return {
-    ...options,
+    ...newMapOptions,
     mapTypes: new window.naver.maps.MapTypeRegistry({
       normal: window.naver.maps.NaverStyleMapTypeOptions.getNormalMap({
-        overlayType: overlayType,
+        overlayType,
       }),
       satellite: window.naver.maps.NaverStyleMapTypeOptions.getSatelliteMap({
-        overlayType: overlayType,
+        overlayType,
       }),
       hybrid: window.naver.maps.NaverStyleMapTypeOptions.getHybridMap({
-        overlayType: overlayType,
+        overlayType,
       }),
       terrain: window.naver.maps.NaverStyleMapTypeOptions.getTerrainMap({
-        overlayType: overlayType,
+        overlayType,
       }),
     }),
   };
 };
 
-/** Setup MapInstance */
-const useInitMap = () => {
+const initializeNaverMap = () => {
   mapInstance.value = new window.naver.maps.Map(
     mapElement.value!,
-    useMapSettings()
+    handleMapSetting(),
   );
-  addEventMap(emits, mapInstance.value); // add event
-  mapIsLoaded.value = true;
-  mapCallbackList.value.map((item) => item(mapInstance.value!));
-  mapCallbackList.value = [];
 
+  addEventMap(emits, mapInstance.value);
+  mapCallbacks.value.forEach((callback) => callback(mapInstance.value!));
+  mapCallbacks.value = [];
   emits("onLoad", mapInstance.value);
 };
 
 onMounted(() => {
-  window.naver ? useInitMap() : useSetupScript(useInitMap);
+  const scripts = document.getElementById(NAVER_MAPS_SCRIPT_ID);
+  if (scripts && window.naver?.maps) {
+    initializeNaverMap();
+  } else {
+    createScript(globalOptions, initializeNaverMap);
+  }
 });
 onUnmounted(() => {
   mapInstance.value?.destroy();
-  mapInstance.value = undefined;
-  mapIsLoaded.value = false;
+});
+
+provide(NAVER_MAPS_INSTANCE_INJECT_KEY, {
+  mapInstance,
+  addCallback: handleAddCallback,
 });
 </script>
 
 <template>
   <div ref="mapElement" v-bind="attrs">
-    <slot></slot>
+    <slot />
   </div>
 </template>

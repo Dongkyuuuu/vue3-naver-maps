@@ -1,31 +1,36 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, toRefs } from "vue";
-import { useLoad } from "@/composables/useLoad";
-import { addEventRectangle } from "@/composables/useEvent";
-import { UI_EVENT_RECTANGLE } from "@/constants/events";
+import { onMounted, onUnmounted, ref } from "vue";
+
+import { useNaverMapInstance } from "@/composables/useNaverMapInstance";
+import { UI_EVENT_RECTANGLE } from "@/constants";
+import { addEventRectangle } from "@/utils";
 
 const emits = defineEmits([...UI_EVENT_RECTANGLE, "onLoad"]);
-const props = defineProps<{
+const { bounds, options = {} } = defineProps<{
   bounds: naver.maps.Bounds | naver.maps.BoundsLiteral;
   options?: naver.maps.RectangleOptions;
 }>();
 
-const { bounds, options } = toRefs(props);
 const rectangle = ref<naver.maps.Rectangle>();
+const { mapInstance, addCallback } = useNaverMapInstance();
 
-/** Setup rectangle Instnace */
-const useInitRectangle = (map: naver.maps.Map) => {
+/** Setup rectangle Instance */
+const initializeRectangle = (map: naver.maps.Map) => {
   rectangle.value = new window.naver.maps.Rectangle({
     map: map,
-    bounds: bounds.value,
-    ...options?.value,
+    bounds,
+    ...options,
   });
 
   addEventRectangle(emits, rectangle.value);
   emits("onLoad", rectangle.value);
 };
 
-onMounted(() => useLoad(useInitRectangle));
+onMounted(() =>
+  mapInstance.value
+    ? initializeRectangle(mapInstance.value)
+    : addCallback(initializeRectangle),
+);
 onUnmounted(() => rectangle.value && rectangle.value.setMap(null));
 </script>
 

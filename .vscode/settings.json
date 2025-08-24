@@ -1,11 +1,16 @@
 {
-  "search.exclude": {
-    "**/.yarn": true,
-    "**/.pnp.*": true
-  },
-  "eslint.nodePath": ".yarn/sdks",
-  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-  "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "cSpell.words": ["navermaps"]
+  "cSpell.words": [
+    "Dongkyuuuu",
+    "doubletap",
+    "GROUNDOVERLAY",
+    "INFOWINDOW",
+    "longtap",
+    "navermaps",
+    "pinchend",
+    "pinchstart",
+    "stylemap",
+    "tilesloaded",
+    "twofingertap"
+  ]
 }

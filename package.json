@@ -1,31 +1,41 @@
 {
   "name": "vue3-naver-maps",
   "description": "NaverMap component for Vue3",
-  "version": "4.3.0",
+  "version": "4.4.0",
   "license": "MIT",
-  "main": "dist/vue3-naver-maps.cjs.js",
-  "module": "dist/vue3-naver-maps.esm.js",
-  "types": "dist/vue3-naver-maps.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
   "files": [
     "dist/*.js",
-    "dist/vue3-naver-maps.d.ts",
+    "dist/index.d.ts",
     "README.md"
   ],
   "scripts": {
-    "build": "rollup -c rollup.config.js && yarn build:dts",
-    "build:dts": "api-extractor run --local --verbose",
-    "dev": "vite dev ./playground",
-    "release": "bash scripts/release.sh",
+    "build": "vue-tsc -b && vite build",
+    "lint": "eslint ./src --ext .vue,.ts,.js",
+    "type-check": "vue-tsc -b",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs --clean-cache --clean-temp",
     "docs:serve": "vuepress serve docs",
     "docs:release": "bash scripts/docs-release.sh",
-    "lint": "eslint ./src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
-    "type-check": "vue-tsc --noEmit",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "coverage": "vitest run --coverage"
+    "release:commit": "pnpm changeset",
+    "release:version": "pnpm changeset version",
+    "release": "pnpm changeset publish",
+    "dev": "vite dev ./playground"
   },
   "repository": {
     "type": "git",
@@ -42,51 +52,37 @@
   "peerDependencies": {
     "vue": "^3"
   },
-  "dependencies": {
-    "query-string": "^8.1.0"
-  },
   "devDependencies": {
-    "@babel/types": "^7.19.0",
-    "@commitlint/cli": "^17.3.0",
-    "@commitlint/config-conventional": "^17.3.0",
-    "@microsoft/api-extractor": "^7.33.7",
-    "@rollup/plugin-alias": "^3.1.9",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rushstack/eslint-patch": "^1.1.4",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/vue": "^6.6.1",
-    "@types/jest": "^29.2.4",
-    "@types/navermaps": "^3.6.1",
-    "@types/node": "^18.11.17",
-    "@vitejs/plugin-vue": "^4.0.0",
-    "@vitest/coverage-c8": "^0.26.2",
-    "@vue/eslint-config-prettier": "^7.0.0",
-    "@vue/eslint-config-typescript": "^11.0.0",
-    "@vue/tsconfig": "^0.1.3",
-    "@vuepress/client": "next",
-    "@vuepress/plugin-container": "next",
-    "@vuepress/plugin-docsearch": "next",
-    "@vuepress/plugin-register-components": "next",
+    "@changesets/cli": "^2.29.6",
+    "@commitlint/cli": "^17.8.1",
+    "@commitlint/config-conventional": "^17.8.1",
+    "@eslint/js": "^9.34.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@types/navermaps": "^3.9.1",
+    "@types/node": "^22",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.8.1",
+    "@vuepress/client": "2.0.0-beta.59",
+    "@vuepress/plugin-container": "2.0.0-beta.59",
+    "@vuepress/plugin-docsearch": "2.0.0-beta.59",
+    "@vuepress/plugin-register-components": "2.0.0-beta.59",
     "@vuepress/utils": "^2.0.0-alpha.1",
-    "conventional-changelog-cli": "^2.2.2",
-    "eslint": "^8.30.0",
-    "eslint-plugin-vue": "^9.8.0",
-    "husky": "^8.0.2",
-    "jsdom": "^20.0.3",
-    "prettier": "^2.7.1",
-    "rollup": "^2.77.1",
-    "rollup-plugin-analyzer": "^4.0.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.33.0",
-    "standard-changelog": "^2.0.27",
-    "tslib": "^2.4.1",
-    "typescript": "^4.9.4",
-    "vite": "^4.0.3",
-    "vitest": "^0.26.2",
+    "eslint": "^9.34.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.4.0",
+    "globals": "^16.3.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.40.0",
+    "vite": "^7.1.3",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.4",
     "vue": "^3.2.45",
-    "vue-router": "4",
-    "vue-tsc": "^1.0.16",
-    "vuepress": "next"
+    "vue-eslint-parser": "^10.2.0",
+    "vue-tsc": "^3",
+    "vuepress": "2.0.0-beta.59"
   },
-  "packageManager": "yarn@3.3.1"
+  "packageManager": "pnpm@10.15.0"
 }

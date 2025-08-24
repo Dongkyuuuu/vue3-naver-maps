@@ -1,34 +1,36 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, toRefs } from "vue";
-import { useLoad } from "@/composables/useLoad";
-import { addEventPolygon } from "@/composables/useEvent";
-import { UI_EVENT_POLYGON } from "@/constants/events";
+import { onMounted, onUnmounted, ref } from "vue";
+
+import { useNaverMapInstance } from "@/composables/useNaverMapInstance";
+import { UI_EVENT_POLYGON } from "@/constants";
+import { addEventPolygon } from "@/utils";
 
 const emits = defineEmits([...UI_EVENT_POLYGON, "onLoad"]);
-const props = defineProps<{
-  paths:
-    | naver.maps.ArrayOfCoords[]
-    | naver.maps.KVOArrayOfCoords[]
-    | naver.maps.ArrayOfCoordsLiteral[];
+const { options = {}, paths } = defineProps<{
+  paths: naver.maps.PolygonOptions["paths"];
   options?: naver.maps.PolygonOptions;
 }>();
 
-const { paths, options } = toRefs(props);
 const polygon = ref<naver.maps.Polygon>();
+const { mapInstance, addCallback } = useNaverMapInstance();
 
-/** Setup polygon Instnace */
-const useInitPolygon = (map: naver.maps.Map) => {
+/** Setup polygon Instance */
+const initializePolygon = (map: naver.maps.Map) => {
   polygon.value = new window.naver.maps.Polygon({
     map: map,
-    paths: paths.value as any,
-    ...options?.value,
+    paths,
+    ...options,
   });
 
   addEventPolygon(emits, polygon.value);
   emits("onLoad", polygon.value);
 };
 
-onMounted(() => useLoad(useInitPolygon));
+onMounted(() =>
+  mapInstance.value
+    ? initializePolygon(mapInstance.value)
+    : addCallback(initializePolygon),
+);
 onUnmounted(() => polygon.value && polygon.value.setMap(null));
 </script>
 

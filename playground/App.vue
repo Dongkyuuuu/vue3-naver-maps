@@ -1,16 +1,18 @@
+<!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script setup lang="ts">
 import { ref } from "vue";
+
 import {
-  NaverMap,
-  NaverMarker,
-  NaverInfoWindow,
   NaverCircle,
   NaverEllipse,
   NaverGroundOverlay,
+  NaverInfoWindow,
+  NaverMap,
+  NaverMarker,
   NaverPolygon,
   NaverPolyline,
   NaverRectangle,
-} from "~/src";
+} from "../dist";
 
 const marker = ref();
 const ellipseBounds = ref<naver.maps.BoundsLiteral>({
@@ -56,8 +58,6 @@ const rectangleBounds = ref<naver.maps.BoundsLiteral>({
 </script>
 
 <template>
-  <RouterLink to="/test">gogo</RouterLink>
-
   <NaverMap style="width: 90vw; height: 80vh">
     <NaverMarker
       :latitude="37.566616443521745"

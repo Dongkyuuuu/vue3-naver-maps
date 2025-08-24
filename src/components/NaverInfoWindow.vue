@@ -1,58 +1,65 @@
 <script setup lang="ts">
-import { onUnmounted, toRefs, ref, watch } from "vue";
-import { mapInstance } from "@/stores";
-import { useLoad } from "@/composables/useLoad";
-import { addEventInfoWindow } from "@/composables/useEvent";
-import { UI_EVENT_INFOWINDOW } from "@/constants/events";
-import {
-  ERROR_NONE_INFOWINDOW,
-  ERROR_MAP_IS_NOT_DEFINED,
-} from "@/constants/errors";
+import { onUnmounted, ref, watch } from "vue";
+
+import { useNaverMapInstance } from "@/composables/useNaverMapInstance";
+import { UI_EVENT_INFOWINDOW } from "@/constants";
+import { NaverMapError } from "@/exceptions";
+import { addEventInfoWindow } from "@/utils";
 
 const emits = defineEmits([...UI_EVENT_INFOWINDOW, "onLoad"]);
-const props = defineProps<{
+const {
+  marker,
+  open,
+  options = {},
+} = defineProps<{
   marker: naver.maps.Marker;
   open: boolean;
   options?: naver.maps.InfoWindowOptions;
 }>();
 
-const { marker, options, open } = toRefs(props);
 const infoWindow = ref<naver.maps.InfoWindow>();
 const infoWindowElement = ref<HTMLDivElement>();
+const { mapInstance, addCallback } = useNaverMapInstance();
 
-const useControlInfoWindow = () => {
-  if (!mapInstance.value) throw new Error(ERROR_MAP_IS_NOT_DEFINED);
-  if (!infoWindow.value) throw new Error(ERROR_NONE_INFOWINDOW);
+const controlInfoWindow = () => {
+  if (!infoWindow.value) {
+    throw new NaverMapError("InfoWindow is not initialized");
+  }
 
-  if (open.value) infoWindow.value.open(mapInstance.value, marker.value);
+  if (open) infoWindow.value.open(mapInstance.value!, marker);
   else infoWindow.value.close();
 };
 
 /** Setup InfoWindow */
-const useInitInfoWindow = () => {
+const initializeInfoWindow = () => {
   const infowindowOptions = Object.assign(
     { content: infoWindowElement.value ?? "" },
-    options?.value ?? {}
+    options,
   );
   infoWindow.value = new window.naver.maps.InfoWindow(infowindowOptions);
 
-  useControlInfoWindow();
+  controlInfoWindow();
   addEventInfoWindow(emits, infoWindow.value);
   emits("onLoad", infoWindow.value);
 };
 
 /** open infowindow trigger */
 watch(
-  () => open.value,
-  () => useControlInfoWindow(),
-  { immediate: false }
+  () => open,
+  () => controlInfoWindow(),
+  { immediate: false },
 );
 
 /** marker check & create infowindow */
 watch(
-  () => marker.value,
-  () => marker.value && useLoad(useInitInfoWindow),
-  { immediate: false }
+  () => marker,
+  () => {
+    if (!marker) return;
+    mapInstance.value
+      ? initializeInfoWindow()
+      : addCallback(initializeInfoWindow);
+  },
+  { immediate: false },
 );
 
 onUnmounted(() => infoWindow.value && infoWindow.value.close());
