@@ -22,7 +22,8 @@ export default typescriptEslint.config(
       },
     },
     rules: {
-      // your rules
+      "no-unused-expressions": "off",
+      "@typescript-eslint/no-unused-expressions": "off",
     },
   },
   eslintConfigPrettier,

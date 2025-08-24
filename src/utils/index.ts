@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   UI_EVENT_CIRCLE,
   UI_EVENT_ELLIPSE,
@@ -49,7 +50,7 @@ export function addEventPolyline(emit: any, target: naver.maps.Polyline) {
 }
 
 export function addEventGroundOverlay(
-  emit: EmitFn,
+  emit: any,
   target: naver.maps.GroundOverlay,
 ) {
   UI_EVENT_GROUNDOVERLAY.forEach((name) => addEvent(emit, target, name));

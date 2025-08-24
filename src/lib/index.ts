@@ -38,7 +38,7 @@ const createScript = (options: InitializeOptions) => {
 };
 
 /** Setup vue3-naver-maps */
-export const setup = (app: App, options: InitializeOptions) => {
+export const createNaverMap = (app: App, options: InitializeOptions) => {
   if (!options.clientId) {
     throw new Error("clientId is required");
   }

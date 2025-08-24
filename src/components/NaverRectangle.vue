@@ -6,7 +6,7 @@ import { UI_EVENT_RECTANGLE } from "@/constants";
 import { addEventRectangle } from "@/utils";
 
 const emits = defineEmits([...UI_EVENT_RECTANGLE, "onLoad"]);
-const { bounds, options } = defineProps<{
+const { bounds, options = {} } = defineProps<{
   bounds: naver.maps.Bounds | naver.maps.BoundsLiteral;
   options?: naver.maps.RectangleOptions;
 }>();

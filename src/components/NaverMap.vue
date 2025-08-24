@@ -28,18 +28,19 @@ const handleAddCallback = (event: MapInitializeCallbacks[number]) => {
 
 /** Map options setting */
 const handleMapSetting = () => {
+  const newMapOptions = mapOptions;
   const overlayType = initLayers.map((layer) => LAYER_TABLE[layer]).join(".");
   const setCenter = mapOptions.latitude && mapOptions.longitude;
 
   if (setCenter) {
-    mapOptions.center = new window.naver.maps.LatLng(
+    newMapOptions.center = new window.naver.maps.LatLng(
       mapOptions.latitude!,
       mapOptions.longitude!,
     );
   }
 
   return {
-    ...mapOptions,
+    ...newMapOptions,
     mapTypes: new window.naver.maps.MapTypeRegistry({
       normal: window.naver.maps.NaverStyleMapTypeOptions.getNormalMap({
         overlayType,
