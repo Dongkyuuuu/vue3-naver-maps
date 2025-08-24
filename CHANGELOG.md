@@ -1,74 +1,59 @@
 # [4.3.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v4.2.0...v4.3.0) (2025-05-27)
 
+## 4.4.0
+
+### Minor Changes
+
+- 전체 리팩토링 및 맵 인스턴스 상태 provider로 변경
 
 ### Features
 
-* 네이버 클라우드 콘솔 개편에 따른 분기옵션 추가  ([#29](https://github.com/DongKyuuuu/vue3-naver-maps/issues/29)) ([c611d10](https://github.com/DongKyuuuu/vue3-naver-maps/commit/c611d1090f2baa7dd6b1c80e729e0ff2f2b12279))
-
-
+- 네이버 클라우드 콘솔 개편에 따른 분기옵션 추가 ([#29](https://github.com/DongKyuuuu/vue3-naver-maps/issues/29)) ([c611d10](https://github.com/DongKyuuuu/vue3-naver-maps/commit/c611d1090f2baa7dd6b1c80e729e0ff2f2b12279))
 
 # [4.2.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v4.1.0...v4.2.0) (2023-08-11)
 
-
 ### Bug Fixes
 
-* 네이버지도 API 변경 대응 ([#23](https://github.com/DongKyuuuu/vue3-naver-maps/issues/23)) ([99f1136](https://github.com/DongKyuuuu/vue3-naver-maps/commit/99f1136bedd0175a31894433d25791d6b3b42a69))
-
+- 네이버지도 API 변경 대응 ([#23](https://github.com/DongKyuuuu/vue3-naver-maps/issues/23)) ([99f1136](https://github.com/DongKyuuuu/vue3-naver-maps/commit/99f1136bedd0175a31894433d25791d6b3b42a69))
 
 ### Features
 
-* **docs:** update nuxt section ([3f32653](https://github.com/DongKyuuuu/vue3-naver-maps/commit/3f32653999528b5a1998581442c11430151f6830))
-* update nuxt docs ([a1add22](https://github.com/DongKyuuuu/vue3-naver-maps/commit/a1add22d20a740d9b67ba04dd7179a14e14de420))
-
-
+- **docs:** update nuxt section ([3f32653](https://github.com/DongKyuuuu/vue3-naver-maps/commit/3f32653999528b5a1998581442c11430151f6830))
+- update nuxt docs ([a1add22](https://github.com/DongKyuuuu/vue3-naver-maps/commit/a1add22d20a740d9b67ba04dd7179a14e14de420))
 
 # [4.1.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v4.0.1...v4.1.0) (2023-02-27)
 
-
 ### Bug Fixes
 
-* naver maps submodule parameter name changed ([#16](https://github.com/DongKyuuuu/vue3-naver-maps/issues/16)) ([e3dcc17](https://github.com/DongKyuuuu/vue3-naver-maps/commit/e3dcc17c89bf38f0b2547ce8191c6146ab047945))
-
-
+- naver maps submodule parameter name changed ([#16](https://github.com/DongKyuuuu/vue3-naver-maps/issues/16)) ([e3dcc17](https://github.com/DongKyuuuu/vue3-naver-maps/commit/e3dcc17c89bf38f0b2547ce8191c6146ab047945))
 
 ## [4.0.1](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v4.0.0...v4.0.1) (2022-12-28)
 
-
 ### Features
 
-* **docs:** update README.md ([#11](https://github.com/DongKyuuuu/vue3-naver-maps/issues/11)) ([1c65af8](https://github.com/DongKyuuuu/vue3-naver-maps/commit/1c65af8168710127ab0d5d35e4544cc4c4f92c21))
-
-
+- **docs:** update README.md ([#11](https://github.com/DongKyuuuu/vue3-naver-maps/issues/11)) ([1c65af8](https://github.com/DongKyuuuu/vue3-naver-maps/commit/1c65af8168710127ab0d5d35e4544cc4c4f92c21))
 
 # [4.0.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v3.2.1...v4.0.0) (2022-12-28)
 
-
 ### Features
 
-* **docs:** add new docs migration from 3.x ([#10](https://github.com/DongKyuuuu/vue3-naver-maps/issues/10)) ([6db989f](https://github.com/DongKyuuuu/vue3-naver-maps/commit/6db989f71341fc95f03814139479408e5ceb483c))
-* refactoring the entire code ([65f073d](https://github.com/DongKyuuuu/vue3-naver-maps/commit/65f073d6bc82bbf9f130e7600277184cad96cb86))
-
+- **docs:** add new docs migration from 3.x ([#10](https://github.com/DongKyuuuu/vue3-naver-maps/issues/10)) ([6db989f](https://github.com/DongKyuuuu/vue3-naver-maps/commit/6db989f71341fc95f03814139479408e5ceb483c))
+- refactoring the entire code ([65f073d](https://github.com/DongKyuuuu/vue3-naver-maps/commit/65f073d6bc82bbf9f130e7600277184cad96cb86))
 
 ### BREAKING CHANGES
 
-* the installation module called `export default` has been changed to `createNaverMap` module.
-* install options `subModule` type is changed. (`string` to `array`)
-
-
+- the installation module called `export default` has been changed to `createNaverMap` module.
+- install options `subModule` type is changed. (`string` to `array`)
 
 ## [3.1.1](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v3.1.0...v3.1.1) (2022-09-27)
 
-
 ### Bug Fixes
 
-* **Marker:** HtmlIcon children nodes issue ([a971d6b](https://github.com/DongKyuuuu/vue3-naver-maps/commit/a971d6b7a8af54185264203c5d3404ed3d8a5e71))
-
+- **Marker:** HtmlIcon children nodes issue ([a971d6b](https://github.com/DongKyuuuu/vue3-naver-maps/commit/a971d6b7a8af54185264203c5d3404ed3d8a5e71))
 
 ### Features
 
-* **docs:** update marker document ([27590b1](https://github.com/DongKyuuuu/vue3-naver-maps/commit/27590b11df694b59f78132e66e6410ebf0248777))
-
-
+- **docs:** update marker document ([27590b1](https://github.com/DongKyuuuu/vue3-naver-maps/commit/27590b11df694b59f78132e66e6410ebf0248777))
 
 # [3.1.0](https://github.com/DongKyuuuu/vue3-naver-maps/compare/v3.0.14...v3.1.0) (2022-09-27)
 

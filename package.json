@@ -1,7 +1,7 @@
 {
   "name": "vue3-naver-maps",
   "description": "NaverMap component for Vue3",
-  "version": "4.3.0",
+  "version": "4.4.0",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -26,13 +26,15 @@
   ],
   "scripts": {
     "build": "vue-tsc -b && vite build",
-    "release": "bash scripts/release.sh",
     "lint": "eslint ./src --ext .vue,.ts,.js",
     "type-check": "vue-tsc -b",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs --clean-cache --clean-temp",
     "docs:serve": "vuepress serve docs",
-    "docs:release": "bash scripts/docs-release.sh"
+    "docs:release": "bash scripts/docs-release.sh",
+    "release:commit": "pnpm changeset",
+    "release:version": "pnpm changeset version",
+    "release": "pnpm changeset publish"
   },
   "repository": {
     "type": "git",
@@ -50,6 +52,7 @@
     "vue": "^3"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.6",
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
     "@eslint/js": "^9.34.0",
