@@ -1,5 +1,3 @@
-export type * from "./types";
-
 export { createNaverMap } from "./lib";
 export { useGlobalNaverMapOptions } from "./composables/useGlobalNaverMapOptions";
 export { useNaverMapInstance } from "./composables/useNaverMapInstance";
