@@ -6,15 +6,6 @@ temp
 playground/config.ts
 dist/
 
-# yarn berry zero-install
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-
 # Logs
 logs
 *.log
