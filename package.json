@@ -28,7 +28,11 @@
     "build": "vue-tsc -b && vite build",
     "release": "bash scripts/release.sh",
     "lint": "eslint ./src --ext .vue,.ts,.js",
-    "type-check": "vue-tsc -b"
+    "type-check": "vue-tsc -b",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs --clean-cache --clean-temp",
+    "docs:serve": "vuepress serve docs",
+    "docs:release": "bash scripts/docs-release.sh"
   },
   "repository": {
     "type": "git",
@@ -54,6 +58,11 @@
     "@types/node": "^22",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.8.1",
+    "@vuepress/client": "2.0.0-beta.59",
+    "@vuepress/plugin-container": "2.0.0-beta.59",
+    "@vuepress/plugin-docsearch": "2.0.0-beta.59",
+    "@vuepress/plugin-register-components": "2.0.0-beta.59",
+    "@vuepress/utils": "^2.0.0-alpha.1",
     "eslint": "^9.34.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-vue": "^10.4.0",
@@ -68,7 +77,16 @@
     "vitest": "^3.2.4",
     "vue": "^3.2.45",
     "vue-eslint-parser": "^10.2.0",
-    "vue-tsc": "^3"
+    "vue-tsc": "^3",
+    "vuepress": "2.0.0-beta.59"
   },
-  "packageManager": "pnpm@10.15.0"
+  "packageManager": "pnpm@10.15.0",
+  "pnpm": {
+    "overrides": {
+      "vuepress": "2.0.0-rc.0",
+      "@vuepress/client": "2.0.0-rc.0",
+      "@vuepress/plugin-register-components": "2.0.0-rc.0",
+      "@vuepress/utils": "2.0.0-rc.0"
+    }
+  }
 }
