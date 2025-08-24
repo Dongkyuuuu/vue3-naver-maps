@@ -1,4 +1,16 @@
 {
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "cSpell.words": ["Dongkyuuuu", "navermaps"]
+  "cSpell.words": [
+    "Dongkyuuuu",
+    "doubletap",
+    "GROUNDOVERLAY",
+    "INFOWINDOW",
+    "longtap",
+    "navermaps",
+    "pinchend",
+    "pinchstart",
+    "stylemap",
+    "tilesloaded",
+    "twofingertap"
+  ]
 }
