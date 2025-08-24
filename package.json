@@ -34,7 +34,7 @@
     "docs:release": "bash scripts/docs-release.sh",
     "release:commit": "pnpm changeset",
     "release:version": "pnpm changeset version",
-    "release": "pnpm changeset publish",
+    "release": "pnpm build && pnpm changeset publish",
     "dev": "vite dev ./playground"
   },
   "repository": {
@@ -83,6 +83,9 @@
     "vue-eslint-parser": "^10.2.0",
     "vue-tsc": "^3",
     "vuepress": "2.0.0-beta.59"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "packageManager": "pnpm@10.15.0"
 }
